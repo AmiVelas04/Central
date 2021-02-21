@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Central", "Central\Central.csproj", "{F866B3CF-D0C9-4A8A-90A1-8EB2F8BC9F6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Default = Debug|Default
+		Release|Any CPU = Release|Any CPU
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F866B3CF-D0C9-4A8A-90A1-8EB2F8BC9F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F866B3CF-D0C9-4A8A-90A1-8EB2F8BC9F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F866B3CF-D0C9-4A8A-90A1-8EB2F8BC9F6E}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{F866B3CF-D0C9-4A8A-90A1-8EB2F8BC9F6E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F866B3CF-D0C9-4A8A-90A1-8EB2F8BC9F6E}.Release|Default.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Default = Debug|Default
+		Release|Any CPU = Release|Any CPU
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Default = Debug|Default
+		Release|Any CPU = Release|Any CPU
+		Release|Default = Release|Default
+	EndGlobalSection
+EndGlobal
