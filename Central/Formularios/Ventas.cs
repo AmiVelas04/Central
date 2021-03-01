@@ -42,6 +42,12 @@ namespace Central.Formularios
                     TxtCod.Focus();
                 }
                 listprod(TxtCod.Text); }
+            else if (e.KeyCode==Keys.F5)
+            {
+                BuscaRap busca = new BuscaRap();
+                busca.RetornoCod += new BuscaRap.permiso(BuscaRap);
+                busca.ShowDialog();
+            }
         }
         private void listprod(string codigo)
         {
@@ -168,6 +174,24 @@ namespace Central.Formularios
             CboNom.AutoCompleteCustomSource = coleccion;
 
         }
+
+        public void listarpordbusq()
+        {
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            DataTable datos = new DataTable();
+            datos = prod.Prodbusque(CboNom.Text);
+            CboNom.DataSource = datos;
+            CboNom.DisplayMember = "Nombre";
+            CboNom.ValueMember = "id_prod";
+            foreach (DataRow row in datos.Rows)
+            {
+                coleccion.Add(row["Nombre"].ToString());
+
+            }
+            CboNom.AutoCompleteMode = AutoCompleteMode.Suggest;
+            CboNom.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            CboNom.AutoCompleteCustomSource = coleccion;
+        }
         private void BtnCobrar_Click(object sender, EventArgs e)
         {
             cambio();
@@ -183,13 +207,10 @@ namespace Central.Formularios
 
             else
             {
-
                 PrepProd();
                 limpiar();
                 TxtCod.Focus();
             }
-            
-            
         }
 
         private void PrepProd()
@@ -253,8 +274,6 @@ namespace Central.Formularios
             {
                 TxtCod.Clear();
                 TxtCod.Focus();
-
-
             }
             TxtCod.Focus();
 
@@ -415,14 +434,58 @@ namespace Central.Formularios
             if (Refectivo != 0) reimprimir();
         }
 
-     
-
         private void CboNom_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)
             {
-                listprod(CboNom.SelectedValue.ToString());
+               listprod(CboNom.SelectedValue.ToString());
             }
         }
+
+        private void CboNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //ComboPresionado();
+        }
+
+        private void CboNom_TextChanged(object sender, EventArgs e)
+        {
+           //if (CboNom.Text.Length==0) ComboPresionado();
+        }
+
+        private void ComboPresionado()
+        {
+            CboNom.DroppedDown = true;
+            object[] ListaOriginal = (object[])CboNom.Tag;
+            if (ListaOriginal == null)
+            {
+                ListaOriginal = new object[CboNom.Items.Count];
+                CboNom.Items.CopyTo(ListaOriginal, 0);
+                CboNom.Tag = ListaOriginal;
+            }
+            //preparar lista de los valores que encajan
+            string s = CboNom.Text.ToLower();
+            IEnumerable<object> NuevaList = ListaOriginal;
+            if (s.Length > 0)
+            {
+                NuevaList = ListaOriginal.Where(item => item.ToString().ToLower().Contains(s));
+            }
+            // Limpiar la lista
+            while (CboNom.Items.Count > 0)
+            {
+                CboNom.Items.RemoveAt(0);
+            }
+
+            //Re enlistar 
+            CboNom.Items.AddRange(NuevaList.ToArray());
+
+        }
+
+        //Funcion delegada donde se obtiene el codigo del producto
+        private void BuscaRap(string cod)
+        {
+             listprod(cod);
+        }
+
+
     }
 }

@@ -174,9 +174,9 @@
             this.BtnMin.FlatAppearance.BorderSize = 0;
             this.BtnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMin.Image = ((System.Drawing.Image)(resources.GetObject("BtnMin.Image")));
-            this.BtnMin.Location = new System.Drawing.Point(784, 5);
+            this.BtnMin.Location = new System.Drawing.Point(748, 5);
             this.BtnMin.Name = "BtnMin";
-            this.BtnMin.Size = new System.Drawing.Size(35, 55);
+            this.BtnMin.Size = new System.Drawing.Size(55, 55);
             this.BtnMin.TabIndex = 2;
             this.BtnMin.UseVisualStyleBackColor = true;
             this.BtnMin.Click += new System.EventHandler(this.BtnMin_Click);
@@ -187,9 +187,9 @@
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.Image")));
             this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCerrar.Location = new System.Drawing.Point(825, 3);
+            this.BtnCerrar.Location = new System.Drawing.Point(809, 3);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(44, 63);
+            this.BtnCerrar.Size = new System.Drawing.Size(60, 63);
             this.BtnCerrar.TabIndex = 1;
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.button1_Click);

@@ -60,10 +60,13 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>terminal-pos.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -123,6 +126,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\BuscaRap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\BuscaRap.Designer.cs">
+      <DependentUpon>BuscaRap.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Caja.cs">
       <SubType>Form</SubType>
@@ -236,6 +245,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\BuscaRap.resx">
+      <DependentUpon>BuscaRap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,7 +309,6 @@
     <EmbeddedResource Include="Reportes\Vendidos.resx">
       <DependentUpon>Vendidos.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Central_ClaveTemporal.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Central.Reportes.DiarioDet.datasource" />
     <None Include="Properties\DataSources\Central.Reportes.DiarioEnc.datasource" />

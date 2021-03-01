@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanSup = new System.Windows.Forms.Panel();
             this.CboNom = new System.Windows.Forms.ComboBox();
             this.TxtTotal = new System.Windows.Forms.TextBox();
@@ -104,7 +104,9 @@
             this.CboNom.Name = "CboNom";
             this.CboNom.Size = new System.Drawing.Size(275, 28);
             this.CboNom.TabIndex = 17;
+            this.CboNom.TextChanged += new System.EventHandler(this.CboNom_TextChanged);
             this.CboNom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CboNom_KeyDown);
+            this.CboNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CboNom_KeyPress);
             // 
             // TxtTotal
             // 
@@ -161,7 +163,6 @@
             this.BtnAgreg.Text = "Agregar Producto";
             this.BtnAgreg.UseVisualStyleBackColor = true;
             this.BtnAgreg.Visible = false;
-            this.BtnAgreg.Click += new System.EventHandler(this.BtnAgreg_Click);
             // 
             // label6
             // 
@@ -425,8 +426,8 @@
             this.DgvProd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvProd.Name = "DgvProd";
             this.DgvProd.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DgvProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvProd.ShowCellToolTips = false;
             this.DgvProd.ShowEditingIcon = false;

@@ -179,6 +179,15 @@ namespace Central.Clases
             return buscar(consulta);
         }
 
+        public DataTable Prodbusque(string busca)
+        {
+            string consulta;
+            consulta = "Select id_prod,Concat(Nombre,' ',Marca,' ',Descripcion) as Nombre "+
+                       "from producto "+
+                       "Where Nombre like '%"+busca+"%' or marca like '%"+busca+"%' or descripcion like '%"+busca+"%'" ;
+            return buscar(consulta);
+        }
+
         public void MasVen(string fechai, string fechaf)
         {
             fechai += " 00:00:00";
@@ -223,6 +232,53 @@ namespace Central.Clases
             Mas.Detalle = titulo.Detalle;
             Mas.Show();
         }
+
+        public bool caducado(string cod,string fecha)
+        {
+            string consulta,fechamod;
+            int canti;
+            DataTable datos = new DataTable();
+            fechamod = fecha + " 00:00:00";
+            consulta = "SELECT COUNT(*) FROM producto p "+
+                       "WHERE p.FECHA_CAD <= '"+fechamod+"' AND p.ID_PROD = '"+cod+"'";
+            datos = buscar(consulta);
+            canti = Int32.Parse(datos.Rows[0][0].ToString());
+            if (canti > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int cantidadcaduca()
+        {
+            string consulta, fecha;
+            int cantidad;
+            DateTime fechaini = DateTime.Now;
+            DataTable datos = new DataTable();
+            fechaini = fechaini.AddDays(31);
+            fecha = fechaini.ToString("yyyy/MM/dd");
+            fecha = fecha + " 00:00:00";
+            consulta = "SELECT COUNT(*) FROM producto p " +
+                       "WHERE p.FECHA_CAD <= '" + fecha + "'";
+            datos = buscar(consulta);
+            cantidad = Int32.Parse(datos.Rows[0][0].ToString());
+            return cantidad;
+        }
+
+       
+             public DataTable BuscaRapProd(string nom)
+        {
+            string consulta;
+            consulta = "Select id_prod as Codigo,Nombre,Descripcion,Marca,precio_c as Costo,precio_v as Precio,Cantidad,Date_format(fecha_cad,'%d-%m-%y')as Caducidad, pack as Paquete,p_pack as PrecioxPaquete " +
+                        "from producto " +
+                        "where nombre like'%" + nom + "%' or marca like '%" + nom + "%' or descripcion like '%" + nom + "%'";
+            return buscar(consulta);
+        }
+    
 
        
     }

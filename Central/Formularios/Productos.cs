@@ -78,6 +78,8 @@ namespace Central.Formularios
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             buscarnom();
+            EstiloFecha();
+            
         }
 
         private void buscarcod()
@@ -147,6 +149,54 @@ namespace Central.Formularios
             }
             else
             { BtnAdd.Text = "Agregar"; }
+        }
+
+        private void EstiloFecha()
+        {
+            int totalprod,cont;
+            totalprod = DgvDatos.Rows.Count;
+            DateTime fechaini = DateTime.Now;
+            fechaini = fechaini.AddDays(31);
+            string fecha = fechaini.ToString("yyyy/MM/dd");
+            DgvDatos.EnableHeadersVisualStyles = false;
+            for (cont=0;cont<totalprod;cont++)
+            {
+                string codig;
+                codig = DgvDatos.Rows[cont].Cells[0].Value.ToString();
+                if(prod.caducado(codig, fecha))
+                {
+                    //cambio de color para los que sean caducados
+                    DgvDatos.Rows[cont].DefaultCellStyle.ForeColor = Color.White;
+                    DgvDatos.Rows[cont].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+
+        }
+
+        private void DgvDatos_ColumnSortModeChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            EstiloFecha();
+        }
+
+        private void DgvDatos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EstiloFecha();
+        }
+
+        private void Chk1_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (Chk1.Checked)
+            {
+                DtpCad.Visible = false;
+                DateTime fecha = DateTime.Now;
+                fecha = fecha.AddYears(3);
+                DtpCad.Value = fecha;
+            }
+            else
+            {
+                DtpCad.Visible = true;
+                DtpCad.Value = DateTime.Now;
+            }
         }
     }
 }

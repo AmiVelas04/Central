@@ -60,6 +60,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PanCent = new System.Windows.Forms.Panel();
             this.DgvDatos = new System.Windows.Forms.DataGridView();
+            this.Chk1 = new System.Windows.Forms.CheckBox();
             this.PanDer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud)).BeginInit();
@@ -70,6 +71,7 @@
             // 
             // PanDer
             // 
+            this.PanDer.Controls.Add(this.Chk1);
             this.PanDer.Controls.Add(this.NudPack);
             this.PanDer.Controls.Add(this.TxtPpack);
             this.PanDer.Controls.Add(this.label11);
@@ -139,18 +141,18 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(137, 364);
+            this.label8.Location = new System.Drawing.Point(114, 368);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 17);
+            this.label8.Size = new System.Drawing.Size(128, 17);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Fecha";
+            this.label8.Text = "Fecha de caducidad";
             // 
             // DtpCad
             // 
             this.DtpCad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpCad.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpCad.Location = new System.Drawing.Point(128, 390);
+            this.DtpCad.Location = new System.Drawing.Point(113, 391);
             this.DtpCad.Margin = new System.Windows.Forms.Padding(5);
             this.DtpCad.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.DtpCad.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
@@ -169,7 +171,7 @@
             0,
             0});
             this.Nud.Name = "Nud";
-            this.Nud.Size = new System.Drawing.Size(98, 25);
+            this.Nud.Size = new System.Drawing.Size(67, 25);
             this.Nud.TabIndex = 13;
             this.Nud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -177,7 +179,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(29, 364);
+            this.label7.Location = new System.Drawing.Point(23, 368);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 17);
@@ -431,6 +433,18 @@
             this.DgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvDatos.Size = new System.Drawing.Size(574, 390);
             this.DgvDatos.TabIndex = 0;
+            this.DgvDatos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvDatos_ColumnHeaderMouseClick);
+            this.DgvDatos.ColumnSortModeChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DgvDatos_ColumnSortModeChanged);
+            // 
+            // Chk1
+            // 
+            this.Chk1.AutoSize = true;
+            this.Chk1.Location = new System.Drawing.Point(244, 372);
+            this.Chk1.Name = "Chk1";
+            this.Chk1.Size = new System.Drawing.Size(15, 14);
+            this.Chk1.TabIndex = 28;
+            this.Chk1.UseVisualStyleBackColor = true;
+            this.Chk1.CheckStateChanged += new System.EventHandler(this.Chk1_CheckStateChanged);
             // 
             // Productos
             // 
@@ -491,5 +505,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.CheckBox Chk1;
     }
 }
