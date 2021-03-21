@@ -253,6 +253,8 @@ namespace Central.Clases
             }
         }
 
+        
+
         public int cantidadcaduca()
         {
             string consulta, fecha;
@@ -269,6 +271,39 @@ namespace Central.Clases
             return cantidad;
         }
 
+
+        public int cantidadbaja()
+        {
+            string consulta, fecha;
+            int cantidad;
+            DataTable datos = new DataTable();
+            consulta = "SELECT COUNT(*) FROM producto p " +
+                      "WHERE p.Cantidad <= " + 5;
+            datos = buscar(consulta);
+            cantidad = Int32.Parse(datos.Rows[0][0].ToString());
+            return cantidad;
+
+        }
+
+        public bool Cantibaja(string cod)
+        {
+            string consulta;
+            int canti;
+            DataTable datos = new DataTable();
+          
+            consulta = "SELECT COUNT(*) FROM producto p " +
+                       "WHERE p.Cantidad <= 5 AND p.ID_PROD = '" + cod + "'";
+            datos = buscar(consulta);
+            canti = Int32.Parse(datos.Rows[0][0].ToString());
+            if (canti > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
        
              public DataTable BuscaRapProd(string nom)
         {

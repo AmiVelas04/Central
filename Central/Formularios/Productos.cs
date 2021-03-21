@@ -79,6 +79,7 @@ namespace Central.Formularios
         {
             buscarnom();
             EstiloFecha();
+            estiloFecha2();
             
         }
 
@@ -172,6 +173,26 @@ namespace Central.Formularios
             }
 
         }
+
+        private void estiloFecha2()
+        {
+            int totalprod, cont;
+            totalprod = DgvDatos.Rows.Count;
+            DgvDatos.EnableHeadersVisualStyles = false;
+            for (cont = 0; cont < totalprod; cont++)
+            {
+                string codig;
+                codig = DgvDatos.Rows[cont].Cells[0].Value.ToString();
+                if (prod.Cantibaja(codig))
+                {
+                    //cambio de color para los que sean caducados
+                    DgvDatos.Rows[cont].DefaultCellStyle.ForeColor = Color.White;
+                    DgvDatos.Rows[cont].DefaultCellStyle.BackColor = Color.Cyan;
+                }
+            }
+        }
+
+
 
         private void DgvDatos_ColumnSortModeChanged(object sender, DataGridViewColumnEventArgs e)
         {

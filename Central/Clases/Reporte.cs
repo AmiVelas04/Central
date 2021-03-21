@@ -71,25 +71,32 @@ namespace Central.Clases
                        "ORDER BY v.ID_VENTA";
             datos = buscar(consulta);
             cant = datos.Rows.Count;
-            enc.fecha = fecha;
-            enc.descuento = decimal.Parse(datos.Rows[0][8].ToString());
-            for (cont = 0; cont < cant; cont++)
+            if (cant > 0)
             {
-                Reportes.DiarioDet Det = new Reportes.DiarioDet();
-                Det.orden = cont + 1;
-                Det.venta =Int32.Parse(datos.Rows[cont][0].ToString());
-                Det.codigo = datos.Rows[cont][1].ToString();
-                Det.producto = datos.Rows[cont][2].ToString();
-                Det.desc = datos.Rows[cont][3].ToString();
-                Det.cantidad = Int32.Parse(datos.Rows[cont][4].ToString());
-                Det.precio = decimal.Parse(datos.Rows[cont][5].ToString());
-                Det.subtotal = decimal.Parse(datos.Rows[cont][6].ToString());
-                enc.Detalle.Add(Det);
+                enc.fecha = fecha;
+                enc.descuento = decimal.Parse(datos.Rows[0][8].ToString());
+                for (cont = 0; cont < cant; cont++)
+                {
+                    Reportes.DiarioDet Det = new Reportes.DiarioDet();
+                    Det.orden = cont + 1;
+                    Det.venta = Int32.Parse(datos.Rows[cont][0].ToString());
+                    Det.codigo = datos.Rows[cont][1].ToString();
+                    Det.producto = datos.Rows[cont][2].ToString();
+                    Det.desc = datos.Rows[cont][3].ToString();
+                    Det.cantidad = Int32.Parse(datos.Rows[cont][4].ToString());
+                    Det.precio = decimal.Parse(datos.Rows[cont][5].ToString());
+                    Det.subtotal = decimal.Parse(datos.Rows[cont][6].ToString());
+                    enc.Detalle.Add(Det);
+                }
+                Reportes.Diario repo = new Reportes.Diario();
+                repo.Enca.Add(enc);
+                repo.Deta = enc.Detalle;
+                repo.Show();
             }
-            Reportes.Diario repo = new Reportes.Diario();
-            repo.Enca.Add(enc);
-            repo.Deta = enc.Detalle;
-            repo.Show();
+            else
+            {
+                MessageBox.Show("No exiten ventas registradas","No hay ventas",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
         }
 
         public void Vendidos(string fechai, string fechaf)

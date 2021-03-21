@@ -40,16 +40,19 @@ namespace Central.Formularios
             datos = log.inicio(nom, pass);
             if (datos.Rows.Count > 0)
             {
-              
+                int caduca = prod.cantidadcaduca(), menosinv=prod.cantidadbaja();
                 Main Menu = new Main();
                 MessageBox.Show("Ingreso correcto", "Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 this.Hide();
-                MessageBox.Show("¡Existen  " + prod.cantidadcaduca().ToString() + " producto(s) que caducarán en 30 días o menos! \n¡Verifique listado de productos!","Productos que caducan",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+                if (caduca>0)MessageBox.Show("¡Existen  " +caduca.ToString() + " producto(s) que caducarán en 30 días o menos! \n¡Verifique listado de productos!","Productos que caducan",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                if (menosinv > 0) MessageBox.Show("¡Inventario bajo!\nExisten  " + menosinv.ToString() + " producto(s) que tiene pocas existencias (menos de 5) \nVerifique listado de productos", "Productos que caducan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Main.id = int.Parse(datos.Rows[0][0].ToString());
                 Main.nombre = datos.Rows[0][1].ToString();
                 Main.nivel = datos.Rows[0][2].ToString();
                
+
+
                 Menu.Show();
             }
             else
