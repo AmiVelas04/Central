@@ -106,5 +106,11 @@ namespace Central.Formularios
             Respaldo resp = new Respaldo();
             resp.Show();
         }
+
+        private void BtnCod_Click(object sender, EventArgs e)
+        {
+            GenCod codi = new GenCod();
+            codi.ShowDialog();
+        }
     }
 }

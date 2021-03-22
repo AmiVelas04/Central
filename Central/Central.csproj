@@ -69,12 +69,16 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -114,6 +118,7 @@
   <ItemGroup>
     <Compile Include="Clases\Caja.cs" />
     <Compile Include="Clases\Cajon.cs" />
+    <Compile Include="Clases\CodigoGen.cs" />
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Imprimir.cs" />
     <Compile Include="Clases\Login.cs" />
@@ -138,6 +143,12 @@
     </Compile>
     <Compile Include="Formularios\Caja.Designer.cs">
       <DependentUpon>Caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\GenCod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\GenCod.Designer.cs">
+      <DependentUpon>GenCod.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Login.cs">
       <SubType>Form</SubType>
@@ -192,6 +203,7 @@
     <Compile Include="Reportes\DiarioDet.cs" />
     <Compile Include="Reportes\DiarioEnc.cs" />
     <Compile Include="Reportes\Diezmas.cs" />
+    <Compile Include="Reportes\EtiquetaImp.cs" />
     <Compile Include="Reportes\FacturaDet.cs" />
     <Compile Include="Reportes\FacturaEnc.cs" />
     <Compile Include="Reportes\Ganancia.cs">
@@ -199,6 +211,12 @@
     </Compile>
     <Compile Include="Reportes\Ganancia.Designer.cs">
       <DependentUpon>Ganancia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ImpCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ImpCodigo.Designer.cs">
+      <DependentUpon>ImpCodigo.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Inventario.cs">
       <SubType>Form</SubType>
@@ -251,6 +269,9 @@
     <EmbeddedResource Include="Formularios\Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\GenCod.resx">
+      <DependentUpon>GenCod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +309,10 @@
     <EmbeddedResource Include="Reportes\Ganancia.resx">
       <DependentUpon>Ganancia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ImpCodigo.rdlc" />
+    <EmbeddedResource Include="Reportes\ImpCodigo.resx">
+      <DependentUpon>ImpCodigo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Inventario.rdlc" />
     <EmbeddedResource Include="Reportes\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -313,6 +338,7 @@
     <None Include="Properties\DataSources\Central.Reportes.DiarioDet.datasource" />
     <None Include="Properties\DataSources\Central.Reportes.DiarioEnc.datasource" />
     <None Include="Properties\DataSources\Central.Reportes.Diezmas.datasource" />
+    <None Include="Properties\DataSources\Central.Reportes.EtiquetaImp.datasource" />
     <None Include="Properties\DataSources\Central.Reportes.FacturaDet.datasource" />
     <None Include="Properties\DataSources\Central.Reportes.FacturaEnc.datasource" />
     <None Include="Properties\Settings.settings">

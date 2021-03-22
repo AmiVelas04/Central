@@ -41,6 +41,7 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.LblUsu = new System.Windows.Forms.Label();
             this.PanCentral = new System.Windows.Forms.Panel();
+            this.BtnCod = new System.Windows.Forms.Button();
             this.PanLat.SuspendLayout();
             this.PanSup.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +49,7 @@
             // PanLat
             // 
             this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(180)))), ((int)(((byte)(37)))));
+            this.PanLat.Controls.Add(this.BtnCod);
             this.PanLat.Controls.Add(this.BtnCap);
             this.PanLat.Controls.Add(this.BtnCaja);
             this.PanLat.Controls.Add(this.BtnREportes);
@@ -216,6 +218,22 @@
             this.PanCentral.Size = new System.Drawing.Size(869, 534);
             this.PanCentral.TabIndex = 2;
             // 
+            // BtnCod
+            // 
+            this.BtnCod.FlatAppearance.BorderSize = 0;
+            this.BtnCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCod.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCod.Image = ((System.Drawing.Image)(resources.GetObject("BtnCod.Image")));
+            this.BtnCod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCod.Location = new System.Drawing.Point(0, 508);
+            this.BtnCod.Name = "BtnCod";
+            this.BtnCod.Size = new System.Drawing.Size(131, 35);
+            this.BtnCod.TabIndex = 6;
+            this.BtnCod.Text = "Codigo";
+            this.BtnCod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCod.UseVisualStyleBackColor = true;
+            this.BtnCod.Click += new System.EventHandler(this.BtnCod_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -252,5 +270,6 @@
         private System.Windows.Forms.Button BtnCaja;
         private System.Windows.Forms.Button BtnMin;
         private System.Windows.Forms.Button BtnCap;
+        private System.Windows.Forms.Button BtnCod;
     }
 }
