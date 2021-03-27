@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Productos));
             this.PanDer = new System.Windows.Forms.Panel();
+            this.Chk1 = new System.Windows.Forms.CheckBox();
             this.NudPack = new System.Windows.Forms.NumericUpDown();
             this.TxtPpack = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PanCent = new System.Windows.Forms.Panel();
             this.DgvDatos = new System.Windows.Forms.DataGridView();
-            this.Chk1 = new System.Windows.Forms.CheckBox();
             this.PanDer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud)).BeginInit();
@@ -100,12 +100,22 @@
             this.PanDer.Size = new System.Drawing.Size(297, 487);
             this.PanDer.TabIndex = 0;
             // 
+            // Chk1
+            // 
+            this.Chk1.AutoSize = true;
+            this.Chk1.Location = new System.Drawing.Point(244, 372);
+            this.Chk1.Name = "Chk1";
+            this.Chk1.Size = new System.Drawing.Size(15, 14);
+            this.Chk1.TabIndex = 28;
+            this.Chk1.UseVisualStyleBackColor = true;
+            this.Chk1.CheckStateChanged += new System.EventHandler(this.Chk1_CheckStateChanged);
+            // 
             // NudPack
             // 
             this.NudPack.Location = new System.Drawing.Point(20, 307);
             this.NudPack.Name = "NudPack";
             this.NudPack.Size = new System.Drawing.Size(98, 29);
-            this.NudPack.TabIndex = 27;
+            this.NudPack.TabIndex = 12;
             this.NudPack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtPpack
@@ -115,7 +125,8 @@
             this.TxtPpack.Margin = new System.Windows.Forms.Padding(5);
             this.TxtPpack.Name = "TxtPpack";
             this.TxtPpack.Size = new System.Drawing.Size(114, 25);
-            this.TxtPpack.TabIndex = 26;
+            this.TxtPpack.TabIndex = 13;
+            this.TxtPpack.Text = "0";
             // 
             // label11
             // 
@@ -172,7 +183,7 @@
             0});
             this.Nud.Name = "Nud";
             this.Nud.Size = new System.Drawing.Size(67, 25);
-            this.Nud.TabIndex = 13;
+            this.Nud.TabIndex = 14;
             this.Nud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -194,6 +205,7 @@
             this.TxtVenta.Name = "TxtVenta";
             this.TxtVenta.Size = new System.Drawing.Size(114, 25);
             this.TxtVenta.TabIndex = 11;
+            this.TxtVenta.Text = "0";
             // 
             // label6
             // 
@@ -213,7 +225,7 @@
             this.BtnAdd.Margin = new System.Windows.Forms.Padding(5);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(297, 48);
-            this.BtnAdd.TabIndex = 22;
+            this.BtnAdd.TabIndex = 16;
             this.BtnAdd.Text = "Agregar";
             this.BtnAdd.UseVisualStyleBackColor = true;
             this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
@@ -226,6 +238,7 @@
             this.TxtCosto.Name = "TxtCosto";
             this.TxtCosto.Size = new System.Drawing.Size(98, 25);
             this.TxtCosto.TabIndex = 9;
+            this.TxtCosto.Text = "0";
             // 
             // label5
             // 
@@ -435,16 +448,6 @@
             this.DgvDatos.TabIndex = 0;
             this.DgvDatos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvDatos_ColumnHeaderMouseClick);
             this.DgvDatos.ColumnSortModeChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DgvDatos_ColumnSortModeChanged);
-            // 
-            // Chk1
-            // 
-            this.Chk1.AutoSize = true;
-            this.Chk1.Location = new System.Drawing.Point(244, 372);
-            this.Chk1.Name = "Chk1";
-            this.Chk1.Size = new System.Drawing.Size(15, 14);
-            this.Chk1.TabIndex = 28;
-            this.Chk1.UseVisualStyleBackColor = true;
-            this.Chk1.CheckStateChanged += new System.EventHandler(this.Chk1_CheckStateChanged);
             // 
             // Productos
             // 
