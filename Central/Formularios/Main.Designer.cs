@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.PanLat = new System.Windows.Forms.Panel();
+            this.BtnCod = new System.Windows.Forms.Button();
             this.BtnCap = new System.Windows.Forms.Button();
             this.BtnCaja = new System.Windows.Forms.Button();
             this.BtnREportes = new System.Windows.Forms.Button();
@@ -41,14 +42,13 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.LblUsu = new System.Windows.Forms.Label();
             this.PanCentral = new System.Windows.Forms.Panel();
-            this.BtnCod = new System.Windows.Forms.Button();
             this.PanLat.SuspendLayout();
             this.PanSup.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanLat
             // 
-            this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(180)))), ((int)(((byte)(37)))));
+            this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(37)))), ((int)(((byte)(75)))));
             this.PanLat.Controls.Add(this.BtnCod);
             this.PanLat.Controls.Add(this.BtnCap);
             this.PanLat.Controls.Add(this.BtnCaja);
@@ -62,11 +62,29 @@
             this.PanLat.Size = new System.Drawing.Size(131, 600);
             this.PanLat.TabIndex = 0;
             // 
+            // BtnCod
+            // 
+            this.BtnCod.FlatAppearance.BorderSize = 0;
+            this.BtnCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCod.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCod.ForeColor = System.Drawing.Color.White;
+            this.BtnCod.Image = ((System.Drawing.Image)(resources.GetObject("BtnCod.Image")));
+            this.BtnCod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCod.Location = new System.Drawing.Point(0, 508);
+            this.BtnCod.Name = "BtnCod";
+            this.BtnCod.Size = new System.Drawing.Size(131, 35);
+            this.BtnCod.TabIndex = 6;
+            this.BtnCod.Text = "Codigo";
+            this.BtnCod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCod.UseVisualStyleBackColor = true;
+            this.BtnCod.Click += new System.EventHandler(this.BtnCod_Click);
+            // 
             // BtnCap
             // 
             this.BtnCap.FlatAppearance.BorderSize = 0;
             this.BtnCap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCap.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCap.ForeColor = System.Drawing.Color.White;
             this.BtnCap.Image = ((System.Drawing.Image)(resources.GetObject("BtnCap.Image")));
             this.BtnCap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCap.Location = new System.Drawing.Point(3, 549);
@@ -83,6 +101,7 @@
             this.BtnCaja.FlatAppearance.BorderSize = 0;
             this.BtnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCaja.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCaja.ForeColor = System.Drawing.Color.White;
             this.BtnCaja.Image = ((System.Drawing.Image)(resources.GetObject("BtnCaja.Image")));
             this.BtnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCaja.Location = new System.Drawing.Point(0, 294);
@@ -99,6 +118,7 @@
             this.BtnREportes.FlatAppearance.BorderSize = 0;
             this.BtnREportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnREportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnREportes.ForeColor = System.Drawing.Color.White;
             this.BtnREportes.Image = ((System.Drawing.Image)(resources.GetObject("BtnREportes.Image")));
             this.BtnREportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnREportes.Location = new System.Drawing.Point(-9, 237);
@@ -115,6 +135,7 @@
             this.BtnUsu.FlatAppearance.BorderSize = 0;
             this.BtnUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnUsu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUsu.ForeColor = System.Drawing.Color.White;
             this.BtnUsu.Image = ((System.Drawing.Image)(resources.GetObject("BtnUsu.Image")));
             this.BtnUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnUsu.Location = new System.Drawing.Point(-9, 183);
@@ -131,9 +152,10 @@
             this.BtnProductos.FlatAppearance.BorderSize = 0;
             this.BtnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProductos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProductos.ForeColor = System.Drawing.Color.White;
             this.BtnProductos.Image = ((System.Drawing.Image)(resources.GetObject("BtnProductos.Image")));
             this.BtnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProductos.Location = new System.Drawing.Point(-9, 128);
+            this.BtnProductos.Location = new System.Drawing.Point(-5, 128);
             this.BtnProductos.Name = "BtnProductos";
             this.BtnProductos.Size = new System.Drawing.Size(140, 40);
             this.BtnProductos.TabIndex = 1;
@@ -147,6 +169,7 @@
             this.BtnVentas.FlatAppearance.BorderSize = 0;
             this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.ForeColor = System.Drawing.Color.White;
             this.BtnVentas.Image = ((System.Drawing.Image)(resources.GetObject("BtnVentas.Image")));
             this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnVentas.Location = new System.Drawing.Point(-9, 66);
@@ -160,7 +183,7 @@
             // 
             // PanSup
             // 
-            this.PanSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(29)))), ((int)(((byte)(107)))));
+            this.PanSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(202)))), ((int)(((byte)(1)))));
             this.PanSup.Controls.Add(this.BtnMin);
             this.PanSup.Controls.Add(this.BtnCerrar);
             this.PanSup.Controls.Add(this.LblUsu);
@@ -200,7 +223,7 @@
             // 
             this.LblUsu.AutoSize = true;
             this.LblUsu.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsu.ForeColor = System.Drawing.Color.White;
+            this.LblUsu.ForeColor = System.Drawing.Color.Black;
             this.LblUsu.Location = new System.Drawing.Point(40, 22);
             this.LblUsu.Name = "LblUsu";
             this.LblUsu.Size = new System.Drawing.Size(56, 21);
@@ -217,22 +240,6 @@
             this.PanCentral.Name = "PanCentral";
             this.PanCentral.Size = new System.Drawing.Size(869, 534);
             this.PanCentral.TabIndex = 2;
-            // 
-            // BtnCod
-            // 
-            this.BtnCod.FlatAppearance.BorderSize = 0;
-            this.BtnCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCod.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCod.Image = ((System.Drawing.Image)(resources.GetObject("BtnCod.Image")));
-            this.BtnCod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCod.Location = new System.Drawing.Point(0, 508);
-            this.BtnCod.Name = "BtnCod";
-            this.BtnCod.Size = new System.Drawing.Size(131, 35);
-            this.BtnCod.TabIndex = 6;
-            this.BtnCod.Text = "Codigo";
-            this.BtnCod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCod.UseVisualStyleBackColor = true;
-            this.BtnCod.Click += new System.EventHandler(this.BtnCod_Click);
             // 
             // Main
             // 

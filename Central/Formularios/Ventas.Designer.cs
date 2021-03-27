@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanSup = new System.Windows.Forms.Panel();
             this.CboNom = new System.Windows.Forms.ComboBox();
             this.TxtTotal = new System.Windows.Forms.TextBox();
@@ -71,6 +71,7 @@
             // 
             // PanSup
             // 
+            this.PanSup.BackColor = System.Drawing.Color.Transparent;
             this.PanSup.Controls.Add(this.CboNom);
             this.PanSup.Controls.Add(this.TxtTotal);
             this.PanSup.Controls.Add(this.label7);
@@ -277,6 +278,7 @@
             // 
             // PanLat
             // 
+            this.PanLat.BackColor = System.Drawing.Color.Transparent;
             this.PanLat.Controls.Add(this.LblDesc);
             this.PanLat.Controls.Add(this.BtnImp);
             this.PanLat.Controls.Add(this.LblCant);
@@ -426,8 +428,8 @@
             this.DgvProd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvProd.Name = "DgvProd";
             this.DgvProd.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvProd.ShowCellToolTips = false;
             this.DgvProd.ShowEditingIcon = false;
