@@ -53,6 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpGI = new System.Windows.Forms.DateTimePicker();
+            this.CboInven = new System.Windows.Forms.ComboBox();
             this.PanSup.SuspendLayout();
             this.PanSder.SuspendLayout();
             this.GbxSemanal.SuspendLayout();
@@ -217,6 +218,7 @@
             // 
             // Gbxproductos
             // 
+            this.Gbxproductos.Controls.Add(this.CboInven);
             this.Gbxproductos.Controls.Add(this.BtnInventario);
             this.Gbxproductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gbxproductos.Location = new System.Drawing.Point(0, 0);
@@ -228,7 +230,7 @@
             // 
             // BtnInventario
             // 
-            this.BtnInventario.Location = new System.Drawing.Point(135, 74);
+            this.BtnInventario.Location = new System.Drawing.Point(157, 40);
             this.BtnInventario.Name = "BtnInventario";
             this.BtnInventario.Size = new System.Drawing.Size(113, 54);
             this.BtnInventario.TabIndex = 0;
@@ -327,6 +329,20 @@
             this.DtpGI.Size = new System.Drawing.Size(140, 25);
             this.DtpGI.TabIndex = 0;
             // 
+            // CboInven
+            // 
+            this.CboInven.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboInven.FormattingEnabled = true;
+            this.CboInven.Items.AddRange(new object[] {
+            "Todos los productos",
+            "Existencias",
+            "Entre 1 y 10 existencias",
+            "Entre 10 o mas existencias"});
+            this.CboInven.Location = new System.Drawing.Point(69, 119);
+            this.CboInven.Name = "CboInven";
+            this.CboInven.Size = new System.Drawing.Size(285, 25);
+            this.CboInven.TabIndex = 1;
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -341,6 +357,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Reportes";
             this.Text = "Reportes";
+            this.Load += new System.EventHandler(this.Reportes_Load);
             this.PanSup.ResumeLayout(false);
             this.PanSder.ResumeLayout(false);
             this.GbxSemanal.ResumeLayout(false);
@@ -383,5 +400,6 @@
         private System.Windows.Forms.DateTimePicker DtpGI;
         private System.Windows.Forms.Button BtnMasVen;
         private System.Windows.Forms.Button BtnVentas;
+        private System.Windows.Forms.ComboBox CboInven;
     }
 }

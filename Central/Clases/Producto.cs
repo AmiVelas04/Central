@@ -110,6 +110,8 @@ namespace Central.Clases
             consultac = "update producto set cantidad="+cantAnt + " where id_prod='"+idprod + "'";
             return consulta_gen(consultac);
         }
+
+        //Todos los porductos
         public void Inventario()
         {
             string consulta = "SELECT Id_prod, Nombre,Descripcion,Marca,PRecio_c,cantidad FROM producto ORDER BY nombre";
@@ -127,6 +129,93 @@ namespace Central.Clases
                 Deta .marca = datos.Rows[cont][3].ToString();
                 Deta .precio =decimal.Parse ( datos.Rows[cont][4].ToString());
                 Deta .cantidad= int.Parse (datos.Rows[cont][5].ToString());
+                Deta.subtotal = decimal.Parse(datos.Rows[cont][4].ToString()) * int.Parse(datos.Rows[cont][5].ToString());
+                enca.Detalle.Add(Deta);
+            }
+            Reportes.Inventario inve = new Reportes.Inventario();
+            inve.Detalle = enca.Detalle;
+            inve.Show();
+        }
+        //Existencia
+
+        public void inventario1()
+        {
+            string consulta = "SELECT p.Id_prod, p.Nombre,p.Descripcion,p.Marca,p.PRecio_c,p.cantidad "+
+                               "FROM producto p "+
+                               "WHERE p.cantidad > 0 "+
+                               "ORDER BY nombre";
+            DataTable datos = new DataTable();
+            datos = buscar(consulta);
+            Reportes.DiarioEnc enca = new Reportes.DiarioEnc();
+            int cant = datos.Rows.Count, cont;
+            for (cont = 0; cont < cant; cont++)
+            {
+                Reportes.DiarioDet Deta = new Reportes.DiarioDet();
+                Deta.orden = cont + 1;
+                Deta.codigo = datos.Rows[cont][0].ToString();
+                Deta.producto = datos.Rows[cont][1].ToString();
+                Deta.desc = datos.Rows[cont][2].ToString();
+                Deta.marca = datos.Rows[cont][3].ToString();
+                Deta.precio = decimal.Parse(datos.Rows[cont][4].ToString());
+                Deta.cantidad = int.Parse(datos.Rows[cont][5].ToString());
+                Deta.subtotal = decimal.Parse(datos.Rows[cont][4].ToString()) * int.Parse(datos.Rows[cont][5].ToString());
+                enca.Detalle.Add(Deta);
+            }
+            Reportes.Inventario inve = new Reportes.Inventario();
+            inve.Detalle = enca.Detalle;
+            inve.Show();
+        }
+        //de 1 a 10 existencia
+        public void inventario2()
+        {
+            string consulta = "SELECT p.Id_prod, p.Nombre,p.Descripcion,p.Marca,p.PRecio_c,p.cantidad "+
+                               "FROM producto p "+
+                               "WHERE p.cantidad > 0 AND p.cantidad < 11 "+
+                               "ORDER BY nombre";
+            DataTable datos = new DataTable();
+            datos = buscar(consulta);
+            Reportes.DiarioEnc enca = new Reportes.DiarioEnc();
+            int cant = datos.Rows.Count, cont;
+            for (cont = 0; cont < cant; cont++)
+            {
+                Reportes.DiarioDet Deta = new Reportes.DiarioDet();
+                Deta.orden = cont + 1;
+                Deta.codigo = datos.Rows[cont][0].ToString();
+                Deta.producto = datos.Rows[cont][1].ToString();
+                Deta.desc = datos.Rows[cont][2].ToString();
+                Deta.marca = datos.Rows[cont][3].ToString();
+                Deta.precio = decimal.Parse(datos.Rows[cont][4].ToString());
+                Deta.cantidad = int.Parse(datos.Rows[cont][5].ToString());
+                Deta.subtotal = decimal.Parse(datos.Rows[cont][4].ToString()) * int.Parse(datos.Rows[cont][5].ToString());
+                enca.Detalle.Add(Deta);
+            }
+            Reportes.Inventario inve = new Reportes.Inventario();
+            inve.Detalle = enca.Detalle;
+            inve.Show();
+        }
+        //Existencia de 10 o mas
+        public void inventario3()
+        {
+
+
+            string consulta = "SELECT p.Id_prod, p.Nombre,p.Descripcion,p.Marca,p.PRecio_c,p.cantidad "+
+                              "FROM producto p "+
+                              "WHERE p.cantidad > 10 "+
+                              "ORDER BY nombre"; 
+            DataTable datos = new DataTable();
+            datos = buscar(consulta);
+            Reportes.DiarioEnc enca = new Reportes.DiarioEnc();
+            int cant = datos.Rows.Count, cont;
+            for (cont = 0; cont < cant; cont++)
+            {
+                Reportes.DiarioDet Deta = new Reportes.DiarioDet();
+                Deta.orden = cont + 1;
+                Deta.codigo = datos.Rows[cont][0].ToString();
+                Deta.producto = datos.Rows[cont][1].ToString();
+                Deta.desc = datos.Rows[cont][2].ToString();
+                Deta.marca = datos.Rows[cont][3].ToString();
+                Deta.precio = decimal.Parse(datos.Rows[cont][4].ToString());
+                Deta.cantidad = int.Parse(datos.Rows[cont][5].ToString());
                 Deta.subtotal = decimal.Parse(datos.Rows[cont][4].ToString()) * int.Parse(datos.Rows[cont][5].ToString());
                 enca.Detalle.Add(Deta);
             }

@@ -35,7 +35,25 @@ namespace Central.Formularios
 
         private void BtnInventario_Click(object sender, EventArgs e)
         {
-            Prod.Inventario();
+            int indice = int.Parse(CboInven.SelectedIndex.ToString());
+            if (indice == 0)
+            {
+                Prod.Inventario();
+            }
+            else if (indice==1)
+            {
+                Prod.inventario1();
+            }
+            else if (indice ==2)
+            {
+                Prod.inventario2();
+            }
+            else if (indice==3)
+            {
+                Prod.inventario3();
+            }
+
+              
         }
 
         private void BtnGan_Click(object sender, EventArgs e)
@@ -60,6 +78,12 @@ namespace Central.Formularios
             fechai = DtpGI.Value.ToString("yyyy/MM/dd");
             fechaf = DtpGf.Value.ToString("yyyy/MM/dd");
             Rep.Vendidos(fechai,fechaf);
+        }
+
+        private void Reportes_Load(object sender, EventArgs e)
+        {
+            CboInven.SelectedIndex = 0;
+
         }
     }
 }
