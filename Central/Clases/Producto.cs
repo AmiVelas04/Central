@@ -112,7 +112,7 @@ namespace Central.Clases
         }
         public void Inventario()
         {
-            string consulta = "SELECT Id_prod, Nombre,Descripcion,Marca,PRecio_c,cantidad FROM producto ORDER BY nombre";
+            string consulta = "SELECT Id_prod, Nombre,Descripcion,Marca,PRecio_c,cantidad,precio_V FROM producto ORDER BY nombre";
             DataTable datos = new DataTable ();
             datos = buscar(consulta);
             Reportes.DiarioEnc enca = new Reportes.DiarioEnc();
@@ -128,6 +128,7 @@ namespace Central.Clases
                 Deta .precio =decimal.Parse ( datos.Rows[cont][4].ToString());
                 Deta .cantidad= int.Parse (datos.Rows[cont][5].ToString());
                 Deta.subtotal = decimal.Parse(datos.Rows[cont][4].ToString()) * int.Parse(datos.Rows[cont][5].ToString());
+                Deta.precioV = decimal.Parse(datos.Rows[cont][6].ToString());
                 enca.Detalle.Add(Deta);
             }
             Reportes.Inventario inve = new Reportes.Inventario();
