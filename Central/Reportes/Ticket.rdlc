@@ -744,21 +744,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>LOGOMINIMARKET</Value>
-        <Sizing>Fit</Sizing>
-        <Top>0.22325cm</Top>
-        <Left>1.10966cm</Left>
-        <Height>1.86986cm</Height>
-        <Width>4.49248cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Regrese">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -781,7 +766,7 @@
         <Left>1.42716cm</Left>
         <Height>0.6cm</Height>
         <Width>3.79646cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -799,7 +784,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>MiniMarket Central</Value>
+                <Value>Negocio</Value>
                 <Style>
                   <FontFamily>Lao UI</FontFamily>
                   <FontSize>11pt</FontSize>
@@ -814,7 +799,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Cantón Vitzal</Value>
+                <Value>Direccion</Value>
                 <Style>
                   <FontFamily>Lao UI</FontFamily>
                   <FontSize>9pt</FontSize>
@@ -906,7 +891,7 @@
         <Left>0.73114cm</Left>
         <Height>2.27252cm</Height>
         <Width>5.39468cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -922,7 +907,7 @@
         <Left>0.1545cm</Left>
         <Height>0cm</Height>
         <Width>6.66954cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>Dotted</Style>
@@ -951,7 +936,7 @@
         <Left>0.1545cm</Left>
         <Height>0.6cm</Height>
         <Width>6.31604cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>

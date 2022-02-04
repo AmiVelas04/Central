@@ -1144,21 +1144,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>Fondo</Value>
-        <Sizing>Fit</Sizing>
-        <Top>0.3959cm</Top>
-        <Left>5.84856cm</Left>
-        <Height>1.67639cm</Height>
-        <Width>5.54812cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
     <Height>2.92708in</Height>
     <Style />

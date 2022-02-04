@@ -2,20 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>Fondo</Value>
-        <Sizing>Fit</Sizing>
-        <Top>0.38805cm</Top>
-        <Left>7.14057cm</Left>
-        <Height>1.87854cm</Height>
-        <Width>4.65667cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -41,7 +27,6 @@
         <Left>5.07682cm</Left>
         <Height>0.75875cm</Height>
         <Width>9.11458cm</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -82,7 +67,7 @@
         <Left>0.34078cm</Left>
         <Height>0.6cm</Height>
         <Width>4.64312cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -125,7 +110,7 @@
         <Left>13.74224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.56917cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -152,12 +137,12 @@
                   <GroupExpression>=Fields!Producto.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <Label>=Fields!Producto.Value</Label>
               <SortExpressions>
                 <SortExpression>
                   <Value>=Fields!Producto.Value</Value>
                 </SortExpression>
               </SortExpressions>
+              <Label>=Fields!Producto.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
@@ -415,7 +400,7 @@
         <Left>0.34078cm</Left>
         <Height>8.10389cm</Height>
         <Width>18.97063cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -450,7 +435,7 @@
         <Left>4.60057cm</Left>
         <Height>0.6cm</Height>
         <Width>9.59083cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -953,7 +938,7 @@
         <Left>0.34078cm</Left>
         <Height>1.2cm</Height>
         <Width>19.30105cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>

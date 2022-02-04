@@ -37,21 +37,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>Fondo</Value>
-        <Sizing>Fit</Sizing>
-        <Top>0.33224cm</Top>
-        <Left>6.00287cm</Left>
-        <Height>2.01083cm</Height>
-        <Width>4.96063cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -119,7 +104,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -634,7 +618,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!subtotal.Value</Value>
+                              <Value>=IIf(Fields!subtotal.Value&lt;0,0,Fields!subtotal.Value)</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>'Q'#,0.00</Format>
+                                <rd:FormatSymbolCulture>es-GT</rd:FormatSymbolCulture>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve"> </Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -694,7 +687,7 @@
         <Left>0.28787cm</Left>
         <Height>1.2cm</Height>
         <Width>18.20208cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -717,7 +710,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>=Sum(Fields!subtotal.Value, "Detalle")</Value>
+                <Value>=Sum(IIF(Fields!cantidad.Value&lt;0,0,Fields!cantidad.Value) * Fields!precio.Value)</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontSize>8pt</FontSize>
@@ -737,7 +730,7 @@
         <Left>15.98995cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>

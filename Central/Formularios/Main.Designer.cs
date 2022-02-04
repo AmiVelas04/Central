@@ -47,7 +47,7 @@
             // 
             // PanLat
             // 
-            this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(180)))), ((int)(((byte)(37)))));
+            this.PanLat.BackColor = System.Drawing.Color.Gray;
             this.PanLat.Controls.Add(this.BtnCap);
             this.PanLat.Controls.Add(this.BtnCaja);
             this.PanLat.Controls.Add(this.BtnREportes);
@@ -158,7 +158,7 @@
             // 
             // PanSup
             // 
-            this.PanSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(29)))), ((int)(((byte)(107)))));
+            this.PanSup.BackColor = System.Drawing.Color.Gray;
             this.PanSup.Controls.Add(this.BtnMin);
             this.PanSup.Controls.Add(this.BtnCerrar);
             this.PanSup.Controls.Add(this.LblUsu);
@@ -208,7 +208,6 @@
             // PanCentral
             // 
             this.PanCentral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.PanCentral.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanCentral.BackgroundImage")));
             this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PanCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanCentral.Location = new System.Drawing.Point(131, 66);
