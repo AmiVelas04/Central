@@ -27,7 +27,7 @@ namespace Central.Formularios
         }
         private void addProd ()
         {
-            string[] datos = {TxtCod .Text,TxtNom.Text ,TxtDesc.Text,TxtMarca.Text,TxtCosto.Text ,TxtVenta.Text,Nud.Value .ToString (),DtpCad.Value.ToString ("yyyy/MM/dd"),NudPack .Value .ToString (),TxtPpack .Text  };
+            string[] datos = {TxtCod .Text,TxtNom.Text ,TxtDesc.Text,TxtMarca.Text,TxtCosto.Text ,TxtVenta.Text,Nud.Value .ToString (),DtpCad.Value.ToString ("yyyy/MM/dd"),NudPack .Value .ToString (),TxtPpack .Text,TxtVenta2.Text };
             if (prod.agregprod(datos))
             { MessageBox.Show("Producto ingresado Correctamente"); }
             else
@@ -37,7 +37,7 @@ namespace Central.Formularios
         private void UpdProd()
         {
             
-            string[] datos = { TxtCod.Text, TxtNom.Text, TxtDesc.Text, TxtMarca.Text, TxtCosto.Text, TxtVenta.Text, Nud.Value.ToString(), DtpCad.Value.ToString("yyyy/MM/dd"), NudPack.Value.ToString(), TxtPpack.Text };
+            string[] datos = { TxtCod.Text, TxtNom.Text, TxtDesc.Text, TxtMarca.Text, TxtCosto.Text, TxtVenta.Text, Nud.Value.ToString(), DtpCad.Value.ToString("yyyy/MM/dd"), NudPack.Value.ToString(), TxtPpack.Text,TxtVenta2.Text };
             if (prod.actualprod (datos))
             { MessageBox.Show("Producto Actualizado"); }
             else
@@ -71,6 +71,7 @@ namespace Central.Formularios
             DtpCad.Value = DateTime.Parse(DateTime.Parse( datos.Rows[0][6].ToString()).ToString ("dd/MM/yyyyy"));
             NudPack.Value = decimal.Parse(datos.Rows[0][7].ToString());
             TxtPpack.Text = datos.Rows[0][8].ToString();
+            TxtVenta2.Text = datos.Rows[0][9].ToString();
 
 
         }

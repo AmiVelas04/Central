@@ -87,8 +87,9 @@ namespace Central.Clases
 
         private DataTable titulos(string venta)
         {
-            string consulta= "SELECT ca.nombre, Date_format(v.fecha_h,'%d/%m/%Y') as fecha, Date_format(v.fecha_h,'%H:%i:%s') as hora FROM cajero ca " +
+            string consulta= "SELECT ca.nombre, Date_format(v.fecha_h,'%d/%m/%Y') as fecha, Date_format(v.fecha_h,'%H:%i:%s') as hora, CLI.Nombre as CLIENTE FROM cajero ca " +
                              "INNER JOIN venta v ON v.ID_CAJERO = ca.ID_CAJERO "+
+                             "INNER JOIN CLIENTES CLI ON CLI.ID_CLI = V.ID_CLI "+
                              "WHERE v.ID_VENTA ="+venta;
             return buscar(consulta);
         }
@@ -101,7 +102,7 @@ namespace Central.Clases
             string fecha = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string consulta;
             consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu) " +
-                      "values ("+codv+ ","+1+"," +cajero +",'"+ fecha+"',"+descu+")";
+                      "values ("+codv+ ","+cliente+"," +cajero +",'"+ fecha+"',"+descu+")";
             if (consulta_gen(consulta))
             {
                 generardet(datos,codv,efect,cajero,descu);
@@ -143,7 +144,7 @@ namespace Central.Clases
             DataTable usur = new DataTable();
             usur = usu.buscusu(cajero);
             atendio = usur.Rows[0][0].ToString();
-            string[] opera = { "Ingreso","Venta No "+venta + ",Operado por "+atendio,total.ToString (),DateTime .Now.ToString ("yyyy/MM/dd hh:mm:ss"),"Activa"};
+            string[] opera = { "Ingreso","Venta No "+venta + ",Operado por "+atendio,total.ToString (),DateTime .Now.ToString ("yyyy/MM/dd hh:mm:ss"),cajero};
             caj.ingreope(opera);
             if (MessageBox.Show("¿Desea imprimir comprobante de venta?", "¿Imprimir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             { PrintTicket(venta, datos, efect, descu); }
@@ -165,8 +166,8 @@ namespace Central.Clases
             string fetch =superior.Rows[0][1].ToString();
             Enca.fecha = superior.Rows[0][1].ToString();
             Enca.hora  = superior.Rows[0][2].ToString();
-        
             Enca.efectivo =  efect.ToString ();
+            Enca.cliente = superior.Rows[0][3].ToString();
             cant = datos.Rows.Count;
             decimal total=0;
             for (cont=0;cont<cant;cont++)

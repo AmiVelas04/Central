@@ -16,6 +16,7 @@ namespace Central.Formularios
         Clases.Producto prod = new Clases.Producto();
         Clases.Venta ven = new Clases.Venta();
         DataTable respaldo = new DataTable();
+        Clases.ClaseCliente cli = new Clases.ClaseCliente();
         decimal Refectivo;
 
         public Ventas()
@@ -28,6 +29,7 @@ namespace Central.Formularios
             TxtCod.Focus();
             Ttinfo.SetToolTip(BtnImp, "Imprimir el ultimo comprobante");
             listadoprod();
+            cargacli();
         }
 
       
@@ -72,10 +74,21 @@ namespace Central.Formularios
                 }
                 DataTable prods = new DataTable();
                 prods = prod.buscarprod(codigo);
+                int cantactual = int.Parse(prods.Rows[0][5].ToString()),prodadd=0;
+                prodadd = int.Parse(NudCant.Value.ToString()) + CantxProd(codigo);
 
+                if (cantactual < prodadd)
+                {
+                    var msj = MessageBox.Show("No hay existencias suficientes para realizar la venta\n¿Desea realizar la venta de todos modos?","Sin existencias suficientes",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+                    if (msj == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
                 decimal subtotal=decimal.Parse(NudCant .Value.ToString () )*decimal.Parse (prods.Rows[0][4].ToString());
                 
                 DgvProd.Rows.Add(codigo,prods.Rows[0][0].ToString(), prods.Rows[0][1].ToString(), prods.Rows[0][2].ToString(), prods.Rows[0][4].ToString(), NudCant.Value,subtotal, prods.Rows[0][7].ToString(), prods.Rows[0][8].ToString());
+
                 calcTot();
                 contarprod();
                 TxtCod.Focus();
@@ -247,7 +260,13 @@ namespace Central.Formularios
                 decimal efect = decimal.Parse(TxtEfect.Text);
                 respaldo = datos;
                 Refectivo = decimal.Parse(TxtEfect.Text);
-                if (ven.generarv(datos, efect,"1", Main.id.ToString (),descu))
+                string idc= idcli();
+                if (idc.Equals("0"))
+                {
+                    MessageBox.Show("No se encontró el cliente");
+                    return;
+                }
+                if (ven.generarv(datos, efect,idc, Main.id.ToString (),descu))
                 {
                   
                     MessageBox.Show("Venta correcta");
@@ -333,6 +352,20 @@ namespace Central.Formularios
                     {
                         if (decimal.TryParse(DgvProd.Rows[indice].Cells[4].Value.ToString(), out cant))
                         {
+                            DataTable produ = new DataTable();
+                            string codprod= DgvProd.Rows[indice].Cells[0].Value.ToString() ;
+                            int cantactual = CantxProd(codprod),prodstock=0;
+                            produ=prod.buscarprod(codprod);
+                            cantactual += ingre;
+                            prodstock = int.Parse(produ.Rows[0][5].ToString());
+                            if (prodstock < cantactual)
+                            {
+                                var msj = MessageBox.Show("No hay existencias suficientes para realizar la venta\n¿Desea realizar la venta de todos modos?", "Sin existencias suficientes", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                                if (msj == DialogResult.No)
+                                {
+                                    return;
+                                }
+                            }
                             decimal subtotal = cant * ingre;
                             DgvProd.Rows[indice].Cells[5].Value = ingre;
                             DgvProd.Rows[indice].Cells[6].Value = subtotal;
@@ -407,7 +440,19 @@ namespace Central.Formularios
         {
             if (DgvProd.Rows.Count > 0)
             {
+                DataTable precio = new DataTable();
+                   
                 int indice = DgvProd.CurrentRow.Index;
+                string codi;
+                codi = DgvProd.Rows[indice].Cells[0].Value.ToString();
+                precio = prod.precios(codi);
+                while (CboPrecio.Items.Count > 0)
+                {
+                    CboPrecio.Items.RemoveAt(0);
+                }
+                CboPrecio.Items.Add(precio.Rows[0][0].ToString());
+                CboPrecio.Items.Add(precio.Rows[0][1].ToString());
+                CboPrecio.SelectedIndex = 0;
                 //TxtNom.Text = DgvProd.Rows[indice].Cells[1].Value.ToString();
                 Txtdesc.Text = DgvProd.Rows[indice].Cells[2].Value.ToString();
                 TxtMarca.Text = DgvProd.Rows[indice].Cells[3].Value.ToString();
@@ -487,5 +532,85 @@ namespace Central.Formularios
         }
 
 
+        private void cargacli()
+        {
+            DataTable datos = new DataTable();
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            datos = cli.clientes();
+            CboCli.DataSource = datos;
+            CboCli.ValueMember = "id_cli";
+            CboCli.DisplayMember = "Nombre";
+            foreach (DataRow row in datos.Rows)
+            {
+                coleccion.Add(row["Nombre"].ToString());
+            }
+            CboCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            CboCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            CboCli.AutoCompleteCustomSource = coleccion;
+        }
+
+        private string idcli()
+        {
+            DataTable datos = new DataTable();
+            string idcli;
+            idcli = CboCli.SelectedValue.ToString();
+            datos = cli.buscli(idcli);
+            if (datos.Rows.Count > 0)
+            {
+                return idcli;
+            }
+            else
+
+            { return "0"; }
+        }
+
+        private void CboPrecio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CambioPrecio();
+        }
+        private void CambioPrecio()
+        {
+            if (DgvProd.Rows.Count > 0)
+            {
+                int indice = DgvProd.CurrentRow.Index;
+                decimal cant;
+                int ingre = Int32.Parse(DgvProd.Rows[indice].Cells[5].Value.ToString());
+                if (ingre > 0)
+                {
+                    if (decimal.TryParse(DgvProd.Rows[indice].Cells[4].Value.ToString(), out cant))
+                    {
+                        cant= decimal.Parse(CboPrecio.Text);
+                        decimal subtotal = cant * ingre;
+                        DgvProd.Rows[indice].Cells[4].Value = cant;
+                        DgvProd.Rows[indice].Cells[5].Value = ingre;
+                        DgvProd.Rows[indice].Cells[6].Value = subtotal;
+                        calcTot();
+                        TxtCod.Focus();
+                        NudCant.Value = 1;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar valores mayores que 0", "Valores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            contarprod();
+        }
+
+        private int CantxProd(string cod)
+        {
+            int cant,prodstock=0;
+            cant = DgvProd.Rows.Count;
+            for (int i = 0; i < cant; i++)
+            {
+                if (DgvProd.Rows[i].Cells[0].Value.ToString().Equals(cod))
+                {
+                    int CanTemp = 0;
+                    CanTemp = int.Parse( DgvProd.Rows[i].Cells[5].Value.ToString());
+                    prodstock += CanTemp;
+                }
+            }
+            return prodstock;
+        }
     }
 }

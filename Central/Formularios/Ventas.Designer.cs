@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanSup = new System.Windows.Forms.Panel();
+            this.CboPrecio = new System.Windows.Forms.ComboBox();
+            this.CboCli = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.CboNom = new System.Windows.Forms.ComboBox();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.LblTotal = new System.Windows.Forms.Label();
             this.BtnBorrar = new System.Windows.Forms.Button();
-            this.BtnAgreg = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.NudCant = new System.Windows.Forms.NumericUpDown();
             this.TxtPrecio = new System.Windows.Forms.TextBox();
@@ -71,12 +73,14 @@
             // 
             // PanSup
             // 
+            this.PanSup.Controls.Add(this.CboPrecio);
+            this.PanSup.Controls.Add(this.CboCli);
+            this.PanSup.Controls.Add(this.label10);
             this.PanSup.Controls.Add(this.CboNom);
             this.PanSup.Controls.Add(this.TxtTotal);
             this.PanSup.Controls.Add(this.label7);
             this.PanSup.Controls.Add(this.LblTotal);
             this.PanSup.Controls.Add(this.BtnBorrar);
-            this.PanSup.Controls.Add(this.BtnAgreg);
             this.PanSup.Controls.Add(this.label6);
             this.PanSup.Controls.Add(this.NudCant);
             this.PanSup.Controls.Add(this.TxtPrecio);
@@ -92,14 +96,41 @@
             this.PanSup.Location = new System.Drawing.Point(0, 0);
             this.PanSup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanSup.Name = "PanSup";
-            this.PanSup.Size = new System.Drawing.Size(869, 133);
+            this.PanSup.Size = new System.Drawing.Size(869, 163);
             this.PanSup.TabIndex = 0;
+            // 
+            // CboPrecio
+            // 
+            this.CboPrecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboPrecio.FormattingEnabled = true;
+            this.CboPrecio.Location = new System.Drawing.Point(429, 67);
+            this.CboPrecio.Name = "CboPrecio";
+            this.CboPrecio.Size = new System.Drawing.Size(106, 28);
+            this.CboPrecio.TabIndex = 20;
+            this.CboPrecio.SelectedIndexChanged += new System.EventHandler(this.CboPrecio_SelectedIndexChanged);
+            // 
+            // CboCli
+            // 
+            this.CboCli.FormattingEnabled = true;
+            this.CboCli.Location = new System.Drawing.Point(90, 9);
+            this.CboCli.Name = "CboCli";
+            this.CboCli.Size = new System.Drawing.Size(422, 28);
+            this.CboCli.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 20);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Cliente";
             // 
             // CboNom
             // 
             this.CboNom.DropDownWidth = 400;
             this.CboNom.FormattingEnabled = true;
-            this.CboNom.Location = new System.Drawing.Point(13, 90);
+            this.CboNom.Location = new System.Drawing.Point(13, 126);
             this.CboNom.MaxDropDownItems = 10;
             this.CboNom.Name = "CboNom";
             this.CboNom.Size = new System.Drawing.Size(275, 28);
@@ -112,7 +143,7 @@
             // 
             this.TxtTotal.Enabled = false;
             this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTotal.Location = new System.Drawing.Point(653, 65);
+            this.TxtTotal.Location = new System.Drawing.Point(651, 104);
             this.TxtTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtTotal.Name = "TxtTotal";
             this.TxtTotal.Size = new System.Drawing.Size(205, 49);
@@ -123,7 +154,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(670, 24);
+            this.label7.Location = new System.Drawing.Point(678, 57);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 24);
@@ -134,7 +165,7 @@
             // 
             this.LblTotal.AutoSize = true;
             this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotal.Location = new System.Drawing.Point(732, 90);
+            this.LblTotal.Location = new System.Drawing.Point(732, 116);
             this.LblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblTotal.Name = "LblTotal";
             this.LblTotal.Size = new System.Drawing.Size(65, 25);
@@ -144,7 +175,7 @@
             // 
             // BtnBorrar
             // 
-            this.BtnBorrar.Location = new System.Drawing.Point(533, 5);
+            this.BtnBorrar.Location = new System.Drawing.Point(550, 18);
             this.BtnBorrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnBorrar.Name = "BtnBorrar";
             this.BtnBorrar.Size = new System.Drawing.Size(112, 63);
@@ -153,21 +184,10 @@
             this.BtnBorrar.UseVisualStyleBackColor = true;
             this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
-            // BtnAgreg
-            // 
-            this.BtnAgreg.Location = new System.Drawing.Point(657, 5);
-            this.BtnAgreg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnAgreg.Name = "BtnAgreg";
-            this.BtnAgreg.Size = new System.Drawing.Size(34, 24);
-            this.BtnAgreg.TabIndex = 12;
-            this.BtnAgreg.Text = "Agregar Producto";
-            this.BtnAgreg.UseVisualStyleBackColor = true;
-            this.BtnAgreg.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(540, 70);
+            this.label6.Location = new System.Drawing.Point(557, 86);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 20);
@@ -176,7 +196,7 @@
             // 
             // NudCant
             // 
-            this.NudCant.Location = new System.Drawing.Point(533, 91);
+            this.NudCant.Location = new System.Drawing.Point(552, 124);
             this.NudCant.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NudCant.Name = "NudCant";
             this.NudCant.Size = new System.Drawing.Size(85, 27);
@@ -192,16 +212,17 @@
             // TxtPrecio
             // 
             this.TxtPrecio.Enabled = false;
-            this.TxtPrecio.Location = new System.Drawing.Point(440, 29);
+            this.TxtPrecio.Location = new System.Drawing.Point(714, 18);
             this.TxtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(85, 27);
+            this.TxtPrecio.Size = new System.Drawing.Size(104, 27);
             this.TxtPrecio.TabIndex = 9;
+            this.TxtPrecio.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(447, 8);
+            this.label5.Location = new System.Drawing.Point(431, 46);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 20);
@@ -211,7 +232,7 @@
             // TxtMarca
             // 
             this.TxtMarca.Enabled = false;
-            this.TxtMarca.Location = new System.Drawing.Point(311, 91);
+            this.TxtMarca.Location = new System.Drawing.Point(309, 126);
             this.TxtMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtMarca.Name = "TxtMarca";
             this.TxtMarca.Size = new System.Drawing.Size(203, 27);
@@ -220,7 +241,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(307, 70);
+            this.label4.Location = new System.Drawing.Point(318, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 20);
@@ -230,7 +251,7 @@
             // Txtdesc
             // 
             this.Txtdesc.Enabled = false;
-            this.Txtdesc.Location = new System.Drawing.Point(284, 29);
+            this.Txtdesc.Location = new System.Drawing.Point(265, 67);
             this.Txtdesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Txtdesc.Name = "Txtdesc";
             this.Txtdesc.Size = new System.Drawing.Size(148, 27);
@@ -239,7 +260,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(280, 8);
+            this.label3.Location = new System.Drawing.Point(280, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 20);
@@ -249,26 +270,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 70);
+            this.label2.Location = new System.Drawing.Point(16, 103);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Nombre";
+            this.label2.Text = "Producto";
             // 
             // TxtCod
             // 
-            this.TxtCod.Location = new System.Drawing.Point(13, 29);
+            this.TxtCod.Location = new System.Drawing.Point(13, 67);
             this.TxtCod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtCod.Name = "TxtCod";
-            this.TxtCod.Size = new System.Drawing.Size(248, 27);
+            this.TxtCod.Size = new System.Drawing.Size(232, 27);
             this.TxtCod.TabIndex = 1;
             this.TxtCod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCod_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 8);
+            this.label1.Location = new System.Drawing.Point(16, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 20);
@@ -287,16 +308,16 @@
             this.PanLat.Controls.Add(this.BtnCancelar);
             this.PanLat.Controls.Add(this.BtnCobrar);
             this.PanLat.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanLat.Location = new System.Drawing.Point(637, 133);
+            this.PanLat.Location = new System.Drawing.Point(637, 163);
             this.PanLat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanLat.Name = "PanLat";
-            this.PanLat.Size = new System.Drawing.Size(232, 401);
+            this.PanLat.Size = new System.Drawing.Size(232, 371);
             this.PanLat.TabIndex = 1;
             // 
             // LblDesc
             // 
             this.LblDesc.AutoSize = true;
-            this.LblDesc.Location = new System.Drawing.Point(47, 333);
+            this.LblDesc.Location = new System.Drawing.Point(7, 326);
             this.LblDesc.Name = "LblDesc";
             this.LblDesc.Size = new System.Drawing.Size(18, 20);
             this.LblDesc.TabIndex = 8;
@@ -316,7 +337,7 @@
             // LblCant
             // 
             this.LblCant.AutoSize = true;
-            this.LblCant.Location = new System.Drawing.Point(47, 313);
+            this.LblCant.Location = new System.Drawing.Point(86, 289);
             this.LblCant.Name = "LblCant";
             this.LblCant.Size = new System.Drawing.Size(84, 20);
             this.LblCant.TabIndex = 6;
@@ -403,10 +424,10 @@
             // 
             this.panel3.Controls.Add(this.DgvProd);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 133);
+            this.panel3.Location = new System.Drawing.Point(0, 163);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(637, 401);
+            this.panel3.Size = new System.Drawing.Size(637, 371);
             this.panel3.TabIndex = 2;
             // 
             // DgvProd
@@ -426,13 +447,13 @@
             this.DgvProd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvProd.Name = "DgvProd";
             this.DgvProd.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvProd.ShowCellToolTips = false;
             this.DgvProd.ShowEditingIcon = false;
             this.DgvProd.ShowRowErrors = false;
-            this.DgvProd.Size = new System.Drawing.Size(637, 401);
+            this.DgvProd.Size = new System.Drawing.Size(637, 371);
             this.DgvProd.TabIndex = 0;
             this.DgvProd.Click += new System.EventHandler(this.DgvProd_Click);
             // 
@@ -468,7 +489,6 @@
 
         private System.Windows.Forms.Panel PanSup;
         private System.Windows.Forms.Button BtnBorrar;
-        private System.Windows.Forms.Button BtnAgreg;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown NudCant;
         private System.Windows.Forms.TextBox TxtPrecio;
@@ -497,5 +517,8 @@
         private System.Windows.Forms.ToolTip Ttinfo;
         private System.Windows.Forms.Label LblDesc;
         private System.Windows.Forms.ComboBox CboNom;
+        private System.Windows.Forms.ComboBox CboCli;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox CboPrecio;
     }
 }

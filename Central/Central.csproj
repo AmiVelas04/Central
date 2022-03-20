@@ -63,7 +63,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>terminal-pos.ico</ApplicationIcon>
+    <ApplicationIcon>icono.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="Clases\Caja.cs" />
     <Compile Include="Clases\Cajon.cs" />
+    <Compile Include="Clases\ClaseCliente.cs" />
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Imprimir.cs" />
     <Compile Include="Clases\Login.cs" />
@@ -138,6 +139,12 @@
     </Compile>
     <Compile Include="Formularios\Caja.Designer.cs">
       <DependentUpon>Caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cliente.Designer.cs">
+      <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Login.cs">
       <SubType>Form</SubType>
@@ -242,6 +249,12 @@
     <Compile Include="Reportes\Vendidos.Designer.cs">
       <DependentUpon>Vendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\VentaCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VentaCli.Designer.cs">
+      <DependentUpon>VentaCli.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Caja.resx">
       <DependentUpon>Caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cliente.resx">
+      <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -309,6 +325,10 @@
     <EmbeddedResource Include="Reportes\Vendidos.resx">
       <DependentUpon>Vendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VentaCli.rdlc" />
+    <EmbeddedResource Include="Reportes\VentaCli.resx">
+      <DependentUpon>VentaCli.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Central.Reportes.DiarioDet.datasource" />
     <None Include="Properties\DataSources\Central.Reportes.DiarioEnc.datasource" />
@@ -341,6 +361,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icono.ico" />
+    <Content Include="Img-Logo%281%29.ico" />
+    <Content Include="Logo.ico" />
     <Content Include="terminal-pos.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

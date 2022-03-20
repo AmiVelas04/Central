@@ -66,16 +66,18 @@ namespace Central.Formularios
             LblUsu.Text = "Usuario: " + nombre;
             if (nivel == "3")
             {
-                BtnCaja.Visible = false;
-                BtnProductos.Visible = false;
+                //BtnCaja.Visible = false;
+                // BtnProductos.Visible = false;
                 BtnUsu.Visible = false;
                 BtnREportes.Visible = false;
                 BtnCap.Visible = false;
             }
+       
 
             if (id.ToString() == "5" || id.ToString()=="4")
             {
                 BtnProductos.Visible = true;
+              //  BtnCaja.Visible = true;
             }
 
         }
@@ -105,6 +107,11 @@ namespace Central.Formularios
         {
             Respaldo resp = new Respaldo();
             resp.Show();
+        }
+
+        private void BtnCli_Click(object sender, EventArgs e)
+        {
+            abrir_form(new Cliente());
         }
     }
 }

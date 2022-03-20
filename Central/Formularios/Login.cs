@@ -42,7 +42,7 @@ namespace Central.Formularios
             {
               
                 Main Menu = new Main();
-                MessageBox.Show("Ingreso correcto", "Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              //  MessageBox.Show("Ingreso correcto", "Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
                 MessageBox.Show("¡Existen  " + prod.cantidadcaduca().ToString() + " producto(s) que caducarán en 30 días o menos! \n¡Verifique listado de productos!","Productos que caducan",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
@@ -68,6 +68,11 @@ namespace Central.Formularios
             {
                 loguear();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            TxtUsu.Focus();
         }
     }
 }

@@ -69,8 +69,8 @@ namespace Central.Clases
         public bool agregprod(string[] datos)
         {
             string consulta;
-            consulta = "Insert into producto (id_prod,nombre, descripcion,marca,precio_c,precio_v,cantidad,fecha_cad,pack,p_pack) "+
-                "Values('"+datos [0] + "','"+ datos[1] + "','"+ datos[2] + "','"+ datos[3] + "'," + datos[4] + ","+ datos[5] + "," + datos[6] + ",'" + datos[7] +"',"+datos[8]+","+datos [9]+")";
+            consulta = "Insert into producto (id_prod,nombre, descripcion,marca,precio_c,precio_v,cantidad,fecha_cad,pack,p_pack,precio_v2) "+
+                "Values('"+datos [0] + "','"+ datos[1] + "','"+ datos[2] + "','"+ datos[3] + "'," + datos[4] + ","+ datos[5] + "," + datos[6] + ",'" + datos[7] +"',"+datos[8]+","+datos [9]+"," +datos[10]+")";
             return consulta_gen(consulta);
 
         }
@@ -78,7 +78,7 @@ namespace Central.Clases
         public bool actualprod(string[] datos)
         {
             string consulta;
-            consulta = "Update producto set nombre='"+ datos[1] + "', descripcion ='"+ datos[2] + "',marca ='"+datos[3] +"',precio_c=" + datos[4] + ",precio_v="+ datos[5] + ",cantidad="+ datos[6] + ",fecha_cad= '" + datos[7] + "',pack="+datos[8]+", p_pack="+datos[9] + 
+            consulta = "Update producto set nombre='"+ datos[1] + "', descripcion ='"+ datos[2] + "',marca ='"+datos[3] +"',precio_c=" + datos[4] + ",precio_v="+ datos[5] + ",cantidad="+ datos[6] + ",fecha_cad= '" + datos[7] + "',pack="+datos[8]+", p_pack="+datos[9] + ", precio_v2=" + datos[10] +
                 " Where id_prod='" + datos[0] + "'";
             return consulta_gen(consulta);
 
@@ -87,7 +87,7 @@ namespace Central.Clases
         public DataTable buscarprod(string cod)
         {
             string consulta;
-            consulta = "Select Nombre,Descripcion,Marca,precio_c as Costo,precio_v as Venta,Cantidad,Date_format(fecha_cad,'%d-%m-%y')as Caducidad, pack as Paquete,p_pack as PrecioxPaquete "+
+            consulta = "Select Nombre,Descripcion,Marca,precio_c as Costo,precio_v as Venta,Cantidad,Date_format(fecha_cad,'%d-%m-%y')as Caducidad, pack as Paquete,p_pack as PrecioxPaquete,precio_v2 "+
                 "from producto where id_prod='" + cod + "'";
             return buscar(consulta);
         }
@@ -95,7 +95,7 @@ namespace Central.Clases
         public DataTable Buscarprodnom(string nom,string marc, string desc)
         {
             string consulta;
-            consulta = "Select id_prod as Codigo,Nombre,Descripcion,Marca,precio_c as Costo,precio_v as Venta,Cantidad,Date_format(fecha_cad,'%d-%m-%y')as Caducidad, pack as Paquete,p_pack as PrecioxPaquete "+
+            consulta = "Select id_prod as Codigo,Nombre,Descripcion,Marca,precio_c as Costo,precio_v as Venta,precio_V2 as Venta2,Cantidad,Date_format(fecha_cad,'%d-%m-%y')as Caducidad, pack as Paquete,p_pack as PrecioxPaquete "+
                         "from producto "+
                         "where nombre like'%" + nom + "%' and marca like '%"+marc+"%' and descripcion like '%"+desc+"%'" ;
             return buscar(consulta);
@@ -365,6 +365,14 @@ namespace Central.Clases
             consulta = "Select id_prod as Codigo,Nombre,Descripcion,Marca,precio_c as Costo,precio_v as Precio,Cantidad,Date_format(fecha_cad,'%d-%m-%y')as Caducidad, pack as Paquete,p_pack as PrecioxPaquete " +
                         "from producto " +
                         "where nombre like'%" + nom + "%' or marca like '%" + nom + "%' or descripcion like '%" + nom + "%'";
+            return buscar(consulta);
+        }
+
+        public DataTable precios(string cod)
+        {
+            string consulta;
+            consulta = "Select precio_v as Venta1,precio_V2 as Venta2 " +
+                "from producto where id_prod='" + cod + "'";
             return buscar(consulta);
         }
     

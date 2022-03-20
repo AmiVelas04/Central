@@ -43,6 +43,7 @@
             this.DtpF1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Gbxproductos = new System.Windows.Forms.GroupBox();
+            this.CboInven = new System.Windows.Forms.ComboBox();
             this.BtnInventario = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GbxGanacias = new System.Windows.Forms.GroupBox();
@@ -53,7 +54,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpGI = new System.Windows.Forms.DateTimePicker();
-            this.CboInven = new System.Windows.Forms.ComboBox();
+            this.BtnVenCli = new System.Windows.Forms.Button();
+            this.CboCli = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.PanSup.SuspendLayout();
             this.PanSder.SuspendLayout();
             this.GbxSemanal.SuspendLayout();
@@ -88,6 +91,9 @@
             // 
             // GbxSemanal
             // 
+            this.GbxSemanal.Controls.Add(this.label5);
+            this.GbxSemanal.Controls.Add(this.CboCli);
+            this.GbxSemanal.Controls.Add(this.BtnVenCli);
             this.GbxSemanal.Controls.Add(this.BtnRepS);
             this.GbxSemanal.Controls.Add(this.DtpTf);
             this.GbxSemanal.Controls.Add(this.label2);
@@ -105,7 +111,7 @@
             // 
             // BtnRepS
             // 
-            this.BtnRepS.Location = new System.Drawing.Point(141, 106);
+            this.BtnRepS.Location = new System.Drawing.Point(36, 148);
             this.BtnRepS.Margin = new System.Windows.Forms.Padding(4);
             this.BtnRepS.Name = "BtnRepS";
             this.BtnRepS.Size = new System.Drawing.Size(129, 52);
@@ -228,6 +234,20 @@
             this.Gbxproductos.TabStop = false;
             this.Gbxproductos.Text = "Inventario";
             // 
+            // CboInven
+            // 
+            this.CboInven.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboInven.FormattingEnabled = true;
+            this.CboInven.Items.AddRange(new object[] {
+            "Todos los productos",
+            "Existencias",
+            "Entre 1 y 10 existencias",
+            "Entre 10 o mas existencias"});
+            this.CboInven.Location = new System.Drawing.Point(69, 119);
+            this.CboInven.Name = "CboInven";
+            this.CboInven.Size = new System.Drawing.Size(285, 25);
+            this.CboInven.TabIndex = 1;
+            // 
             // BtnInventario
             // 
             this.BtnInventario.Location = new System.Drawing.Point(157, 40);
@@ -266,7 +286,7 @@
             // 
             // BtnVentas
             // 
-            this.BtnVentas.Location = new System.Drawing.Point(168, 94);
+            this.BtnVentas.Location = new System.Drawing.Point(294, 94);
             this.BtnVentas.Name = "BtnVentas";
             this.BtnVentas.Size = new System.Drawing.Size(91, 50);
             this.BtnVentas.TabIndex = 7;
@@ -276,13 +296,14 @@
             // 
             // BtnMasVen
             // 
-            this.BtnMasVen.Location = new System.Drawing.Point(290, 94);
+            this.BtnMasVen.Location = new System.Drawing.Point(174, 18);
             this.BtnMasVen.Margin = new System.Windows.Forms.Padding(4);
             this.BtnMasVen.Name = "BtnMasVen";
-            this.BtnMasVen.Size = new System.Drawing.Size(95, 50);
+            this.BtnMasVen.Size = new System.Drawing.Size(54, 25);
             this.BtnMasVen.TabIndex = 6;
             this.BtnMasVen.Text = "Mas vendidos";
             this.BtnMasVen.UseVisualStyleBackColor = true;
+            this.BtnMasVen.Visible = false;
             this.BtnMasVen.Click += new System.EventHandler(this.BtnMasVen_Click_1);
             // 
             // BtnGan
@@ -329,19 +350,34 @@
             this.DtpGI.Size = new System.Drawing.Size(140, 25);
             this.DtpGI.TabIndex = 0;
             // 
-            // CboInven
+            // BtnVenCli
             // 
-            this.CboInven.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboInven.FormattingEnabled = true;
-            this.CboInven.Items.AddRange(new object[] {
-            "Todos los productos",
-            "Existencias",
-            "Entre 1 y 10 existencias",
-            "Entre 10 o mas existencias"});
-            this.CboInven.Location = new System.Drawing.Point(69, 119);
-            this.CboInven.Name = "CboInven";
-            this.CboInven.Size = new System.Drawing.Size(285, 25);
-            this.CboInven.TabIndex = 1;
+            this.BtnVenCli.Location = new System.Drawing.Point(230, 148);
+            this.BtnVenCli.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnVenCli.Name = "BtnVenCli";
+            this.BtnVenCli.Size = new System.Drawing.Size(129, 52);
+            this.BtnVenCli.TabIndex = 5;
+            this.BtnVenCli.Text = "Ventas Por clientes";
+            this.BtnVenCli.UseVisualStyleBackColor = true;
+            this.BtnVenCli.Click += new System.EventHandler(this.BtnVenCli_Click);
+            // 
+            // CboCli
+            // 
+            this.CboCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboCli.FormattingEnabled = true;
+            this.CboCli.Location = new System.Drawing.Point(159, 104);
+            this.CboCli.Name = "CboCli";
+            this.CboCli.Size = new System.Drawing.Size(200, 25);
+            this.CboCli.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Cliente";
             // 
             // Reportes
             // 
@@ -401,5 +437,8 @@
         private System.Windows.Forms.Button BtnMasVen;
         private System.Windows.Forms.Button BtnVentas;
         private System.Windows.Forms.ComboBox CboInven;
+        private System.Windows.Forms.Button BtnVenCli;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox CboCli;
     }
 }

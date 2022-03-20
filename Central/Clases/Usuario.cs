@@ -59,6 +59,18 @@ namespace Central.Clases
             string consulta = "Select count(*) from cajero where id_cajero=" + idusu ;
             return (Int32.Parse(buscar(consulta).Rows[0][0].ToString()) > 0);
         }
+
+        public DataTable Usutodos()
+        {
+            string consulta = "Select id_cajero,Nombre from cajero where id_cajero>1";
+            return buscar(consulta);
+        }
+
+        public DataTable UsumAdmin()
+        {
+            string consulta = "Select id_cajero,Nombre, from cajero where id_cajero";
+            return buscar(consulta);
+        }
         private int idusu()
         {
             DataTable datos = new DataTable();

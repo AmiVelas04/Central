@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.PanLat = new System.Windows.Forms.Panel();
+            this.BtnCli = new System.Windows.Forms.Button();
             this.BtnCap = new System.Windows.Forms.Button();
             this.BtnCaja = new System.Windows.Forms.Button();
             this.BtnREportes = new System.Windows.Forms.Button();
@@ -47,7 +48,8 @@
             // 
             // PanLat
             // 
-            this.PanLat.BackColor = System.Drawing.Color.Gray;
+            this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
+            this.PanLat.Controls.Add(this.BtnCli);
             this.PanLat.Controls.Add(this.BtnCap);
             this.PanLat.Controls.Add(this.BtnCaja);
             this.PanLat.Controls.Add(this.BtnREportes);
@@ -59,6 +61,22 @@
             this.PanLat.Name = "PanLat";
             this.PanLat.Size = new System.Drawing.Size(131, 600);
             this.PanLat.TabIndex = 0;
+            // 
+            // BtnCli
+            // 
+            this.BtnCli.FlatAppearance.BorderSize = 0;
+            this.BtnCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCli.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCli.Image = ((System.Drawing.Image)(resources.GetObject("BtnCli.Image")));
+            this.BtnCli.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCli.Location = new System.Drawing.Point(0, 344);
+            this.BtnCli.Name = "BtnCli";
+            this.BtnCli.Size = new System.Drawing.Size(131, 35);
+            this.BtnCli.TabIndex = 6;
+            this.BtnCli.Text = "Clientes";
+            this.BtnCli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCli.UseVisualStyleBackColor = true;
+            this.BtnCli.Click += new System.EventHandler(this.BtnCli_Click);
             // 
             // BtnCap
             // 
@@ -158,7 +176,7 @@
             // 
             // PanSup
             // 
-            this.PanSup.BackColor = System.Drawing.Color.Gray;
+            this.PanSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
             this.PanSup.Controls.Add(this.BtnMin);
             this.PanSup.Controls.Add(this.BtnCerrar);
             this.PanSup.Controls.Add(this.LblUsu);
@@ -208,6 +226,7 @@
             // PanCentral
             // 
             this.PanCentral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.PanCentral.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanCentral.BackgroundImage")));
             this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PanCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanCentral.Location = new System.Drawing.Point(131, 66);
@@ -251,5 +270,6 @@
         private System.Windows.Forms.Button BtnCaja;
         private System.Windows.Forms.Button BtnMin;
         private System.Windows.Forms.Button BtnCap;
+        private System.Windows.Forms.Button BtnCli;
     }
 }

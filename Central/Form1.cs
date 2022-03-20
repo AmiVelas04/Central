@@ -32,5 +32,10 @@ namespace Central
         {
 
         }
+
+        private void PanCent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

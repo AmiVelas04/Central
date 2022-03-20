@@ -41,21 +41,21 @@
             // 
             // BtnIniciar
             // 
-            this.BtnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(184)))), ((int)(((byte)(186)))));
+            this.BtnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
             this.BtnIniciar.FlatAppearance.BorderSize = 0;
             this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIniciar.Location = new System.Drawing.Point(53, 183);
             this.BtnIniciar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnIniciar.Name = "BtnIniciar";
             this.BtnIniciar.Size = new System.Drawing.Size(129, 38);
-            this.BtnIniciar.TabIndex = 0;
+            this.BtnIniciar.TabIndex = 2;
             this.BtnIniciar.Text = "Iniciar Sesion";
             this.BtnIniciar.UseVisualStyleBackColor = false;
             this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
             this.panel1.Controls.Add(this.BtnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -71,7 +71,7 @@
             this.BtnCerrar.Location = new System.Drawing.Point(174, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(62, 55);
-            this.BtnCerrar.TabIndex = 0;
+            this.BtnCerrar.TabIndex = 3;
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
@@ -89,7 +89,7 @@
             this.TxtUsu.Location = new System.Drawing.Point(25, 86);
             this.TxtUsu.Name = "TxtUsu";
             this.TxtUsu.Size = new System.Drawing.Size(184, 25);
-            this.TxtUsu.TabIndex = 3;
+            this.TxtUsu.TabIndex = 0;
             this.TxtUsu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -107,7 +107,7 @@
             this.TxtPass.Name = "TxtPass";
             this.TxtPass.PasswordChar = '*';
             this.TxtPass.Size = new System.Drawing.Size(184, 25);
-            this.TxtPass.TabIndex = 5;
+            this.TxtPass.TabIndex = 1;
             this.TxtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPass_KeyDown);
             // 
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(255)))), ((int)(((byte)(2)))));
             this.ClientSize = new System.Drawing.Size(236, 231);
             this.Controls.Add(this.TxtPass);
             this.Controls.Add(this.label2);
@@ -130,6 +130,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

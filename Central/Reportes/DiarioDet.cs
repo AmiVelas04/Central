@@ -17,6 +17,8 @@ namespace Central.Reportes
         public decimal precio { get; set; }
         public decimal subtotal { get; set; }
         public string marca { get; set; }
+
+        public string fecha { get; set; }
        
     }
 }

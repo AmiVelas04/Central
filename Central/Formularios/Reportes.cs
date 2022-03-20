@@ -14,6 +14,7 @@ namespace Central.Formularios
     {
         Clases.Reporte Rep = new Clases.Reporte();
         Clases.Producto Prod = new Clases.Producto();
+        Clases.ClaseCliente Cli = new Clases.ClaseCliente();
         public Reportes()
         {
             InitializeComponent();
@@ -84,6 +85,31 @@ namespace Central.Formularios
         {
             CboInven.SelectedIndex = 0;
 
+        }
+
+        private void cargarCliente()
+        {
+            DataTable datos = new DataTable();
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            datos = Cli.clientes();
+            CboCli.DataSource = datos;
+            CboCli.ValueMember = "id_cli";
+            CboCli.DisplayMember = "Nombre";
+            foreach (DataRow row in datos.Rows)
+            {
+                coleccion.Add(row["Nombre"].ToString());
+            }
+            CboCli.AutoCompleteMode = AutoCompleteMode.Suggest;
+            CboCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            CboCli.AutoCompleteCustomSource = coleccion;
+        }
+
+        private void BtnVenCli_Click(object sender, EventArgs e)
+        {
+            string fechai, fechaf;
+            fechai = DtpGI.Value.ToString("yyyy/MM/dd");
+            fechaf = DtpGf.Value.ToString("yyyy/MM/dd");
+            Rep.VentaCli(fechai, fechaf);
         }
     }
 }

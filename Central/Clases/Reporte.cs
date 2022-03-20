@@ -163,5 +163,43 @@ namespace Central.Clases
             Total.Show();
 
         }
+
+        public void VentaCli(string fechai, string fechaf)
+        {
+            Reportes.DiarioEnc enc = new Reportes.DiarioEnc();
+            int cant, cont;
+            string FechI, FechaF, consulta;
+            DataTable datos = new DataTable();
+            FechI = fechai + " 00:00:00";
+            FechaF = fechaf + " 23:59:59";
+            consulta = "SELECT v.ID_VENTA AS venta , p.id_prod AS idP, p.nombre AS nombre,p.descripcion as descr, d.cantidad, d.precio, (d.cantidad*d.precio), SUM((d.cantidad*d.precio)),v.descu FROM producto p,Date_format(v.FECHA_H,'%d/%m/%y') as Fecha  " +
+                       "INNER JOIN detalle d ON d.ID_PROD = p.id_prod " +
+                       "INNER JOIN venta v ON v.ID_VENTA = d.ID_VENTA " +
+                       "WHERE v.FECHA_H >= '" + FechI + "' AND v.FECHA_H <= '" + FechaF + "' " +
+                       "GROUP BY d.ID_DETALLE,v.ID_VENTA " +
+                       "ORDER BY v.ID_VENTA";
+            datos = buscar(consulta);
+            cant = datos.Rows.Count;
+          //  enc.fecha = fecha;
+            enc.descuento = decimal.Parse(datos.Rows[0][8].ToString());
+            for (cont = 0; cont < cant; cont++)
+            {
+                Reportes.DiarioDet Det = new Reportes.DiarioDet();
+                Det.orden = cont + 1;
+                Det.venta = Int32.Parse(datos.Rows[cont][0].ToString());
+                Det.codigo = datos.Rows[cont][1].ToString();
+                Det.producto = datos.Rows[cont][2].ToString();
+                Det.desc = datos.Rows[cont][3].ToString();
+                Det.cantidad = Int32.Parse(datos.Rows[cont][4].ToString());
+                Det.precio = decimal.Parse(datos.Rows[cont][5].ToString());
+                Det.subtotal = decimal.Parse(datos.Rows[cont][6].ToString());
+                
+                enc.Detalle.Add(Det);
+            }
+            Reportes.Diario repo = new Reportes.Diario();
+            repo.Enca.Add(enc);
+            repo.Deta = enc.Detalle;
+            repo.Show();
+        }
     }
 }

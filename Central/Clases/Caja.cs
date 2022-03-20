@@ -81,8 +81,8 @@ namespace Central.Clases
         public bool ingreope(string [] datos)
         {
             int cod = idope() + 1;
-            string consulta = "insert into caja(id_ope,operacion,descripcion,monto,fecha,estado) "+
-                              "Values("+cod+",'" + datos[0]+ "','"+datos[1]+ "',"+datos[2]+",'"+datos[3] +"','Activo')";
+            string consulta = "insert into caja(id_ope,operacion,descripcion,monto,fecha,estado,id_caje) "+
+                              "Values("+cod+",'" + datos[0]+ "','"+datos[1]+ "',"+datos[2]+",'"+datos[3] +"','Activo',"+datos[4]+")";
             return consulta_gen(consulta);
         }
 
@@ -99,29 +99,58 @@ namespace Central.Clases
             return buscar(consulta);
         }
 
-        public decimal ingre(string fecha)
+        public DataTable BuscarOpeVende(string idvende, string fecha)
+        {
+            string consulta;
+            string fech1, fech2;
+            fech1 = fecha + " 00:00:00";
+            fech2 = fecha + " 23:59:59";
+
+            consulta = "Select operacion, Descripcion,monto from caja " +
+                "where fecha>='" + fech1 + "' and fecha<='" + fech2 + "' and estado ='Activo' and id_caje="+idvende;
+            return buscar(consulta);
+        }
+
+        public decimal ingre(string fecha, string idven)
         {
             string consulta;
             string fech1, fech2;
             fech1 = fecha + " 00:00:00";
             fech2 = fecha + " 23:59:59";
             DataTable datos = new DataTable();
-            consulta = "Select Sum(monto) from caja " +
-                "where fecha>='" + fech1 + "' and fecha<='" + fech2 + "' and operacion = 'Ingreso' and estado ='Activo'";
+            if (idven.Equals("0"))
+            {
+                consulta = "Select Sum(monto) from caja " +
+                   "where fecha>='" + fech1 + "' and fecha<='" + fech2 + "' and operacion = 'Ingreso' and estado ='Activo'";
+            }
+            else {
+                consulta = "Select Sum(monto) from caja " +
+             "where fecha>='" + fech1 + "' and fecha<='" + fech2 + "' and operacion = 'Ingreso' and estado ='Activo' and id_caje="+idven;
+            }
+            
             datos = buscar(consulta);
             if (datos.Rows[0][0] != DBNull.Value)
                 return decimal.Parse(datos.Rows[0][0].ToString ());
             return 0;
         }
-        public  decimal egres(string fecha)
+        public  decimal egres(string fecha,string idven)
         {
             string consulta;
             string fech1, fech2;
             fech1 = fecha + " 00:00:00";
             fech2 = fecha + " 23:59:59";
             DataTable datos = new DataTable();
-            consulta = "Select Sum(monto) from caja " +
+            if (idven.Equals("0"))
+            {
+                consulta = "Select Sum(monto) from caja " +
                 "where fecha>='" + fech1 + "' and fecha<='" + fech2 + "' and operacion = 'Egreso' and estado ='Activo'";
+            }
+            else
+            {
+                consulta = "Select Sum(monto) from caja " +
+                "where fecha>='" + fech1 + "' and fecha<='" + fech2 + "' and operacion = 'Egreso' and estado ='Activo' and id_caje="+idven;
+            }
+              
             datos = buscar(consulta);
             if (datos.Rows[0][0] != DBNull.Value)
                 return decimal.Parse(datos.Rows[0][0].ToString());

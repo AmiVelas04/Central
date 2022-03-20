@@ -51,7 +51,7 @@ namespace Central.Formularios
 
 
 
-        private void BuscarProdu()
+     /*   private void BuscarProdu()
         {
             DataTable datos = new DataTable();
             string nom;
@@ -60,7 +60,7 @@ namespace Central.Formularios
             DgvDatos.DataSource = datos;
             
 
-        }
+        }*/
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
