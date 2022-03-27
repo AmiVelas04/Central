@@ -26,7 +26,7 @@ namespace Central.Clases
             catch (Exception ex)
             {
                 string mensaje = ex.ToString() + "\n" + consulta;
-                MessageBox.Show("Se presento un inconveniente en el proceso de clientes ", "Adevertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Se presento un inconveniente en el proceso de clientes", "Adevertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return datos;
 
@@ -67,7 +67,14 @@ namespace Central.Clases
             consulta = "Select id_cli, nombre from clientes";
             datos = buscar(consulta);
             return datos;
-
+        }
+        public DataTable clientesCre()
+        {
+            String consulta;
+            DataTable datos = new DataTable();
+            consulta = "Select id_cli, nombre from clientes where id_cli!=1" ;
+            datos = buscar(consulta);
+            return datos;
         }
 
         public DataTable clienSin()

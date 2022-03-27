@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanSup = new System.Windows.Forms.Panel();
+            this.ChkCredito = new System.Windows.Forms.CheckBox();
             this.CboPrecio = new System.Windows.Forms.ComboBox();
             this.CboCli = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,6 +74,7 @@
             // 
             // PanSup
             // 
+            this.PanSup.Controls.Add(this.ChkCredito);
             this.PanSup.Controls.Add(this.CboPrecio);
             this.PanSup.Controls.Add(this.CboCli);
             this.PanSup.Controls.Add(this.label10);
@@ -99,6 +101,17 @@
             this.PanSup.Size = new System.Drawing.Size(869, 163);
             this.PanSup.TabIndex = 0;
             // 
+            // ChkCredito
+            // 
+            this.ChkCredito.AutoSize = true;
+            this.ChkCredito.Location = new System.Drawing.Point(429, 12);
+            this.ChkCredito.Name = "ChkCredito";
+            this.ChkCredito.Size = new System.Drawing.Size(79, 24);
+            this.ChkCredito.TabIndex = 21;
+            this.ChkCredito.Text = "Credito";
+            this.ChkCredito.UseVisualStyleBackColor = true;
+            this.ChkCredito.CheckedChanged += new System.EventHandler(this.ChkCredito_CheckedChanged);
+            // 
             // CboPrecio
             // 
             this.CboPrecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -114,7 +127,7 @@
             this.CboCli.FormattingEnabled = true;
             this.CboCli.Location = new System.Drawing.Point(90, 9);
             this.CboCli.Name = "CboCli";
-            this.CboCli.Size = new System.Drawing.Size(422, 28);
+            this.CboCli.Size = new System.Drawing.Size(323, 28);
             this.CboCli.TabIndex = 19;
             // 
             // label10
@@ -198,6 +211,11 @@
             // 
             this.NudCant.Location = new System.Drawing.Point(552, 124);
             this.NudCant.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NudCant.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.NudCant.Name = "NudCant";
             this.NudCant.Size = new System.Drawing.Size(85, 27);
             this.NudCant.TabIndex = 10;
@@ -520,5 +538,6 @@
         private System.Windows.Forms.ComboBox CboCli;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CboPrecio;
+        private System.Windows.Forms.CheckBox ChkCredito;
     }
 }

@@ -17,6 +17,8 @@ namespace Central.Formularios
         Clases.Venta ven = new Clases.Venta();
         DataTable respaldo = new DataTable();
         Clases.ClaseCliente cli = new Clases.ClaseCliente();
+        Clases.CreditoClase credi = new Clases.CreditoClase();
+        public string idusu, nombreU, nivelusu;
         decimal Refectivo;
 
         public Ventas()
@@ -207,22 +209,40 @@ namespace Central.Formularios
         }
         private void BtnCobrar_Click(object sender, EventArgs e)
         {
-            cambio();
-
-            if (DgvProd.Rows.Count <= 0)
+            if (ChkCredito.Checked)
             {
-                MessageBox.Show("No existen Productos");
+                if (CboCli.SelectedValue.ToString().Equals("1"))
+                {
+                    MessageBox.Show("No se puede generar credito al cosumidor final!","No credito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else
+                {
+                    TxtCamb.Text = "0";
+                    PrepProd();
+                    limpiar();
+                    TxtCod.Focus();
+                }
             }
-            else if (decimal.Parse(TxtCamb.Text) < 0)
-            { MessageBox.Show("El monto de efectivo es incorrecto"); }
-            else if (TxtEfect.Text == "")
-            { MessageBox.Show("No se ha ingresado el monto del efectivo"); }
-
             else
             {
-                PrepProd();
-                limpiar();
-                TxtCod.Focus();
+                if (TxtEfect.Text == "") TxtEfect.Text = "0";
+                cambio();
+                if (DgvProd.Rows.Count <= 0)
+                {
+                    MessageBox.Show("No existen Productos");
+                }
+                else if (decimal.Parse(TxtCamb.Text) < 0)
+                { MessageBox.Show("El monto de efectivo es incorrecto"); }
+                else if (TxtEfect.Text == "")
+                { MessageBox.Show("No se ha ingresado el monto del efectivo"); }
+                else
+                {
+
+                    PrepProd();
+                    limpiar();
+                    TxtCod.Focus();
+                }
             }
         }
 
@@ -257,6 +277,7 @@ namespace Central.Formularios
                     fila["PrecioxPaquete"] = DgvProd.Rows[cont].Cells[8].Value;
                     datos.Rows.Add(fila);
                 }
+                if (TxtEfect.Text == "") TxtEfect.Text = "0";
                 decimal efect = decimal.Parse(TxtEfect.Text);
                 respaldo = datos;
                 Refectivo = decimal.Parse(TxtEfect.Text);
@@ -268,7 +289,8 @@ namespace Central.Formularios
                 }
                 if (ven.generarv(datos, efect,idc, Main.id.ToString (),descu))
                 {
-                  
+                    string venta = ven.idventa().ToString();
+                    RegCredi(venta);
                     MessageBox.Show("Venta correcta");
                 }
                 else
@@ -276,6 +298,24 @@ namespace Central.Formularios
                     MessageBox.Show("error en venta");
                 }
             }
+        }
+
+        private void RegCredi(string idven)
+        {
+            string clien,total,abono;
+            total = TxtTotal.Text;
+            if (TxtEfect.Text == "")
+            { abono = "0"; }
+            else
+            { abono = TxtEfect.Text; }
+            clien = CboCli.SelectedValue.ToString();
+            string[] datos = { clien,idven,total,abono,"Activo",idusu};
+            if (credi.IngresoCred(datos))
+            {
+                MessageBox.Show("Credito registrado correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            { MessageBox.Show("No se pudo registrar el codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
         private void BtnBorrar_Click(object sender, EventArgs e)
@@ -403,6 +443,7 @@ namespace Central.Formularios
             {
             decimal pago, efectivo, cambio;
                 if (!decimal.TryParse(TxtTotal.Text, out pago)) pago = 0;
+
                 if (decimal.TryParse(TxtEfect.Text, out efectivo))
                 { }
                 else
@@ -414,6 +455,18 @@ namespace Central.Formularios
                 }
 
     cambio = efectivo - pago;
+            if (cambio < 0)
+            {
+                if (ChkCredito.Checked)
+                {
+                    cambio=0;
+                }
+                else
+                {
+                    MessageBox.Show("Valor invalido!");
+                    return;
+                }
+            }
                 TxtCamb.Text = cambio.ToString ();
             BtnCobrar.Focus();
             }
@@ -568,6 +621,17 @@ namespace Central.Formularios
         {
             CambioPrecio();
         }
+
+        private void ChkCredito_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkCredito.Checked)
+            {
+                BtnCobrar.Text = "Generar credito";
+            }
+            else
+            { BtnCobrar.Text = "Cobrar"; }
+        }
+
         private void CambioPrecio()
         {
             if (DgvProd.Rows.Count > 0)

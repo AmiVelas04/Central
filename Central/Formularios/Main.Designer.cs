@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.PanLat = new System.Windows.Forms.Panel();
+            this.BtnCred = new System.Windows.Forms.Button();
             this.BtnCli = new System.Windows.Forms.Button();
             this.BtnCap = new System.Windows.Forms.Button();
             this.BtnCaja = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             // PanLat
             // 
             this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
+            this.PanLat.Controls.Add(this.BtnCred);
             this.PanLat.Controls.Add(this.BtnCli);
             this.PanLat.Controls.Add(this.BtnCap);
             this.PanLat.Controls.Add(this.BtnCaja);
@@ -61,6 +63,22 @@
             this.PanLat.Name = "PanLat";
             this.PanLat.Size = new System.Drawing.Size(131, 600);
             this.PanLat.TabIndex = 0;
+            // 
+            // BtnCred
+            // 
+            this.BtnCred.FlatAppearance.BorderSize = 0;
+            this.BtnCred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCred.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCred.Image = ((System.Drawing.Image)(resources.GetObject("BtnCred.Image")));
+            this.BtnCred.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCred.Location = new System.Drawing.Point(0, 399);
+            this.BtnCred.Name = "BtnCred";
+            this.BtnCred.Size = new System.Drawing.Size(131, 35);
+            this.BtnCred.TabIndex = 7;
+            this.BtnCred.Text = "Creditos";
+            this.BtnCred.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCred.UseVisualStyleBackColor = true;
+            this.BtnCred.Click += new System.EventHandler(this.BtnCred_Click);
             // 
             // BtnCli
             // 
@@ -192,7 +210,7 @@
             this.BtnMin.FlatAppearance.BorderSize = 0;
             this.BtnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMin.Image = ((System.Drawing.Image)(resources.GetObject("BtnMin.Image")));
-            this.BtnMin.Location = new System.Drawing.Point(748, 5);
+            this.BtnMin.Location = new System.Drawing.Point(744, 5);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Size = new System.Drawing.Size(55, 55);
             this.BtnMin.TabIndex = 2;
@@ -204,11 +222,11 @@
             this.BtnCerrar.FlatAppearance.BorderSize = 0;
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.Image")));
-            this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCerrar.Location = new System.Drawing.Point(809, 3);
+            this.BtnCerrar.Location = new System.Drawing.Point(806, 3);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(60, 63);
             this.BtnCerrar.TabIndex = 1;
+            this.BtnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -271,5 +289,6 @@
         private System.Windows.Forms.Button BtnMin;
         private System.Windows.Forms.Button BtnCap;
         private System.Windows.Forms.Button BtnCli;
+        private System.Windows.Forms.Button BtnCred;
     }
 }

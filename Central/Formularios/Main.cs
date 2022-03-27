@@ -33,6 +33,7 @@ namespace Central.Formularios
                 this.PanCentral.Controls.RemoveAt(0);
             }
             Form fh = formhijo as Form;
+            
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
             this.PanCentral.Controls.Add(fh);
@@ -43,7 +44,16 @@ namespace Central.Formularios
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
-            abrir_form(new Ventas());
+            // abrir_form(new Ventas());
+            PanCentral.Controls.Clear();
+            Ventas formul = new Ventas();
+            formul.TopLevel = false;
+            PanCentral.Controls.Add(formul);
+            PanCentral.Tag = formul;
+            formul.idusu = id.ToString();
+            formul.nivelusu = nivel.ToString();
+            formul.nombreU = nombre;
+            formul.Show();
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
@@ -112,6 +122,19 @@ namespace Central.Formularios
         private void BtnCli_Click(object sender, EventArgs e)
         {
             abrir_form(new Cliente());
+        }
+
+        private void BtnCred_Click(object sender, EventArgs e)
+        {
+            //abrir_form(new Credito());
+            PanCentral.Controls.Clear();
+            Credito formul = new Credito();
+            formul.TopLevel = false;
+            PanCentral.Controls.Add(formul);
+            PanCentral.Tag = formul;
+            formul.idvende = id.ToString();
+            formul.Cajero = nombre;
+            formul.Show();
         }
     }
 }

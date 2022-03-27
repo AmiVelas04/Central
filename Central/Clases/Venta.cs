@@ -93,6 +93,14 @@ namespace Central.Clases
                              "WHERE v.ID_VENTA ="+venta;
             return buscar(consulta);
         }
+
+        public DataTable VentasxCli(string cli)
+        {
+            string consulta = "SELECT * FROM venta v " +
+                              "INNER JOIN credito cre ON cre.id_venta = v.ID_VENTA "+
+                              "WHERE WHERE cre.ID_CLI ="+cli;
+            return buscar(consulta);
+        }
         #endregion
 
         public bool generarv(DataTable datos,decimal efect,string cliente,string cajero,string descu)
@@ -193,6 +201,19 @@ namespace Central.Clases
           ticket.Close();
 
 
+        }
+
+        public decimal TotalVenta(string venta)
+        {
+            decimal total;
+            string consulta = "SELECT SUM(d.TOTAL) AS total "+
+                              "FROM detalle d "+
+                              "INNER JOIN venta v ON v.ID_VENTA = d.ID_VENTA "+
+                              "WHERE v.ID_VENTA ="+venta;
+            DataTable datos = new DataTable();
+            datos=buscar(consulta);
+            total = decimal.Parse(datos.Rows[0][0].ToString());
+            return total;
         }
 
      }

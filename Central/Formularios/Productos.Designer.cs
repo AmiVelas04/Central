@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Productos));
             this.PanDer = new System.Windows.Forms.Panel();
+            this.TxtVenta2 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.Chk1 = new System.Windows.Forms.CheckBox();
             this.NudPack = new System.Windows.Forms.NumericUpDown();
             this.TxtPpack = new System.Windows.Forms.TextBox();
@@ -61,8 +63,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PanCent = new System.Windows.Forms.Panel();
             this.DgvDatos = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.TxtVenta2 = new System.Windows.Forms.TextBox();
             this.PanDer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud)).BeginInit();
@@ -103,6 +103,25 @@
             this.PanDer.Name = "PanDer";
             this.PanDer.Size = new System.Drawing.Size(314, 487);
             this.PanDer.TabIndex = 0;
+            // 
+            // TxtVenta2
+            // 
+            this.TxtVenta2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtVenta2.Location = new System.Drawing.Point(206, 244);
+            this.TxtVenta2.Name = "TxtVenta2";
+            this.TxtVenta2.Size = new System.Drawing.Size(80, 25);
+            this.TxtVenta2.TabIndex = 30;
+            this.TxtVenta2.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(205, 217);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 15);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Precio Cliente";
             // 
             // Chk1
             // 
@@ -181,7 +200,7 @@
             this.Nud.Location = new System.Drawing.Point(20, 390);
             this.Nud.Margin = new System.Windows.Forms.Padding(5);
             this.Nud.Maximum = new decimal(new int[] {
-            1000,
+            100000,
             0,
             0,
             0});
@@ -452,25 +471,6 @@
             this.DgvDatos.TabIndex = 0;
             this.DgvDatos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvDatos_ColumnHeaderMouseClick);
             this.DgvDatos.ColumnSortModeChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DgvDatos_ColumnSortModeChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(205, 217);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 15);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Precio Cliente";
-            // 
-            // TxtVenta2
-            // 
-            this.TxtVenta2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtVenta2.Location = new System.Drawing.Point(206, 244);
-            this.TxtVenta2.Name = "TxtVenta2";
-            this.TxtVenta2.Size = new System.Drawing.Size(80, 25);
-            this.TxtVenta2.TabIndex = 30;
-            this.TxtVenta2.Text = "0";
             // 
             // Productos
             // 
