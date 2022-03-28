@@ -54,7 +54,7 @@ namespace Central.Formularios
             }
             else
             {
-                MessageBox.Show("Error de datos, intentelo de nuevo");
+                MessageBox.Show("No se ha podido ingresar, porfavor intentelo de nuevo", "intentelo de nuevo",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
         private void BtnCerrar_Click(object sender, EventArgs e)

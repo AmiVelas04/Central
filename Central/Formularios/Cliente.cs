@@ -69,9 +69,9 @@ namespace Central.Formularios
             string[] datos = { nombre, dir, nit, dpi, tel };
             if (cli.ingrecli(datos))
             {
-                MessageBox.Show("Cliente ingresado correctamente");
+                MessageBox.Show("Cliente ingresado correctamente","Ingreso correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
-            else { MessageBox.Show("Error en ingreso de cliente"); }
+            else { MessageBox.Show("Error en ingreso de cliente","",MessageBoxButtons.OK,MessageBoxIcon.Exclamation); }
         }
 
         private void Updt()
@@ -86,9 +86,9 @@ namespace Central.Formularios
             string[] datos = { nombre, dir, nit, dpi, tel,idcli };
             if (cli.Actucli(datos))
             {
-                MessageBox.Show("Cliente Actualizado correctamente");
+                MessageBox.Show("Cliente Actualizado correctamente", "Ingreso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else { MessageBox.Show("Error al actualizar cliente"); }
+            else { MessageBox.Show("Error al actualizar cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
         private void editar()
