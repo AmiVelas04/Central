@@ -152,8 +152,15 @@ namespace Central.Clases
             DataTable usur = new DataTable();
             usur = usu.buscusu(cajero);
             atendio = usur.Rows[0][0].ToString();
-            string[] opera = { "Ingreso","Venta No "+venta + ",Operado por "+atendio,total.ToString (),DateTime .Now.ToString ("yyyy/MM/dd hh:mm:ss"),cajero};
-            caj.ingreope(opera);
+            if (efect >= total)
+            {
+                string[] opera = { "Ingreso", "Venta No " + venta + ",Operado por " + atendio, total.ToString(), DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"), cajero };
+                caj.ingreope(opera);
+            }
+            else if (efect > 0)
+            {
+            }
+               
             if (MessageBox.Show("¿Desea imprimir comprobante de venta?", "¿Imprimir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             { PrintTicket(venta, datos, efect, descu); }
             else { Regi.AbreCajon();
@@ -192,7 +199,10 @@ namespace Central.Clases
             Neto = decimal.Parse(total.ToString()) - decimal.Parse(descu);
             Enca.total = total.ToString();
             Enca.descu = descu.ToString();
-            Enca.cambio = Convert .ToString (efect -Neto);
+            decimal camb = 0;
+            camb = efect - Neto;
+            if (camb <= 0) camb = 0;
+            Enca.cambio = Convert .ToString (camb);
             Reportes.Ticket ticket = new Reportes.Ticket();
             ticket.Encabezado.Add(Enca);
             ticket.Detalle = Enca.Detall;

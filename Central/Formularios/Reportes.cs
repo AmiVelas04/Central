@@ -111,5 +111,14 @@ namespace Central.Formularios
             fechaf = DtpGf.Value.ToString("yyyy/MM/dd");
             Rep.VentaCli(fechai, fechaf);
         }
+
+        private void BtnCredi_Click(object sender, EventArgs e)
+        {
+            string fechai, fechaf;
+            fechai = DtpGI.Value.ToString("yyyy/MM/dd");
+            fechaf = DtpGf.Value.ToString("yyyy/MM/dd");
+            Rep.Creditos(fechai,fechaf);
+            
+        }
     }
 }

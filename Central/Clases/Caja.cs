@@ -19,12 +19,13 @@ namespace Central.Clases
     class Caja
     {
         Conexion conect= new Conexion();
-        #region "General"
+       
         public decimal ingreso { get; set; }
         public decimal egreso { get; set; }
         public decimal total { get; set; }
         private DateTime fecha;
-
+        private string Cajero;
+        #region "General"
         private DataTable buscar(string consulta)
         {
             conect.iniciar();
@@ -165,7 +166,7 @@ namespace Central.Clases
         {
             //string Esc = "\u001B";
             //string Gs = "\u001D";
-
+            
             Graphics g = ev.Graphics;
             g.DrawRectangle(Pens.Black, 1, 1, 280,325 );
             Font fBody = new Font("Lucida Console", 9, FontStyle.Regular );
@@ -174,10 +175,10 @@ namespace Central.Clases
 
             SolidBrush sb = new SolidBrush(Color.Black);
             g.DrawString("",fBody ,sb,10,10);
-            g.DrawString("Ticket de cierre de caja", fBodyT, sb, 10, 30);
+            g.DrawString("Ticket de cierre de caja. cajero: "+Cajero, fBodyT, sb, 10, 30);
             g.DrawString(fecha.ToString("dd/MM/yyyy HH:mm:ss"), fBody, sb, 10, 50);
             
-            g.DrawString("Realizó cierre: " + Formularios .Main .nombre , fBody, sb, 10, 90);
+            g.DrawString("Realizó cierre: " + Formularios.Main.nombre , fBody, sb, 10, 90);
             g.DrawString("Ingresos:      Q." + ingreso, fBody, sb, 10, 140);
             g.DrawString("Egresos:       Q." + egreso, fBody, sb, 10, 160);
             g.DrawString("__________________________________", fBody, sb, 10, 165);
@@ -188,9 +189,10 @@ namespace Central.Clases
 
         }
 
-        public void imprimir(DateTime fechaCierre)
+        public void imprimir(DateTime fechaCierre,string caje)
         {
             fecha = fechaCierre;
+            Cajero = caje;
             PrintDocument pd = new PrintDocument();
             PaperSize ps = new PaperSize("", 312, 340);
             pd.PrintPage += new PrintPageEventHandler(pd_printpage);

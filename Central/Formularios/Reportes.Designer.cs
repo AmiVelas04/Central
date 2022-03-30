@@ -31,6 +31,9 @@
             this.PanSup = new System.Windows.Forms.Panel();
             this.PanSder = new System.Windows.Forms.Panel();
             this.GbxSemanal = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CboCli = new System.Windows.Forms.ComboBox();
+            this.BtnVenCli = new System.Windows.Forms.Button();
             this.BtnRepS = new System.Windows.Forms.Button();
             this.DtpTf = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,9 +57,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpGI = new System.Windows.Forms.DateTimePicker();
-            this.BtnVenCli = new System.Windows.Forms.Button();
-            this.CboCli = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.BtnCredi = new System.Windows.Forms.Button();
             this.PanSup.SuspendLayout();
             this.PanSder.SuspendLayout();
             this.GbxSemanal.SuspendLayout();
@@ -108,6 +109,35 @@
             this.GbxSemanal.TabIndex = 0;
             this.GbxSemanal.TabStop = false;
             this.GbxSemanal.Text = "Reporte de Totales";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Cliente";
+            // 
+            // CboCli
+            // 
+            this.CboCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboCli.FormattingEnabled = true;
+            this.CboCli.Location = new System.Drawing.Point(159, 104);
+            this.CboCli.Name = "CboCli";
+            this.CboCli.Size = new System.Drawing.Size(200, 25);
+            this.CboCli.TabIndex = 6;
+            // 
+            // BtnVenCli
+            // 
+            this.BtnVenCli.Location = new System.Drawing.Point(230, 148);
+            this.BtnVenCli.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnVenCli.Name = "BtnVenCli";
+            this.BtnVenCli.Size = new System.Drawing.Size(129, 52);
+            this.BtnVenCli.TabIndex = 5;
+            this.BtnVenCli.Text = "Ventas Por clientes";
+            this.BtnVenCli.UseVisualStyleBackColor = true;
+            this.BtnVenCli.Click += new System.EventHandler(this.BtnVenCli_Click);
             // 
             // BtnRepS
             // 
@@ -269,6 +299,7 @@
             // 
             // GbxGanacias
             // 
+            this.GbxGanacias.Controls.Add(this.BtnCredi);
             this.GbxGanacias.Controls.Add(this.BtnVentas);
             this.GbxGanacias.Controls.Add(this.BtnMasVen);
             this.GbxGanacias.Controls.Add(this.BtnGan);
@@ -286,9 +317,9 @@
             // 
             // BtnVentas
             // 
-            this.BtnVentas.Location = new System.Drawing.Point(294, 94);
+            this.BtnVentas.Location = new System.Drawing.Point(147, 94);
             this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Size = new System.Drawing.Size(91, 50);
+            this.BtnVentas.Size = new System.Drawing.Size(95, 50);
             this.BtnVentas.TabIndex = 7;
             this.BtnVentas.Text = "Ventas";
             this.BtnVentas.UseVisualStyleBackColor = true;
@@ -310,7 +341,7 @@
             // 
             this.BtnGan.Location = new System.Drawing.Point(36, 94);
             this.BtnGan.Name = "BtnGan";
-            this.BtnGan.Size = new System.Drawing.Size(94, 50);
+            this.BtnGan.Size = new System.Drawing.Size(95, 50);
             this.BtnGan.TabIndex = 4;
             this.BtnGan.Text = "Ganancias";
             this.BtnGan.UseVisualStyleBackColor = true;
@@ -350,34 +381,15 @@
             this.DtpGI.Size = new System.Drawing.Size(140, 25);
             this.DtpGI.TabIndex = 0;
             // 
-            // BtnVenCli
+            // BtnCredi
             // 
-            this.BtnVenCli.Location = new System.Drawing.Point(230, 148);
-            this.BtnVenCli.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnVenCli.Name = "BtnVenCli";
-            this.BtnVenCli.Size = new System.Drawing.Size(129, 52);
-            this.BtnVenCli.TabIndex = 5;
-            this.BtnVenCli.Text = "Ventas Por clientes";
-            this.BtnVenCli.UseVisualStyleBackColor = true;
-            this.BtnVenCli.Click += new System.EventHandler(this.BtnVenCli_Click);
-            // 
-            // CboCli
-            // 
-            this.CboCli.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboCli.FormattingEnabled = true;
-            this.CboCli.Location = new System.Drawing.Point(159, 104);
-            this.CboCli.Name = "CboCli";
-            this.CboCli.Size = new System.Drawing.Size(200, 25);
-            this.CboCli.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Cliente";
+            this.BtnCredi.Location = new System.Drawing.Point(264, 94);
+            this.BtnCredi.Name = "BtnCredi";
+            this.BtnCredi.Size = new System.Drawing.Size(95, 50);
+            this.BtnCredi.TabIndex = 8;
+            this.BtnCredi.Text = "Creditos";
+            this.BtnCredi.UseVisualStyleBackColor = true;
+            this.BtnCredi.Click += new System.EventHandler(this.BtnCredi_Click);
             // 
             // Reportes
             // 
@@ -440,5 +452,6 @@
         private System.Windows.Forms.Button BtnVenCli;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CboCli;
+        private System.Windows.Forms.Button BtnCredi;
     }
 }

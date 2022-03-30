@@ -13,6 +13,8 @@ namespace Central.Clases
     class PagoClase
     {
         Conexion conec = new Conexion();
+        Caja caj = new Caja();
+        Usuario usua = new Usuario();
         #region "General"
         private DataTable buscar(string consulta)
         {
@@ -91,7 +93,12 @@ namespace Central.Clases
                 idpag++;
                 consulta = "Insert into pago(id_pago,id_cred,monto,detalle,fecha,id_cajero) " +
                          "Values(" + idpag.ToString() + "," + datos[0] + "," + datos[1] + ",'" + datos[2] + "','" + datos[3] + "'," + datos[4] + ")";
-                return consulta_gen(consulta);
+                string atendio;
+                DataTable usu = new DataTable();
+                usu = usua.buscusu(datos[4]);
+                atendio = usu.Rows[0][0].ToString();
+                string[] opera = { "Ingreso", "Abono de credito No " + datos[0] + ",Operado por " + atendio, datos[1], DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"), datos[4] };
+                return (consulta_gen(consulta) && caj.ingreope(opera));
             }
             catch (Exception ex)
             {
@@ -118,6 +125,8 @@ namespace Central.Clases
                 return false;
             }
         }
+
+
         #endregion
 
 

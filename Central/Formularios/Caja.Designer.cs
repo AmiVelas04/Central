@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caja));
             this.PanSup = new System.Windows.Forms.Panel();
+            this.BtnTodos = new System.Windows.Forms.Button();
+            this.CboVende = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.BtnAbrir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.TxtTotal = new System.Windows.Forms.TextBox();
@@ -50,10 +54,6 @@
             this.DtpFecha = new System.Windows.Forms.DateTimePicker();
             this.PanInf = new System.Windows.Forms.Panel();
             this.DgvOpe = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.CboVende = new System.Windows.Forms.ComboBox();
-            this.BtnTodos = new System.Windows.Forms.Button();
             this.PanSup.SuspendLayout();
             this.PanInf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOpe)).BeginInit();
@@ -91,6 +91,49 @@
             this.PanSup.Size = new System.Drawing.Size(832, 233);
             this.PanSup.TabIndex = 0;
             // 
+            // BtnTodos
+            // 
+            this.BtnTodos.Image = ((System.Drawing.Image)(resources.GetObject("BtnTodos.Image")));
+            this.BtnTodos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTodos.Location = new System.Drawing.Point(339, 80);
+            this.BtnTodos.Name = "BtnTodos";
+            this.BtnTodos.Size = new System.Drawing.Size(120, 38);
+            this.BtnTodos.TabIndex = 21;
+            this.BtnTodos.Text = "Caja Gen.";
+            this.BtnTodos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTodos.UseVisualStyleBackColor = true;
+            this.BtnTodos.Visible = false;
+            this.BtnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
+            // 
+            // CboVende
+            // 
+            this.CboVende.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboVende.FormattingEnabled = true;
+            this.CboVende.Location = new System.Drawing.Point(219, 34);
+            this.CboVende.Name = "CboVende";
+            this.CboVende.Size = new System.Drawing.Size(201, 25);
+            this.CboVende.TabIndex = 20;
+            this.CboVende.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(226, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 17);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Vendedor";
+            this.label8.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(38, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 17);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Fecha";
+            // 
             // BtnAbrir
             // 
             this.BtnAbrir.Image = ((System.Drawing.Image)(resources.GetObject("BtnAbrir.Image")));
@@ -107,7 +150,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(536, 8);
+            this.button1.Location = new System.Drawing.Point(339, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 38);
             this.button1.TabIndex = 16;
@@ -211,9 +254,9 @@
             // 
             // BtnIngresar
             // 
-            this.BtnIngresar.Location = new System.Drawing.Point(266, 168);
+            this.BtnIngresar.Location = new System.Drawing.Point(212, 168);
             this.BtnIngresar.Name = "BtnIngresar";
-            this.BtnIngresar.Size = new System.Drawing.Size(154, 38);
+            this.BtnIngresar.Size = new System.Drawing.Size(121, 38);
             this.BtnIngresar.TabIndex = 6;
             this.BtnIngresar.Text = "Ingresar a Caja";
             this.BtnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -303,49 +346,6 @@
             this.DgvOpe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvOpe.Size = new System.Drawing.Size(832, 185);
             this.DgvOpe.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 17);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Fecha";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(226, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 17);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Vendedor";
-            this.label8.Visible = false;
-            // 
-            // CboVende
-            // 
-            this.CboVende.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboVende.FormattingEnabled = true;
-            this.CboVende.Location = new System.Drawing.Point(219, 34);
-            this.CboVende.Name = "CboVende";
-            this.CboVende.Size = new System.Drawing.Size(201, 25);
-            this.CboVende.TabIndex = 20;
-            this.CboVende.Visible = false;
-            // 
-            // BtnTodos
-            // 
-            this.BtnTodos.Image = ((System.Drawing.Image)(resources.GetObject("BtnTodos.Image")));
-            this.BtnTodos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTodos.Location = new System.Drawing.Point(339, 80);
-            this.BtnTodos.Name = "BtnTodos";
-            this.BtnTodos.Size = new System.Drawing.Size(120, 38);
-            this.BtnTodos.TabIndex = 21;
-            this.BtnTodos.Text = "Caja Gen.";
-            this.BtnTodos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTodos.UseVisualStyleBackColor = true;
-            this.BtnTodos.Visible = false;
-            this.BtnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
             // 
             // Caja
             // 

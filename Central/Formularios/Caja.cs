@@ -85,7 +85,7 @@ namespace Central.Formularios
             CboOpe.Items.Add("Egreso");
             CboOpe.SelectedIndex = 0;
             NivelUsu = Main.nivel.ToString();
-            idcaj = Main.id.ToString();
+            idcaj =Main.id.ToString();
             if (NivelUsu.Equals("1") || NivelUsu.Equals("2"))
             {
                 MostrarAdmin();
@@ -122,9 +122,15 @@ namespace Central.Formularios
             return "";
         }
         private void button1_Click(object sender, EventArgs e)
-        {  /* caj.ingreso = caj.ingre(DtpFecha.Value.ToString("yyyy/MM/dd"));
-            caj .egreso = caj.egres(DtpFecha.Value.ToString("yyyy/MM/dd"));
-            caj.imprimir(DtpFecha .Value);*/
+        {
+            string idcaje, Nomcaje;
+            DataTable datos = new DataTable();
+            idcaje = CboVende.SelectedValue.ToString();
+          datos= usu.buscusu(idcaje);
+            Nomcaje = datos.Rows[0][0].ToString();
+            caj.ingreso = caj.ingre(DtpFecha.Value.ToString("yyyy/MM/dd"),idcaje);
+            caj .egreso = caj.egres(DtpFecha.Value.ToString("yyyy/MM/dd"),idcaje);
+            caj.imprimir(DtpFecha .Value,Nomcaje);
         }
 
         private void BtnAbrir_Click(object sender, EventArgs e)
@@ -160,6 +166,7 @@ namespace Central.Formularios
             BtnIngresar.Visible = true;
             CboVende.Visible = true;
             label8.Visible = true;
+            button1.Visible = true;
         }
 
       

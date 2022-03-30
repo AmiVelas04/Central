@@ -125,5 +125,31 @@ namespace Central.Clases
         }
         #endregion
 
+        #region Totales
+        public decimal TotalCredi(string f1, string f2)
+        {
+            string consulta,fe1,fe2;
+            DataTable datos = new DataTable();
+            decimal Total;
+            fe1 = f1 + " 00:00:00";
+            fe2 = f2 + " 23:59:59";
+            consulta = "SELECT SUM(cre.TOTAL) " +
+                       "FROM credito cre " +
+                       "INNER JOIN venta v ON v.ID_VENTA = cre.id_venta " +
+                       "WHERE v.FECHA_H >= '2022/03/27 00:00:00' AND v.FECHA_H <= '2022/03/29 23:59:59'";
+            datos = buscar(consulta);
+            if (datos.Rows[0][0] == DBNull.Value)
+            {
+                Total = 0;
+            }
+            else
+            {
+                Total = decimal.Parse(datos.Rows[0][0].ToString());
+            }
+            return Total;
+
+        }
+        #endregion
+
     }
 }

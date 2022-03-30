@@ -12,6 +12,7 @@ namespace Central.Clases
     class Reporte
     {
         Conexion conect = new Conexion();
+        CreditoClase cred = new CreditoClase();
         #region "General"
         private DataTable buscar(string consulta)
         {
@@ -200,6 +201,47 @@ namespace Central.Clases
             repo.Enca.Add(enc);
             repo.Deta = enc.Detalle;
             repo.Show();
+        }
+
+        public void Creditos(string fechai,string fechaf)
+        {
+            Reportes.CrediEnc Enca = new Reportes.CrediEnc();
+            string FechaI, FechaF, consulta;
+            int cont;
+            decimal totalcred;
+            DateTime f1, f2;
+            f1 = DateTime.Parse(fechai);
+            f2 = DateTime.Parse(fechaf);
+            FechaI = fechai + " 00:00:00";
+            FechaF = fechaf + " 23:59:59";
+            totalcred = cred.TotalCredi(fechai, fechaf);
+            DataTable datos = new DataTable();
+            consulta = "SELECT c.id_cred,cli.nombre,c.TOTAL ,Date_format(pag.fecha,'%d/%m/%y') as fecha,pag.monto "+
+                       "FROM credito c "+
+                       "inner JOIN clientes cli ON c.ID_CLI = cli.ID_CLI "+
+                       "INNER JOIN pago pag ON pag.id_cred = c.ID_CRED "+
+                       "Inner join venta v on v.id_venta=c.id_venta "+
+                       "where v.Fecha_h>='"+fechai+"' and v.fecha_h<='" +fechaf+"' ";
+            datos = buscar(consulta);
+            Enca.Titulo = "Reporte de creditos";
+            Enca.fecha1 = f1.ToString("dd/MM/yyyy");
+            Enca.fecha2 = f2.ToString("dd/MM/yyyy");
+            Enca.TotalCred = totalcred;
+            for (cont = 0; cont < datos.Rows.Count; cont++)
+            {
+                Reportes.CrediDet deta = new Reportes.CrediDet();
+                deta.orden = int.Parse(datos.Rows[cont][0].ToString());
+                deta.Cliente = datos.Rows[cont][1].ToString();
+                deta.Monto = decimal.Parse(datos.Rows[cont][2].ToString());
+                deta.Saldo = 0;
+                deta.fecha = datos.Rows[cont][3].ToString();
+                deta.pago = decimal.Parse(datos.Rows[cont][4].ToString());
+                Enca.Detalle.Add(deta);
+            }
+            Reportes.Creditos credi = new Reportes.Creditos();
+            credi.Enca.Add(Enca);
+            credi.Deta = Enca.Detalle;
+            credi.Show();
         }
     }
 }
