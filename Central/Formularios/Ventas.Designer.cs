@@ -104,9 +104,10 @@
             // ChkCredito
             // 
             this.ChkCredito.AutoSize = true;
-            this.ChkCredito.Location = new System.Drawing.Point(429, 12);
+            this.ChkCredito.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkCredito.Location = new System.Drawing.Point(415, 12);
             this.ChkCredito.Name = "ChkCredito";
-            this.ChkCredito.Size = new System.Drawing.Size(79, 24);
+            this.ChkCredito.Size = new System.Drawing.Size(97, 29);
             this.ChkCredito.TabIndex = 21;
             this.ChkCredito.Text = "Credito";
             this.ChkCredito.UseVisualStyleBackColor = true;
@@ -127,7 +128,7 @@
             this.CboCli.FormattingEnabled = true;
             this.CboCli.Location = new System.Drawing.Point(90, 9);
             this.CboCli.Name = "CboCli";
-            this.CboCli.Size = new System.Drawing.Size(323, 28);
+            this.CboCli.Size = new System.Drawing.Size(295, 28);
             this.CboCli.TabIndex = 19;
             // 
             // label10
@@ -269,7 +270,7 @@
             // Txtdesc
             // 
             this.Txtdesc.Enabled = false;
-            this.Txtdesc.Location = new System.Drawing.Point(265, 67);
+            this.Txtdesc.Location = new System.Drawing.Point(237, 67);
             this.Txtdesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Txtdesc.Name = "Txtdesc";
             this.Txtdesc.Size = new System.Drawing.Size(148, 27);
@@ -278,7 +279,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(280, 46);
+            this.label3.Location = new System.Drawing.Point(252, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 20);
@@ -300,7 +301,7 @@
             this.TxtCod.Location = new System.Drawing.Point(13, 67);
             this.TxtCod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtCod.Name = "TxtCod";
-            this.TxtCod.Size = new System.Drawing.Size(232, 27);
+            this.TxtCod.Size = new System.Drawing.Size(195, 27);
             this.TxtCod.TabIndex = 1;
             this.TxtCod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCod_KeyDown);
             // 

@@ -152,6 +152,10 @@ namespace Central.Clases
             DataTable usur = new DataTable();
             usur = usu.buscusu(cajero);
             atendio = usur.Rows[0][0].ToString();
+            if (total > efect)
+            {
+
+            }
             if (efect >= total)
             {
                 string[] opera = { "Ingreso", "Venta No " + venta + ",Operado por " + atendio, total.ToString(), DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"), cajero };
@@ -159,6 +163,7 @@ namespace Central.Clases
             }
             else if (efect > 0)
             {
+
             }
                
             if (MessageBox.Show("¿Desea imprimir comprobante de venta?", "¿Imprimir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

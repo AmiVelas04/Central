@@ -91,7 +91,9 @@ namespace Central.Clases
             consulta = "Insert into credito(id_cred,id_cli,id_venta,Total,Anticipo,Estado) "+
                        "values("+idcred+","+datos[0]+","+datos[1]+","+datos[2]+","+datos[3]+",'"+datos[4]+"')";
             if (datos[3].Equals("0"))
-            { }
+            {
+                return consulta_gen(consulta);
+            }
             else
             {
                 if (consulta_gen(consulta))
@@ -100,7 +102,7 @@ namespace Central.Clases
                     string[] pagdata = { idcred.ToString(), datos[3], "Primer pago de credito No " + idcred, fecha, datos[5] };
                     return pag.Guardarpago(pagdata);
                 }
-               
+
             }
             return false;
         }

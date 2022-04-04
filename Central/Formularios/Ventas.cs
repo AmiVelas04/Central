@@ -289,8 +289,14 @@ namespace Central.Formularios
                 }
                 if (ven.generarv(datos, efect,idc, Main.id.ToString (),descu))
                 {
+                    decimal totalpag = decimal.Parse(TxtTotal.Text);
                     string venta = ven.idventa().ToString();
-                    RegCredi(venta);
+                    if (efect < totalpag && CboCli.SelectedValue.ToString()!="1")
+                    { RegCredi(venta); }
+                    else
+                    {
+                        MessageBox.Show("Credito no generado\n El Consumidor final no puede obtener credito","No credito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    }
                     MessageBox.Show("Venta correcta");
                 }
                 else
@@ -315,7 +321,7 @@ namespace Central.Formularios
                 MessageBox.Show("Credito registrado correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            { MessageBox.Show("No se pudo registrar el codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+            { MessageBox.Show("No se pudo registrar el Credito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
         private void BtnBorrar_Click(object sender, EventArgs e)
