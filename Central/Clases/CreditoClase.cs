@@ -138,7 +138,7 @@ namespace Central.Clases
             consulta = "SELECT SUM(cre.TOTAL) " +
                        "FROM credito cre " +
                        "INNER JOIN venta v ON v.ID_VENTA = cre.id_venta " +
-                       "WHERE v.FECHA_H >= '2022/03/27 00:00:00' AND v.FECHA_H <= '2022/03/29 23:59:59'";
+                       "WHERE v.FECHA_H >= '"+fe1+"' AND v.FECHA_H <= '"+fe2+"'";
             datos = buscar(consulta);
             if (datos.Rows[0][0] == DBNull.Value)
             {

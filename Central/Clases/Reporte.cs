@@ -219,9 +219,9 @@ namespace Central.Clases
             consulta = "SELECT c.id_cred,cli.nombre,c.TOTAL ,Date_format(pag.fecha,'%d/%m/%y') as fecha,pag.monto "+
                        "FROM credito c "+
                        "inner JOIN clientes cli ON c.ID_CLI = cli.ID_CLI "+
-                       "INNER JOIN pago pag ON pag.id_cred = c.ID_CRED "+
+                       "Left JOIN pago pag ON pag.id_cred = c.ID_CRED "+
                        "Inner join venta v on v.id_venta=c.id_venta "+
-                       "where v.Fecha_h>='"+fechai+"' and v.fecha_h<='" +fechaf+"' ";
+                       "where v.Fecha_h>='"+FechaI+"' and v.fecha_h<='" +FechaF+"' ";
             datos = buscar(consulta);
             Enca.Titulo = "Reporte de creditos";
             Enca.fecha1 = f1.ToString("dd/MM/yyyy");
@@ -234,8 +234,18 @@ namespace Central.Clases
                 deta.Cliente = datos.Rows[cont][1].ToString();
                 deta.Monto = decimal.Parse(datos.Rows[cont][2].ToString());
                 deta.Saldo = 0;
-                deta.fecha = datos.Rows[cont][3].ToString();
-                deta.pago = decimal.Parse(datos.Rows[cont][4].ToString());
+                if (datos.Rows[cont][3] == DBNull.Value)
+                { deta.fecha = "Sin pago"; }
+                else
+                { deta.fecha = datos.Rows[cont][3].ToString(); }
+                if (datos.Rows[cont][4] == DBNull.Value)
+                {
+                    deta.pago = 0;
+                }
+                else
+                { deta.pago = decimal.Parse(datos.Rows[cont][4].ToString()); }
+
+                
                 Enca.Detalle.Add(deta);
             }
             Reportes.Creditos credi = new Reportes.Creditos();

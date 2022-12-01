@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Central.Clases
 {
@@ -103,9 +104,9 @@ namespace Central.Clases
         }
         #endregion
 
-        public bool generarv(DataTable datos,decimal efect,string cliente,string cajero,string descu)
+        public int generarv(DataTable datos, decimal efect, string cliente, string cajero, string descu, [Optional]string proces)
         {
-            bool resp;
+            int resp;
             int codv = idventa()+1;
             string fecha = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string consulta;
@@ -113,19 +114,26 @@ namespace Central.Clases
                       "values ("+codv+ ","+cliente+"," +cajero +",'"+ fecha+"',"+descu+")";
             if (consulta_gen(consulta))
             {
-                generardet(datos,codv,efect,cajero,descu);
-                resp = true;
-            }
+                if (generardet(datos, codv, efect, cajero, descu, proces))
+                {
+                    resp= codv;
+                }
+                else
+                {
+
+                  resp= 0;
+                }
+                            }
             else
             {
-                resp = false;
+                resp = 0;
             }
             return resp;
 
             
         }
 
-        public bool generardet( DataTable datos, int venta,decimal efect,string cajero,string descu)
+        public bool generardet(DataTable datos, int venta,decimal efect,string cajero,string descu, [Optional]string proces)
         {
             
             int cant= datos.Rows.Count,cont;
@@ -167,7 +175,10 @@ namespace Central.Clases
             }
                
             if (MessageBox.Show("¿Desea imprimir comprobante de venta?", "¿Imprimir?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            { PrintTicket(venta, datos, efect, descu); }
+            { PrintTicket(venta, datos, efect, descu);
+                if (proces.Equals("Cred")) PrintTicket(venta, datos, efect, descu);
+
+            }
             else { Regi.AbreCajon();
                 Regi.ImprimirTicket();
             }

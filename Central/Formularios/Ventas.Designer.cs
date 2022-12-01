@@ -336,7 +336,7 @@
             // LblDesc
             // 
             this.LblDesc.AutoSize = true;
-            this.LblDesc.Location = new System.Drawing.Point(7, 326);
+            this.LblDesc.Location = new System.Drawing.Point(86, 321);
             this.LblDesc.Name = "LblDesc";
             this.LblDesc.Size = new System.Drawing.Size(18, 20);
             this.LblDesc.TabIndex = 8;

@@ -32,6 +32,7 @@ namespace Central.Formularios
             Ttinfo.SetToolTip(BtnImp, "Imprimir el ultimo comprobante");
             listadoprod();
             cargacli();
+            TxtCamb.Text = "0";
         }
 
       
@@ -141,7 +142,8 @@ namespace Central.Formularios
                     packente = Tprod - sobra;
                     tpack = packente / paquete;
                     tot = Tprod * decimal.Parse(DgvProd.Rows[cont].Cells[4].Value.ToString());
-                    descuento = (packente * decimal.Parse(DgvProd.Rows[cont].Cells[4].Value.ToString())) - (tpack * decimal.Parse(DgvProd.Rows[cont].Cells[8].Value.ToString()));
+                    descuento = 0;
+                        //(packente * decimal.Parse(DgvProd.Rows[cont].Cells[4].Value.ToString())) - (tpack * decimal.Parse(DgvProd.Rows[cont].Cells[8].Value.ToString()));
                 }
 
                 //Producto cuando no existe precio de paquete
@@ -182,13 +184,11 @@ namespace Central.Formularios
             foreach (DataRow row in datos.Rows)
             {
                 coleccion.Add(row["Nombre"].ToString ());
-
-            }
+                            }
             CboNom.AutoCompleteMode = AutoCompleteMode.Suggest;
             CboNom.AutoCompleteSource = AutoCompleteSource.CustomSource;
             CboNom.AutoCompleteCustomSource = coleccion;
-
-        }
+                    }
 
         public void listarpordbusq()
         {
@@ -213,7 +213,7 @@ namespace Central.Formularios
             {
                 if (CboCli.SelectedValue.ToString().Equals("1"))
                 {
-                    MessageBox.Show("No se puede generar credito al cosumidor final!","No credito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se puede generar credito al cosumidor final!", "No credito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 else
@@ -231,14 +231,29 @@ namespace Central.Formularios
                 if (DgvProd.Rows.Count <= 0)
                 {
                     MessageBox.Show("No existen Productos");
+                    return;
                 }
-                else if (decimal.Parse(TxtCamb.Text) < 0)
-                { MessageBox.Show("El monto de efectivo es incorrecto"); }
                 else if (TxtEfect.Text == "")
-                { MessageBox.Show("No se ha ingresado el monto del efectivo"); }
+                { MessageBox.Show("El monto de efectivo es incorrecto");
+                    TxtEfect.Text = "0";
+                    return;
+                }
+                /*  else if (decimal.Parse(TxtCamb.Text) < 0)
+                  { MessageBox.Show("No se ha ingresado el monto del efectivo");
+                      return;
+                  }*/
                 else
                 {
-
+                    decimal Verchan=0,Vtot=0,Vefec=0;
+                    Vtot = decimal.Parse(TxtTotal.Text);
+                    Vefec = decimal.Parse(TxtEfect.Text);
+                    Verchan = Vefec - Vtot;
+                   // Verchan = decimal.Parse(TxtCamb.Text);
+                    if (CboCli.SelectedValue.ToString().Equals("1") && (Verchan<0))
+                    {
+                        MessageBox.Show("No se puede generar credito a consumidor final","Venta no generada", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                        return;
+                    }
                     PrepProd();
                     limpiar();
                     TxtCod.Focus();
@@ -252,6 +267,7 @@ namespace Central.Formularios
             int total= DgvProd.Rows.Count;
             int cont;
             string descu = LblDesc.Text;
+
             if ( total> 0)
             {
                 datos.Columns.Add("Cod").DataType = Type.GetType("System.String");
@@ -282,26 +298,32 @@ namespace Central.Formularios
                 respaldo = datos;
                 Refectivo = decimal.Parse(TxtEfect.Text);
                 string idc= idcli();
+                decimal totalpag = decimal.Parse(TxtTotal.Text);
+                string venta = "";
+                string estado="";
+                if (efect < totalpag && ChkCredito.Checked)  estado= "Cred";
                 if (idc.Equals("0"))
                 {
-                    MessageBox.Show("No se encontró el cliente");
+                    MessageBox.Show("No se le puede asignar credito al cliente seleccionado");
                     return;
                 }
-                if (ven.generarv(datos, efect,idc, Main.id.ToString (),descu))
+                int ventanum = ven.generarv(datos, efect, idc, Main.id.ToString(), descu, estado);
+                if (ventanum != 0)
                 {
-                    decimal totalpag = decimal.Parse(TxtTotal.Text);
-                    string venta = ven.idventa().ToString();
-                    if (efect < totalpag && CboCli.SelectedValue.ToString()!="1")
-                    { RegCredi(venta); }
+                    if (estado.Equals("Cred"))
+                    {
+                        //venta = ven.idventa().ToString();
+                        RegCredi(ventanum.ToString());
+                    }
                     else
                     {
-                        MessageBox.Show("Credito no generado\n El Consumidor final no puede obtener credito","No credito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                        //MessageBox.Show("Credito no generado","No credito",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     }
-                    MessageBox.Show("Venta correcta");
+                    MessageBox.Show("Venta correcta","Correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("error en venta");
+                    MessageBox.Show("error en venta","Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -315,7 +337,7 @@ namespace Central.Formularios
             else
             { abono = TxtEfect.Text; }
             clien = CboCli.SelectedValue.ToString();
-            string[] datos = { clien,idven,total,abono,"Activo",idusu};
+            string[] datos = {clien,idven,total,abono,"Activo",idusu};
             if (credi.IngresoCred(datos))
             {
                 MessageBox.Show("Credito registrado correctamente", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -448,8 +470,9 @@ namespace Central.Formularios
         private void cambio()
             {
             decimal pago, efectivo, cambio;
+            if (ChkCredito.Checked)
+            { return; }
                 if (!decimal.TryParse(TxtTotal.Text, out pago)) pago = 0;
-
                 if (decimal.TryParse(TxtEfect.Text, out efectivo))
                 { }
                 else
@@ -459,7 +482,6 @@ namespace Central.Formularios
                     MessageBox.Show("Valor invalido!");
                     return;
                 }
-
     cambio = efectivo - pago;
             if (cambio < 0)
             {
@@ -501,10 +523,16 @@ namespace Central.Formularios
             {
                 DataTable precio = new DataTable();
                    
-                int indice = DgvProd.CurrentRow.Index;
+                int indice = DgvProd.CurrentRow.Index,CantAnte;
                 string codi;
+                decimal preciante;
+
                 codi = DgvProd.Rows[indice].Cells[0].Value.ToString();
                 precio = prod.precios(codi);
+                preciante = decimal.Parse(DgvProd.Rows[indice].Cells[4].Value.ToString());
+                CantAnte = int.Parse(DgvProd.Rows[indice].Cells[5].Value.ToString());
+
+
                 while (CboPrecio.Items.Count > 0)
                 {
                     CboPrecio.Items.RemoveAt(0);
@@ -512,6 +540,11 @@ namespace Central.Formularios
                 CboPrecio.Items.Add(precio.Rows[0][0].ToString());
                 CboPrecio.Items.Add(precio.Rows[0][1].ToString());
                 CboPrecio.SelectedIndex = 0;
+                DgvProd.Rows[indice].Cells[4].Value = preciante;
+                DgvProd.Rows[indice].Cells[5].Value = CantAnte;
+                DgvProd.Rows[indice].Cells[6].Value =(CantAnte*preciante);
+                calcTot();
+                TxtCod.Focus();
                 //TxtNom.Text = DgvProd.Rows[indice].Cells[1].Value.ToString();
                 Txtdesc.Text = DgvProd.Rows[indice].Cells[2].Value.ToString();
                 TxtMarca.Text = DgvProd.Rows[indice].Cells[3].Value.ToString();

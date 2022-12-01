@@ -77,7 +77,7 @@ namespace Central.Formularios
             if (nivel == "3")
             {
                 //BtnCaja.Visible = false;
-                // BtnProductos.Visible = false;
+                BtnProductos.Visible = false;
                 BtnUsu.Visible = false;
                 BtnREportes.Visible = false;
                 BtnCap.Visible = false;
