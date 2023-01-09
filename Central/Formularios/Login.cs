@@ -45,7 +45,7 @@ namespace Central.Formularios
               //  MessageBox.Show("Ingreso correcto", "Ingreso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
-                MessageBox.Show("¡Existen  " + prod.cantidadcaduca().ToString() + " producto(s) que caducarán en 30 días o menos! \n¡Verifique listado de productos!","Productos que caducan",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+               // MessageBox.Show("¡Existen  " + prod.cantidadcaduca().ToString() + " producto(s) que caducarán en 30 días o menos! \n¡Verifique listado de productos!","Productos que caducan",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 Main.id = int.Parse(datos.Rows[0][0].ToString());
                 Main.nombre = datos.Rows[0][1].ToString();
                 Main.nivel = datos.Rows[0][2].ToString();

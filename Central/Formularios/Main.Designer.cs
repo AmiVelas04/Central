@@ -49,7 +49,7 @@
             // 
             // PanLat
             // 
-            this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
+            this.PanLat.BackColor = System.Drawing.Color.Firebrick;
             this.PanLat.Controls.Add(this.BtnCred);
             this.PanLat.Controls.Add(this.BtnCli);
             this.PanLat.Controls.Add(this.BtnCap);
@@ -78,6 +78,7 @@
             this.BtnCred.Text = "Creditos";
             this.BtnCred.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnCred.UseVisualStyleBackColor = true;
+            this.BtnCred.Visible = false;
             this.BtnCred.Click += new System.EventHandler(this.BtnCred_Click);
             // 
             // BtnCli
@@ -94,6 +95,7 @@
             this.BtnCli.Text = "Clientes";
             this.BtnCli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnCli.UseVisualStyleBackColor = true;
+            this.BtnCli.Visible = false;
             this.BtnCli.Click += new System.EventHandler(this.BtnCli_Click);
             // 
             // BtnCap
@@ -194,7 +196,7 @@
             // 
             // PanSup
             // 
-            this.PanSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(110)))), ((int)(((byte)(11)))));
+            this.PanSup.BackColor = System.Drawing.Color.Firebrick;
             this.PanSup.Controls.Add(this.BtnMin);
             this.PanSup.Controls.Add(this.BtnCerrar);
             this.PanSup.Controls.Add(this.LblUsu);

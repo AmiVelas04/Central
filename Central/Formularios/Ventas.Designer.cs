@@ -111,6 +111,7 @@
             this.ChkCredito.TabIndex = 21;
             this.ChkCredito.Text = "Credito";
             this.ChkCredito.UseVisualStyleBackColor = true;
+            this.ChkCredito.Visible = false;
             this.ChkCredito.CheckedChanged += new System.EventHandler(this.ChkCredito_CheckedChanged);
             // 
             // CboPrecio
@@ -130,6 +131,7 @@
             this.CboCli.Name = "CboCli";
             this.CboCli.Size = new System.Drawing.Size(295, 28);
             this.CboCli.TabIndex = 19;
+            this.CboCli.Visible = false;
             // 
             // label10
             // 
@@ -139,6 +141,7 @@
             this.label10.Size = new System.Drawing.Size(57, 20);
             this.label10.TabIndex = 18;
             this.label10.Text = "Cliente";
+            this.label10.Visible = false;
             // 
             // CboNom
             // 

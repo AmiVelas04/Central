@@ -50,6 +50,7 @@
             this.BtnInventario = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GbxGanacias = new System.Windows.Forms.GroupBox();
+            this.BtnCredi = new System.Windows.Forms.Button();
             this.BtnVentas = new System.Windows.Forms.Button();
             this.BtnMasVen = new System.Windows.Forms.Button();
             this.BtnGan = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpGI = new System.Windows.Forms.DateTimePicker();
-            this.BtnCredi = new System.Windows.Forms.Button();
             this.PanSup.SuspendLayout();
             this.PanSder.SuspendLayout();
             this.GbxSemanal.SuspendLayout();
@@ -314,6 +314,17 @@
             this.GbxGanacias.TabIndex = 0;
             this.GbxGanacias.TabStop = false;
             this.GbxGanacias.Text = "Ganancias/Vendidos";
+            this.GbxGanacias.Visible = false;
+            // 
+            // BtnCredi
+            // 
+            this.BtnCredi.Location = new System.Drawing.Point(264, 94);
+            this.BtnCredi.Name = "BtnCredi";
+            this.BtnCredi.Size = new System.Drawing.Size(95, 50);
+            this.BtnCredi.TabIndex = 8;
+            this.BtnCredi.Text = "Creditos";
+            this.BtnCredi.UseVisualStyleBackColor = true;
+            this.BtnCredi.Click += new System.EventHandler(this.BtnCredi_Click);
             // 
             // BtnVentas
             // 
@@ -380,16 +391,6 @@
             this.DtpGI.Name = "DtpGI";
             this.DtpGI.Size = new System.Drawing.Size(140, 25);
             this.DtpGI.TabIndex = 0;
-            // 
-            // BtnCredi
-            // 
-            this.BtnCredi.Location = new System.Drawing.Point(264, 94);
-            this.BtnCredi.Name = "BtnCredi";
-            this.BtnCredi.Size = new System.Drawing.Size(95, 50);
-            this.BtnCredi.TabIndex = 8;
-            this.BtnCredi.Text = "Creditos";
-            this.BtnCredi.UseVisualStyleBackColor = true;
-            this.BtnCredi.Click += new System.EventHandler(this.BtnCredi_Click);
             // 
             // Reportes
             // 
