@@ -47,7 +47,7 @@
             this.PanCent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanCent.Location = new System.Drawing.Point(0, 0);
             this.PanCent.Name = "PanCent";
-            this.PanCent.Size = new System.Drawing.Size(483, 298);
+            this.PanCent.Size = new System.Drawing.Size(488, 419);
             this.PanCent.TabIndex = 0;
             this.PanCent.Paint += new System.Windows.Forms.PaintEventHandler(this.PanCent_Paint);
             // 
@@ -57,7 +57,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(483, 298);
+            this.ClientSize = new System.Drawing.Size(488, 419);
             this.Controls.Add(this.PanCent);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

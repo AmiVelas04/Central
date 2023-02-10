@@ -26,9 +26,9 @@ namespace Central.Clases
             catch (Exception ex)
             {
                 
-               // MessageBox.Show("Error de conexion, consulte con su administrador de sistemas\n" +consulta+"\n** "+ ex.ToString ());
+           //  MessageBox.Show("Error de conexion, consulte con su administrador de sistemas\n" +consulta+"\n** "+ ex.ToString ());
                 
-              //  MessageBox.Show(consulta);
+            //  MessageBox.Show(consulta);
             }
             return datos;
         }
@@ -58,10 +58,14 @@ namespace Central.Clases
         #endregion
         public  DataTable  inicio(string usu, string pass)
         {
-            
             string consulta = "Select id_cajero, nombre,id_tipo from cajero where Usuario='" + usu + "' and pass='" + pass + "'";
             return buscar(consulta);
             
+        }
+
+        public void probarconn()
+        {
+            MessageBox.Show(con.probar_conn());
         }
     }
 }

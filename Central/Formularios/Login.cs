@@ -27,8 +27,7 @@ namespace Central.Formularios
         private void BtnIniciar_Click(object sender, EventArgs e)
         {
             loguear();
-
-
+            //log.probarconn();
         }
 
         private void loguear()
