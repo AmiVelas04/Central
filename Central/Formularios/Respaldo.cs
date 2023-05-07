@@ -27,9 +27,9 @@ namespace Central.Formularios
 
         private void Respaldo_Load(object sender, EventArgs e)
         {
-            string cadena_conn = "server=192.168.1.25;  database=Chentebd; user= Chente; password=Sis_chen_2022; port=3306; allow zero Datetime= true";
+            //string cadena_conn = "server=192.168.1.25;  database=Chentebd; user= Chente; password=Sis_chen_2022; port=3306; allow zero Datetime= true";
             //string cadena_conn = "server=Localhost;  database=central; user= root; password=Ami_1532; port=3306; allow zero Datetime= true";
-            //string cadena_conn = "server=Localhost;  database=central; user= root; port=3306; allow zero Datetime= true";
+            string cadena_conn = "server=192.168.10.120;  database=universal; user=universal; password=Uni_2023; port=3306; allow zero Datetime= true";
 
             conn.ConnectionString = cadena_conn;
         }

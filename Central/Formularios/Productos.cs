@@ -27,7 +27,7 @@ namespace Central.Formularios
         }
         private void addProd ()
         {
-            string[] datos = {TxtCod .Text,TxtNom.Text ,TxtDesc.Text,TxtMarca.Text,TxtCosto.Text ,TxtVenta.Text,Nud.Value .ToString (),DtpCad.Value.ToString ("yyyy/MM/dd"),NudPack .Value .ToString (),TxtPpack .Text,TxtVenta2.Text };
+            string[] datos = {TxtCod .Text,TxtNom.Text ,TxtDesc.Text,TxtMarca.Text,TxtCosto.Text ,TxtVenta.Text,Nud.Value .ToString (),DtpCad.Value.ToString ("yyyy/MM/dd"),NudPack .Value .ToString (),TxtPpack .Text,TxtVenta2.Text,TxtVenta3.Text };
             if (prod.agregprod(datos))
             { MessageBox.Show("Producto ingresado Correctamente"); }
             else
@@ -37,7 +37,7 @@ namespace Central.Formularios
         private void UpdProd()
         {
             
-            string[] datos = { TxtCod.Text, TxtNom.Text, TxtDesc.Text, TxtMarca.Text, TxtCosto.Text, TxtVenta.Text, Nud.Value.ToString(), DtpCad.Value.ToString("yyyy/MM/dd"), NudPack.Value.ToString(), TxtPpack.Text,TxtVenta2.Text };
+            string[] datos = { TxtCod.Text, TxtNom.Text, TxtDesc.Text, TxtMarca.Text, TxtCosto.Text, TxtVenta.Text, Nud.Value.ToString(), DtpCad.Value.ToString("yyyy/MM/dd"), NudPack.Value.ToString(), TxtPpack.Text,TxtVenta2.Text,TxtVenta3.Text };
             if (prod.actualprod (datos))
             { MessageBox.Show("Producto Actualizado"); }
             else
@@ -68,10 +68,11 @@ namespace Central.Formularios
             TxtCosto.Text = datos.Rows[0][3].ToString();
             TxtVenta.Text = datos.Rows[0][4].ToString();
             Nud.Value =decimal.Parse( datos.Rows[0][5].ToString());
-            DtpCad.Value = DateTime.Parse(DateTime.Parse( datos.Rows[0][6].ToString()).ToString ("dd/MM/yyyyy"));
+            DtpCad.Value = DateTime.Parse(DateTime.Parse( datos.Rows[0][6].ToString()).ToString ("dd/MM/yyyy"));
             NudPack.Value = decimal.Parse(datos.Rows[0][7].ToString());
             TxtPpack.Text = datos.Rows[0][8].ToString();
             TxtVenta2.Text = datos.Rows[0][9].ToString();
+            TxtVenta3.Text = datos.Rows[0][10].ToString();
 
 
         }
@@ -186,18 +187,18 @@ namespace Central.Formularios
 
         private void Chk1_CheckStateChanged(object sender, EventArgs e)
         {
-            if (Chk1.Checked)
+           /* if (Chk1.Checked)
             {
-                DtpCad.Visible = false;
+                DtpCad.Visible = true;
                 DateTime fecha = DateTime.Now;
                 fecha = fecha.AddYears(3);
                 DtpCad.Value = fecha;
             }
             else
             {
-                DtpCad.Visible = true;
+                DtpCad.Visible = false;
                 DtpCad.Value = DateTime.Now;
-            }
+            }*/
         }
     }
 }

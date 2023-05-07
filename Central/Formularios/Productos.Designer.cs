@@ -63,6 +63,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PanCent = new System.Windows.Forms.Panel();
             this.DgvDatos = new System.Windows.Forms.DataGridView();
+            this.TxtVenta3 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.PanDer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudPack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud)).BeginInit();
@@ -73,6 +75,8 @@
             // 
             // PanDer
             // 
+            this.PanDer.Controls.Add(this.TxtVenta3);
+            this.PanDer.Controls.Add(this.label14);
             this.PanDer.Controls.Add(this.TxtVenta2);
             this.PanDer.Controls.Add(this.label13);
             this.PanDer.Controls.Add(this.Chk1);
@@ -101,23 +105,23 @@
             this.PanDer.Location = new System.Drawing.Point(0, 0);
             this.PanDer.Margin = new System.Windows.Forms.Padding(5);
             this.PanDer.Name = "PanDer";
-            this.PanDer.Size = new System.Drawing.Size(314, 487);
+            this.PanDer.Size = new System.Drawing.Size(314, 534);
             this.PanDer.TabIndex = 0;
             // 
             // TxtVenta2
             // 
             this.TxtVenta2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtVenta2.Location = new System.Drawing.Point(206, 244);
+            this.TxtVenta2.Location = new System.Drawing.Point(207, 244);
             this.TxtVenta2.Name = "TxtVenta2";
             this.TxtVenta2.Size = new System.Drawing.Size(80, 25);
-            this.TxtVenta2.TabIndex = 30;
+            this.TxtVenta2.TabIndex = 13;
             this.TxtVenta2.Text = "0";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(205, 217);
+            this.label13.Location = new System.Drawing.Point(206, 217);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 15);
             this.label13.TabIndex = 29;
@@ -126,35 +130,36 @@
             // Chk1
             // 
             this.Chk1.AutoSize = true;
-            this.Chk1.Location = new System.Drawing.Point(244, 372);
+            this.Chk1.Location = new System.Drawing.Point(235, 424);
             this.Chk1.Name = "Chk1";
             this.Chk1.Size = new System.Drawing.Size(15, 14);
             this.Chk1.TabIndex = 28;
             this.Chk1.UseVisualStyleBackColor = true;
+            this.Chk1.Visible = false;
             this.Chk1.CheckStateChanged += new System.EventHandler(this.Chk1_CheckStateChanged);
             // 
             // NudPack
             // 
-            this.NudPack.Location = new System.Drawing.Point(14, 330);
+            this.NudPack.Location = new System.Drawing.Point(19, 381);
             this.NudPack.Name = "NudPack";
             this.NudPack.Size = new System.Drawing.Size(98, 29);
-            this.NudPack.TabIndex = 27;
+            this.NudPack.TabIndex = 17;
             this.NudPack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtPpack
             // 
             this.TxtPpack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPpack.Location = new System.Drawing.Point(122, 330);
+            this.TxtPpack.Location = new System.Drawing.Point(127, 381);
             this.TxtPpack.Margin = new System.Windows.Forms.Padding(5);
             this.TxtPpack.Name = "TxtPpack";
             this.TxtPpack.Size = new System.Drawing.Size(76, 25);
-            this.TxtPpack.TabIndex = 26;
+            this.TxtPpack.TabIndex = 19;
             this.TxtPpack.Text = "0";
             // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(132, 291);
+            this.label11.Location = new System.Drawing.Point(137, 342);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 34);
@@ -164,7 +169,7 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(17, 291);
+            this.label12.Location = new System.Drawing.Point(22, 342);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 36);
@@ -175,29 +180,31 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(114, 368);
+            this.label8.Location = new System.Drawing.Point(101, 420);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "Fecha de caducidad";
+            this.label8.Visible = false;
             // 
             // DtpCad
             // 
             this.DtpCad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpCad.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpCad.Location = new System.Drawing.Point(113, 391);
+            this.DtpCad.Location = new System.Drawing.Point(104, 443);
             this.DtpCad.Margin = new System.Windows.Forms.Padding(5);
             this.DtpCad.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.DtpCad.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.DtpCad.Name = "DtpCad";
             this.DtpCad.Size = new System.Drawing.Size(129, 25);
             this.DtpCad.TabIndex = 15;
+            this.DtpCad.Visible = false;
             // 
             // Nud
             // 
             this.Nud.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nud.Location = new System.Drawing.Point(20, 390);
+            this.Nud.Location = new System.Drawing.Point(11, 442);
             this.Nud.Margin = new System.Windows.Forms.Padding(5);
             this.Nud.Maximum = new decimal(new int[] {
             100000,
@@ -206,14 +213,14 @@
             0});
             this.Nud.Name = "Nud";
             this.Nud.Size = new System.Drawing.Size(67, 25);
-            this.Nud.TabIndex = 13;
+            this.Nud.TabIndex = 21;
             this.Nud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 368);
+            this.label7.Location = new System.Drawing.Point(14, 420);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 17);
@@ -223,18 +230,18 @@
             // TxtVenta
             // 
             this.TxtVenta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtVenta.Location = new System.Drawing.Point(116, 244);
+            this.TxtVenta.Location = new System.Drawing.Point(23, 301);
             this.TxtVenta.Margin = new System.Windows.Forms.Padding(5);
             this.TxtVenta.Name = "TxtVenta";
             this.TxtVenta.Size = new System.Drawing.Size(76, 25);
-            this.TxtVenta.TabIndex = 11;
+            this.TxtVenta.TabIndex = 15;
             this.TxtVenta.Text = "0";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(110, 217);
+            this.label6.Location = new System.Drawing.Point(17, 274);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 15);
@@ -244,7 +251,7 @@
             // BtnAdd
             // 
             this.BtnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnAdd.Location = new System.Drawing.Point(0, 439);
+            this.BtnAdd.Location = new System.Drawing.Point(0, 486);
             this.BtnAdd.Margin = new System.Windows.Forms.Padding(5);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(314, 48);
@@ -364,10 +371,10 @@
             this.PanAba.Controls.Add(this.TxtCodp);
             this.PanAba.Controls.Add(this.label9);
             this.PanAba.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanAba.Location = new System.Drawing.Point(314, 390);
+            this.PanAba.Location = new System.Drawing.Point(314, 437);
             this.PanAba.Margin = new System.Windows.Forms.Padding(5);
             this.PanAba.Name = "PanAba";
-            this.PanAba.Size = new System.Drawing.Size(557, 97);
+            this.PanAba.Size = new System.Drawing.Size(555, 97);
             this.PanAba.TabIndex = 1;
             // 
             // BtnEdit
@@ -449,7 +456,7 @@
             this.PanCent.Location = new System.Drawing.Point(314, 0);
             this.PanCent.Margin = new System.Windows.Forms.Padding(5);
             this.PanCent.Name = "PanCent";
-            this.PanCent.Size = new System.Drawing.Size(557, 390);
+            this.PanCent.Size = new System.Drawing.Size(555, 437);
             this.PanCent.TabIndex = 2;
             // 
             // DgvDatos
@@ -467,17 +474,36 @@
             this.DgvDatos.Name = "DgvDatos";
             this.DgvDatos.ReadOnly = true;
             this.DgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvDatos.Size = new System.Drawing.Size(557, 390);
+            this.DgvDatos.Size = new System.Drawing.Size(555, 437);
             this.DgvDatos.TabIndex = 0;
             this.DgvDatos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvDatos_ColumnHeaderMouseClick);
             this.DgvDatos.ColumnSortModeChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DgvDatos_ColumnSortModeChanged);
+            // 
+            // TxtVenta3
+            // 
+            this.TxtVenta3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtVenta3.Location = new System.Drawing.Point(112, 244);
+            this.TxtVenta3.Name = "TxtVenta3";
+            this.TxtVenta3.Size = new System.Drawing.Size(80, 25);
+            this.TxtVenta3.TabIndex = 11;
+            this.TxtVenta3.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(111, 217);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(92, 15);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Precio Reventa";
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(871, 487);
+            this.ClientSize = new System.Drawing.Size(869, 534);
             this.Controls.Add(this.PanCent);
             this.Controls.Add(this.PanAba);
             this.Controls.Add(this.PanDer);
@@ -534,5 +560,7 @@
         private System.Windows.Forms.CheckBox Chk1;
         private System.Windows.Forms.TextBox TxtVenta2;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox TxtVenta3;
+        private System.Windows.Forms.Label label14;
     }
 }

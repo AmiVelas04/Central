@@ -114,15 +114,14 @@ namespace Central.Formularios
             { subtotal = decimal.Parse(TxtTotal.Text); }
             subtotal = 0;
             int i, j;
-           
-           for (cont=0; cont<cant; cont++ )
+            string[] cod = new string[cant];
+            for (cont=0; cont<cant; cont++ )
             { int[] total= new int[cant];
-              string[] cod = new string[cant];
-                cod [cont]= DgvProd.Rows[cont].Cells[0].Value.ToString();
+            
+                cod [cont] = DgvProd.Rows[cont].Cells[0].Value.ToString();
                 bool estado=true;
                 for (i = cont-1; i>=0;i--)
                 {
-
                     if (cod[cont] == DgvProd.Rows[i].Cells[0].Value.ToString()) estado = false;
                 }
 
@@ -147,18 +146,18 @@ namespace Central.Formularios
                 }
 
                 //Producto cuando no existe precio de paquete
-                if (estado && int.Parse(DgvProd.Rows[cont].Cells[7].Value.ToString()) == 0)
+                if (int.Parse(DgvProd.Rows[cont].Cells[7].Value.ToString()) == 0)
                 {
 
                     for (j = 0; j < cant; j++)
-                    {
+                   /* {
                         if (DgvProd.Rows[cont].Cells[0].Value.ToString() == DgvProd.Rows[j].Cells[0].Value.ToString()) Tprod += int.Parse(DgvProd.Rows[j].Cells[5].Value.ToString());
-                    }
+                    }*/
                     descuento = 0;
                     int paquete = int.Parse(DgvProd.Rows[cont].Cells[7].Value.ToString());
                     decimal pPack = decimal.Parse(DgvProd.Rows[cont].Cells[8].Value.ToString());
-                    tot = Tprod * decimal.Parse(DgvProd.Rows[cont].Cells[4].Value.ToString());
-                   
+                    tot = int.Parse(DgvProd.Rows[cont].Cells[5].Value.ToString()) * decimal.Parse(DgvProd.Rows[cont].Cells[4].Value.ToString()); //Tprod * decimal.Parse(DgvProd.Rows[cont].Cells[4].Value.ToString());
+
                 }
                 subtotal += tot;
                 subtotal -= descuento ;
@@ -539,6 +538,8 @@ namespace Central.Formularios
                 }
                 CboPrecio.Items.Add(precio.Rows[0][0].ToString());
                 CboPrecio.Items.Add(precio.Rows[0][1].ToString());
+                CboPrecio.Items.Add(precio.Rows[0][2].ToString());
+
                 CboPrecio.SelectedIndex = 0;
                 DgvProd.Rows[indice].Cells[4].Value = preciante;
                 DgvProd.Rows[indice].Cells[5].Value = CantAnte;

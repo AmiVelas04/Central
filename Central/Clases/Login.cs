@@ -26,7 +26,7 @@ namespace Central.Clases
             catch (Exception ex)
             {
                 
-           //  MessageBox.Show("Error de conexion, consulte con su administrador de sistemas\n" +consulta+"\n** "+ ex.ToString ());
+           MessageBox.Show("Error de conexion, consulte con su administrador de sistemas\n" +consulta+"\n** "+ ex.ToString ());
                 
             //  MessageBox.Show(consulta);
             }
