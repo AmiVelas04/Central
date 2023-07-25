@@ -71,6 +71,7 @@ namespace Central.Clases
                        "GROUP BY d.ID_DETALLE,v.ID_VENTA "+
                        "ORDER BY v.ID_VENTA";
             datos = buscar(consulta);
+            if (datos.Rows.Count <= 0) return;
             cant = datos.Rows.Count;
             enc.fecha = fecha;
             enc.descuento = decimal.Parse(datos.Rows[0][8].ToString());
