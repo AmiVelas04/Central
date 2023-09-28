@@ -255,7 +255,7 @@
             // 
             this.PanCentral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.PanCentral.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanCentral.BackgroundImage")));
-            this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanCentral.Location = new System.Drawing.Point(131, 66);
             this.PanCentral.Name = "PanCentral";

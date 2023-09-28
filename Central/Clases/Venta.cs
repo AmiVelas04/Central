@@ -102,6 +102,34 @@ namespace Central.Clases
                               "WHERE WHERE cre.ID_CLI ="+cli;
             return buscar(consulta);
         }
+
+
+        public DataTable DetalleOneSaleDate(string idv) {
+            string consulta;
+            DataTable datos = new DataTable();
+       
+            consulta = "SELECT v.ID_VENTA AS venta , p.id_prod AS idP, p.nombre AS nombre,p.descripcion as descr, d.cantidad, d.precio, (d.cantidad*d.precio), SUM((d.cantidad*d.precio)),v.descu FROM producto p  " +
+                       "INNER JOIN detalle d ON d.ID_PROD = p.id_prod " +
+                       "INNER JOIN venta v ON v.ID_VENTA = d.ID_VENTA " +
+                        "WHERE v.ID_VENTA= " + idv + " " +
+                       "GROUP BY d.ID_DETALLE,v.ID_VENTA " +
+                       "ORDER BY v.ID_VENTA";
+            return  buscar(consulta);
+        }
+
+        public DataTable VentasxDate(string fecha)
+        {
+            string FechI, FechaF, consulta;
+            DataTable datos = new DataTable();
+            FechI = fecha + " 00:00:00";
+            FechaF = fecha + " 23:59:59";
+            consulta = "SELECT * from venta as v " +
+                "WHERE v.FECHA_H >= '" + FechI + "' AND v.FECHA_H <= '" + FechaF + "' and Estado='Activa'";
+            return buscar(consulta);
+        }
+
+
+
         #endregion
 
         public int generarv(DataTable datos, decimal efect, string cliente, string cajero, string descu, [Optional]string proces)
@@ -110,8 +138,8 @@ namespace Central.Clases
             int codv = idventa()+1;
             string fecha = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string consulta;
-            consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu) " +
-                      "values ("+codv+ ","+cliente+"," +cajero +",'"+ fecha+"',"+descu+")";
+            consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu,estado) " +
+                      "values ("+codv+ ","+cliente+"," +cajero +",'"+ fecha+"',"+descu+",'Activa')";
             if (consulta_gen(consulta))
             {
                 if (generardet(datos, codv, efect, cajero, descu, proces))
@@ -181,6 +209,36 @@ namespace Central.Clases
             }
             else { Regi.AbreCajon();
                 Regi.ImprimirTicket();
+            }
+            return true;
+        }
+
+        public bool anularSale(string idv, string vende)
+        {
+            try
+            {
+                string updvent = $"Update venta set estado='Anulada {DateTime.Now.ToString("dd/MM/yyyy")}', por {vende} "+
+                                    $"Where id_venta={idv}";
+                return (consulta_gen(updvent) && devolallprod(idv));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        
+        }
+
+        private bool devolallprod(string idv)
+        {
+            DataTable datos = new DataTable();
+            string consulta = $"Select id_prod, cantidad from detalle where id_venta={idv}";
+            datos = buscar(consulta);
+            for (int i = 0; i < datos.Rows.Count; i++)
+            {
+                if (!prod.ReponProd($"{datos.Rows[i][0]}", $"{datos.Rows[i][1]}"))
+                {
+                    return false;
+                }
             }
             return true;
         }

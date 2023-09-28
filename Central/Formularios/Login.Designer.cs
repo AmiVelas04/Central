@@ -41,9 +41,10 @@
             // 
             // BtnIniciar
             // 
-            this.BtnIniciar.BackColor = System.Drawing.Color.DarkGray;
+            this.BtnIniciar.BackColor = System.Drawing.Color.Maroon;
             this.BtnIniciar.FlatAppearance.BorderSize = 0;
             this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIniciar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnIniciar.Location = new System.Drawing.Point(53, 183);
             this.BtnIniciar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnIniciar.Name = "BtnIniciar";
@@ -55,7 +56,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(65)))), ((int)(((byte)(103)))));
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.BtnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);

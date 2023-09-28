@@ -67,7 +67,7 @@ namespace Central.Clases
             consulta = "SELECT v.ID_VENTA AS venta , p.id_prod AS idP, p.nombre AS nombre,p.descripcion as descr, d.cantidad, d.precio, (d.cantidad*d.precio), SUM((d.cantidad*d.precio)),v.descu FROM producto p  " +
                        "INNER JOIN detalle d ON d.ID_PROD = p.id_prod "+
                        "INNER JOIN venta v ON v.ID_VENTA = d.ID_VENTA "+
-                       "WHERE v.FECHA_H >= '"+FechI+"' AND v.FECHA_H <= '"+FechaF+"' "+
+                       "WHERE v.FECHA_H >= '"+FechI+"' AND v.FECHA_H <= '"+FechaF+"' and v.ESTADO='Activa' "+
                        "GROUP BY d.ID_DETALLE,v.ID_VENTA "+
                        "ORDER BY v.ID_VENTA";
             datos = buscar(consulta);
@@ -103,7 +103,7 @@ namespace Central.Clases
             string consulta = "SELECT v.ID_VENTA ,Date_format(v.FECHA_H,'%d/%m/%y') as fecha,SUM(vd.TOTAL) AS Total " +
                                "FROM venta v " +
                                "INNER JOIN detalle vd ON vd.ID_VENTA = v.ID_VENTA " +
-                               "WHERE v.FECHA_H >= '" + fechai + "' AND v.FECHA_H <= '" + fechaf + "' " +
+                               "WHERE v.FECHA_H >= '" + fechai + "' AND v.FECHA_H <= '" + fechaf + "' and v.ESTADO='Activa' " +
                                "GROUP BY CAST(v.FECHA_H AS DATE)";
 
             datos = buscar(consulta);
@@ -137,7 +137,7 @@ namespace Central.Clases
                             "FROM venta v " +
                             "INNER JOIN detalle vd ON vd.ID_VENTA = v.ID_VENTA " +
                             "INNER JOIN producto p on vd.ID_PROD = p.ID_PROD " +
-                            "WHERE v.FECHA_H >= '"+fechai+"' AND v.FECHA_H <= '"+fechaf+"' " +
+                            "WHERE v.FECHA_H >= '"+fechai+"' AND v.FECHA_H <= '"+fechaf+"' and v.ESTADO='Activa' " +
                             "GROUP BY CAST(v.FECHA_H AS DATE)";
             datos = buscar(consulta);
             cant = datos.Rows.Count;

@@ -53,6 +53,12 @@ namespace Central.Formularios
                 busca.RetornoCod += new BuscaRap.permiso(BuscaRap);
                 busca.ShowDialog();
             }
+            else if (e.KeyCode == Keys.F12 && (Main.nivel.Equals("1")|| Main.nivel.Equals("2")))
+            {
+                CancelVentas anul = new CancelVentas();
+                anul.operador = Main.nombre;
+                anul.ShowDialog();
+            }
         }
         private void listprod(string codigo)
         {

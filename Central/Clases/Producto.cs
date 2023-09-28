@@ -110,6 +110,17 @@ namespace Central.Clases
             consultac = "update producto set cantidad="+cantAnt + " where id_prod='"+idprod + "'";
             return consulta_gen(consultac);
         }
+        public bool ReponProd(string idprod, string cant)
+        {
+            string consultap, consultac;
+            int cantAnt;
+            consultap = "select cantidad from producto where id_prod='" + idprod + "'";
+            cantAnt = Int32.Parse(buscar(consultap).Rows[0][0].ToString());
+            cantAnt += Int32.Parse(cant);
+            consultac = "update producto set cantidad=" + cantAnt + " where id_prod='" + idprod + "'";
+            return consulta_gen(consultac);
+        }
+
 
         //Todos los porductos
         public void Inventario()
