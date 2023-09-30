@@ -57,6 +57,7 @@ namespace Central.Formularios
             {
                 CancelVentas anul = new CancelVentas();
                 anul.operador = Main.nombre;
+                anul.idvende = Main.id.ToString();
                 anul.ShowDialog();
             }
         }
@@ -232,6 +233,7 @@ namespace Central.Formularios
             else
             {
                 if (TxtEfect.Text == "") TxtEfect.Text = "0";
+                if (TxtCli.Text == "") TxtCli.Text = "C/F";
                 cambio();
                 if (DgvProd.Rows.Count <= 0)
                 {
@@ -306,13 +308,14 @@ namespace Central.Formularios
                 decimal totalpag = decimal.Parse(TxtTotal.Text);
                 string venta = "";
                 string estado="";
+                string nomcli = TxtCli.Text;
                 if (efect < totalpag && ChkCredito.Checked)  estado= "Cred";
                 if (idc.Equals("0"))
                 {
                     MessageBox.Show("No se le puede asignar credito al cliente seleccionado");
                     return;
                 }
-                int ventanum = ven.generarv(datos, efect, idc, Main.id.ToString(), descu, estado);
+                int ventanum = ven.generarv(datos, efect, idc, Main.id.ToString(), descu, nomcli, estado);
                 if (ventanum != 0)
                 {
                     if (estado.Equals("Cred"))

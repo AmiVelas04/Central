@@ -144,15 +144,15 @@ namespace Central.Reportes
 
         private string ImpresoraPred()
         {
-            for (Int32 i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
+           /* for (Int32 i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
             {
                 PrinterSettings a = new PrinterSettings();
                 a.PrinterName = PrinterSettings.InstalledPrinters[i].ToString();
                 if (a.IsDefaultPrinter)
                 { return PrinterSettings.InstalledPrinters[i].ToString(); }
 
-            }
-            return "";
+            }*/
+            return "MP-POS80";
         }
 
         public void Dispose()

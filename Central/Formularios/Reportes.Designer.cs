@@ -118,6 +118,7 @@
             this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Cliente";
+            this.label5.Visible = false;
             // 
             // CboCli
             // 
@@ -127,6 +128,7 @@
             this.CboCli.Name = "CboCli";
             this.CboCli.Size = new System.Drawing.Size(200, 25);
             this.CboCli.TabIndex = 6;
+            this.CboCli.Visible = false;
             // 
             // BtnVenCli
             // 
@@ -137,6 +139,7 @@
             this.BtnVenCli.TabIndex = 5;
             this.BtnVenCli.Text = "Ventas Por clientes";
             this.BtnVenCli.UseVisualStyleBackColor = true;
+            this.BtnVenCli.Visible = false;
             this.BtnVenCli.Click += new System.EventHandler(this.BtnVenCli_Click);
             // 
             // BtnRepS
@@ -324,6 +327,7 @@
             this.BtnCredi.TabIndex = 8;
             this.BtnCredi.Text = "Creditos";
             this.BtnCredi.UseVisualStyleBackColor = true;
+            this.BtnCredi.Visible = false;
             this.BtnCredi.Click += new System.EventHandler(this.BtnCredi_Click);
             // 
             // BtnVentas

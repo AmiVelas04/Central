@@ -30,20 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CancelVentas));
             this.PanSup = new System.Windows.Forms.Panel();
-            this.PanCent = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CboVen = new System.Windows.Forms.ComboBox();
-            this.Dgv1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Dtp1 = new System.Windows.Forms.DateTimePicker();
-            this.BtnSearch = new System.Windows.Forms.Button();
-            this.BtnAnul = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.TxtCaje = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnAnul = new System.Windows.Forms.Button();
+            this.BtnSearch = new System.Windows.Forms.Button();
+            this.Dtp1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CboVen = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PanCent = new System.Windows.Forms.Panel();
+            this.Dgv1 = new System.Windows.Forms.DataGridView();
             this.Prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtCli = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.PanSup.SuspendLayout();
             this.PanCent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv1)).BeginInit();
@@ -51,6 +55,10 @@
             // 
             // PanSup
             // 
+            this.PanSup.Controls.Add(this.TxtCli);
+            this.PanSup.Controls.Add(this.label5);
+            this.PanSup.Controls.Add(this.TxtTotal);
+            this.PanSup.Controls.Add(this.label4);
             this.PanSup.Controls.Add(this.TxtCaje);
             this.PanSup.Controls.Add(this.label3);
             this.PanSup.Controls.Add(this.BtnAnul);
@@ -66,15 +74,95 @@
             this.PanSup.Size = new System.Drawing.Size(733, 111);
             this.PanSup.TabIndex = 0;
             // 
-            // PanCent
+            // TxtTotal
             // 
-            this.PanCent.Controls.Add(this.Dgv1);
-            this.PanCent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanCent.Location = new System.Drawing.Point(0, 111);
-            this.PanCent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PanCent.Name = "PanCent";
-            this.PanCent.Size = new System.Drawing.Size(733, 321);
-            this.PanCent.TabIndex = 1;
+            this.TxtTotal.Enabled = false;
+            this.TxtTotal.Location = new System.Drawing.Point(403, 33);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(79, 29);
+            this.TxtTotal.TabIndex = 9;
+            this.TxtTotal.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(411, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 21);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Total";
+            // 
+            // TxtCaje
+            // 
+            this.TxtCaje.Enabled = false;
+            this.TxtCaje.Location = new System.Drawing.Point(236, 33);
+            this.TxtCaje.Name = "TxtCaje";
+            this.TxtCaje.Size = new System.Drawing.Size(161, 29);
+            this.TxtCaje.TabIndex = 7;
+            this.TxtCaje.TextChanged += new System.EventHandler(this.TxtCaje_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(246, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 21);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Operó";
+            // 
+            // BtnAnul
+            // 
+            this.BtnAnul.Image = ((System.Drawing.Image)(resources.GetObject("BtnAnul.Image")));
+            this.BtnAnul.Location = new System.Drawing.Point(604, 62);
+            this.BtnAnul.Name = "BtnAnul";
+            this.BtnAnul.Size = new System.Drawing.Size(117, 41);
+            this.BtnAnul.TabIndex = 5;
+            this.BtnAnul.Text = "Anular";
+            this.BtnAnul.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAnul.UseVisualStyleBackColor = true;
+            this.BtnAnul.Click += new System.EventHandler(this.BtnAnul_Click);
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
+            this.BtnSearch.Location = new System.Drawing.Point(604, 12);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(117, 41);
+            this.BtnSearch.TabIndex = 4;
+            this.BtnSearch.Text = "Buscar";
+            this.BtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // Dtp1
+            // 
+            this.Dtp1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Dtp1.Location = new System.Drawing.Point(488, 33);
+            this.Dtp1.Name = "Dtp1";
+            this.Dtp1.Size = new System.Drawing.Size(109, 29);
+            this.Dtp1.TabIndex = 3;
+            this.Dtp1.Value = new System.DateTime(2023, 9, 27, 0, 0, 0, 0);
+            this.Dtp1.Visible = false;
+            this.Dtp1.ValueChanged += new System.EventHandler(this.Dtp1_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(503, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Fecha";
+            this.label2.Visible = false;
+            // 
+            // CboVen
+            // 
+            this.CboVen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboVen.FormattingEnabled = true;
+            this.CboVen.Location = new System.Drawing.Point(12, 33);
+            this.CboVen.Name = "CboVen";
+            this.CboVen.Size = new System.Drawing.Size(66, 29);
+            this.CboVen.TabIndex = 1;
             // 
             // label1
             // 
@@ -85,14 +173,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Venta";
             // 
-            // CboVen
+            // PanCent
             // 
-            this.CboVen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboVen.FormattingEnabled = true;
-            this.CboVen.Location = new System.Drawing.Point(12, 33);
-            this.CboVen.Name = "CboVen";
-            this.CboVen.Size = new System.Drawing.Size(120, 29);
-            this.CboVen.TabIndex = 1;
+            this.PanCent.Controls.Add(this.Dgv1);
+            this.PanCent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanCent.Location = new System.Drawing.Point(0, 111);
+            this.PanCent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PanCent.Name = "PanCent";
+            this.PanCent.Size = new System.Drawing.Size(733, 321);
+            this.PanCent.TabIndex = 1;
             // 
             // Dgv1
             // 
@@ -115,66 +204,6 @@
             this.Dgv1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgv1.Size = new System.Drawing.Size(733, 321);
             this.Dgv1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(359, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha";
-            // 
-            // Dtp1
-            // 
-            this.Dtp1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Dtp1.Location = new System.Drawing.Point(335, 33);
-            this.Dtp1.Name = "Dtp1";
-            this.Dtp1.Size = new System.Drawing.Size(129, 29);
-            this.Dtp1.TabIndex = 3;
-            this.Dtp1.Value = new System.DateTime(2023, 9, 27, 0, 0, 0, 0);
-            this.Dtp1.ValueChanged += new System.EventHandler(this.Dtp1_ValueChanged);
-            // 
-            // BtnSearch
-            // 
-            this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
-            this.BtnSearch.Location = new System.Drawing.Point(604, 12);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(117, 41);
-            this.BtnSearch.TabIndex = 4;
-            this.BtnSearch.Text = "Buscar";
-            this.BtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-            // 
-            // BtnAnul
-            // 
-            this.BtnAnul.Image = ((System.Drawing.Image)(resources.GetObject("BtnAnul.Image")));
-            this.BtnAnul.Location = new System.Drawing.Point(604, 62);
-            this.BtnAnul.Name = "BtnAnul";
-            this.BtnAnul.Size = new System.Drawing.Size(117, 41);
-            this.BtnAnul.TabIndex = 5;
-            this.BtnAnul.Text = "Anular";
-            this.BtnAnul.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnAnul.UseVisualStyleBackColor = true;
-            this.BtnAnul.Click += new System.EventHandler(this.BtnAnul_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 21);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Operó";
-            // 
-            // TxtCaje
-            // 
-            this.TxtCaje.Enabled = false;
-            this.TxtCaje.Location = new System.Drawing.Point(138, 33);
-            this.TxtCaje.Name = "TxtCaje";
-            this.TxtCaje.Size = new System.Drawing.Size(175, 29);
-            this.TxtCaje.TabIndex = 7;
             // 
             // Prod
             // 
@@ -199,6 +228,23 @@
             this.Subt.HeaderText = "SubTotal";
             this.Subt.Name = "Subt";
             this.Subt.ReadOnly = true;
+            // 
+            // TxtCli
+            // 
+            this.TxtCli.Enabled = false;
+            this.TxtCli.Location = new System.Drawing.Point(84, 33);
+            this.TxtCli.Name = "TxtCli";
+            this.TxtCli.Size = new System.Drawing.Size(146, 29);
+            this.TxtCli.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(90, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 21);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Cliente";
             // 
             // CancelVentas
             // 
@@ -237,5 +283,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cant;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subt;
+        private System.Windows.Forms.TextBox TxtTotal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TxtCli;
+        private System.Windows.Forms.Label label5;
     }
 }

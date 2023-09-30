@@ -86,9 +86,9 @@ namespace Central.Clases
             return val;
         }
 
-        private DataTable titulos(string venta)
+        public DataTable titulos(string venta)
         {
-            string consulta= "SELECT ca.nombre, Date_format(v.fecha_h,'%d/%m/%Y') as fecha, Date_format(v.fecha_h,'%H:%i:%s') as hora, CLI.Nombre as CLIENTE FROM cajero ca " +
+            string consulta= "SELECT ca.nombre, Date_format(v.fecha_h,'%d/%m/%Y') as fecha, Date_format(v.fecha_h,'%H:%i:%s') as hora, CLI.Nombre as CLIENTE,v.cliente as nom FROM cajero ca " +
                              "INNER JOIN venta v ON v.ID_CAJERO = ca.ID_CAJERO "+
                              "INNER JOIN CLIENTES CLI ON CLI.ID_CLI = V.ID_CLI "+
                              "WHERE v.ID_VENTA ="+venta;
@@ -132,14 +132,14 @@ namespace Central.Clases
 
         #endregion
 
-        public int generarv(DataTable datos, decimal efect, string cliente, string cajero, string descu, [Optional]string proces)
+        public int generarv(DataTable datos, decimal efect, string cliente, string cajero, string descu,string clinom, [Optional]string proces)
         {
             int resp;
             int codv = idventa()+1;
             string fecha = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string consulta;
-            consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu,estado) " +
-                      "values ("+codv+ ","+cliente+"," +cajero +",'"+ fecha+"',"+descu+",'Activa')";
+            consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu,estado,cliente) " +
+                      $"values ({codv},{cliente},{cajero},'{fecha}',{descu},'Activa','{clinom}')";
             if (consulta_gen(consulta))
             {
                 if (generardet(datos, codv, efect, cajero, descu, proces))
@@ -213,19 +213,33 @@ namespace Central.Clases
             return true;
         }
 
-        public bool anularSale(string idv, string vende)
+        public bool anularSale(string idv,string idvende, string vendenom,string total)
         {
             try
             {
-                string updvent = $"Update venta set estado='Anulada {DateTime.Now.ToString("dd/MM/yyyy")}', por {vende} "+
+                string updvent = $"Update venta set estado='Anulada {DateTime.Now.ToString("dd/MM/yyyy")}, por {vendenom}' "+
                                     $"Where id_venta={idv}";
-                return (consulta_gen(updvent) && devolallprod(idv));
+                string descrip = $"Se anulo la venta numero {idv} por {vendenom}";
+                return (consulta_gen(updvent) && devolallprod(idv) && addcaja(idvende,descrip,total));
             }
             catch (Exception)
             {
                 return false;
             }
         
+        }
+
+        private bool addcaja(string idven,string descrip,string tot)
+        {
+            string fecha = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
+            string ope = "Egreso";
+            string monto = tot;
+            string desc =descrip;
+            string cajero = idven;
+            string[] datos = { ope, desc, monto, fecha,cajero };
+            return (caj.ingreope(datos));
+           
+   
         }
 
         private bool devolallprod(string idv)
@@ -256,7 +270,7 @@ namespace Central.Clases
             Enca.fecha = superior.Rows[0][1].ToString();
             Enca.hora  = superior.Rows[0][2].ToString();
             Enca.efectivo =  efect.ToString ();
-            Enca.cliente = superior.Rows[0][3].ToString();
+            Enca.cliente = superior.Rows[0][4].ToString();
             cant = datos.Rows.Count;
             decimal total=0;
             for (cont=0;cont<cant;cont++)

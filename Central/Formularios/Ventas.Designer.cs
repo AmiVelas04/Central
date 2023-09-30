@@ -65,6 +65,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.DgvProd = new System.Windows.Forms.DataGridView();
             this.Ttinfo = new System.Windows.Forms.ToolTip(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtCli = new System.Windows.Forms.TextBox();
             this.PanSup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudCant)).BeginInit();
             this.PanLat.SuspendLayout();
@@ -74,6 +76,8 @@
             // 
             // PanSup
             // 
+            this.PanSup.Controls.Add(this.TxtCli);
+            this.PanSup.Controls.Add(this.label11);
             this.PanSup.Controls.Add(this.ChkCredito);
             this.PanSup.Controls.Add(this.CboPrecio);
             this.PanSup.Controls.Add(this.CboCli);
@@ -127,16 +131,16 @@
             // CboCli
             // 
             this.CboCli.FormattingEnabled = true;
-            this.CboCli.Location = new System.Drawing.Point(90, 9);
+            this.CboCli.Location = new System.Drawing.Point(378, 12);
             this.CboCli.Name = "CboCli";
-            this.CboCli.Size = new System.Drawing.Size(295, 28);
+            this.CboCli.Size = new System.Drawing.Size(31, 28);
             this.CboCli.TabIndex = 19;
             this.CboCli.Visible = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 12);
+            this.label10.Location = new System.Drawing.Point(313, 18);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 20);
             this.label10.TabIndex = 18;
@@ -479,6 +483,22 @@
             this.DgvProd.TabIndex = 0;
             this.DgvProd.Click += new System.EventHandler(this.DgvProd_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 20);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Cliente";
+            // 
+            // TxtCli
+            // 
+            this.TxtCli.Location = new System.Drawing.Point(79, 9);
+            this.TxtCli.Name = "TxtCli";
+            this.TxtCli.Size = new System.Drawing.Size(228, 27);
+            this.TxtCli.TabIndex = 23;
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -543,5 +563,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CboPrecio;
         private System.Windows.Forms.CheckBox ChkCredito;
+        private System.Windows.Forms.TextBox TxtCli;
+        private System.Windows.Forms.Label label11;
     }
 }

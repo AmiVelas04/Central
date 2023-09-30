@@ -49,7 +49,7 @@
             // 
             // PanLat
             // 
-            this.PanLat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(65)))), ((int)(((byte)(103)))));
+            this.PanLat.BackColor = System.Drawing.Color.Firebrick;
             this.PanLat.Controls.Add(this.BtnCred);
             this.PanLat.Controls.Add(this.BtnCli);
             this.PanLat.Controls.Add(this.BtnCap);
@@ -69,7 +69,7 @@
             this.BtnCred.FlatAppearance.BorderSize = 0;
             this.BtnCred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCred.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCred.ForeColor = System.Drawing.Color.White;
+            this.BtnCred.ForeColor = System.Drawing.Color.Black;
             this.BtnCred.Image = ((System.Drawing.Image)(resources.GetObject("BtnCred.Image")));
             this.BtnCred.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCred.Location = new System.Drawing.Point(0, 399);
@@ -87,7 +87,7 @@
             this.BtnCli.FlatAppearance.BorderSize = 0;
             this.BtnCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCli.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCli.ForeColor = System.Drawing.Color.White;
+            this.BtnCli.ForeColor = System.Drawing.Color.Black;
             this.BtnCli.Image = ((System.Drawing.Image)(resources.GetObject("BtnCli.Image")));
             this.BtnCli.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCli.Location = new System.Drawing.Point(0, 344);
@@ -122,7 +122,7 @@
             this.BtnCaja.FlatAppearance.BorderSize = 0;
             this.BtnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCaja.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCaja.ForeColor = System.Drawing.Color.White;
+            this.BtnCaja.ForeColor = System.Drawing.Color.Black;
             this.BtnCaja.Image = ((System.Drawing.Image)(resources.GetObject("BtnCaja.Image")));
             this.BtnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCaja.Location = new System.Drawing.Point(0, 294);
@@ -139,7 +139,7 @@
             this.BtnREportes.FlatAppearance.BorderSize = 0;
             this.BtnREportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnREportes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnREportes.ForeColor = System.Drawing.Color.White;
+            this.BtnREportes.ForeColor = System.Drawing.Color.Black;
             this.BtnREportes.Image = ((System.Drawing.Image)(resources.GetObject("BtnREportes.Image")));
             this.BtnREportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnREportes.Location = new System.Drawing.Point(-9, 237);
@@ -156,7 +156,7 @@
             this.BtnUsu.FlatAppearance.BorderSize = 0;
             this.BtnUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnUsu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUsu.ForeColor = System.Drawing.Color.White;
+            this.BtnUsu.ForeColor = System.Drawing.Color.Black;
             this.BtnUsu.Image = ((System.Drawing.Image)(resources.GetObject("BtnUsu.Image")));
             this.BtnUsu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnUsu.Location = new System.Drawing.Point(-9, 183);
@@ -173,7 +173,7 @@
             this.BtnProductos.FlatAppearance.BorderSize = 0;
             this.BtnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProductos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnProductos.ForeColor = System.Drawing.Color.White;
+            this.BtnProductos.ForeColor = System.Drawing.Color.Black;
             this.BtnProductos.Image = ((System.Drawing.Image)(resources.GetObject("BtnProductos.Image")));
             this.BtnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnProductos.Location = new System.Drawing.Point(-9, 128);
@@ -190,7 +190,7 @@
             this.BtnVentas.FlatAppearance.BorderSize = 0;
             this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.ForeColor = System.Drawing.Color.White;
+            this.BtnVentas.ForeColor = System.Drawing.Color.Black;
             this.BtnVentas.Image = ((System.Drawing.Image)(resources.GetObject("BtnVentas.Image")));
             this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnVentas.Location = new System.Drawing.Point(-9, 66);
@@ -204,7 +204,7 @@
             // 
             // PanSup
             // 
-            this.PanSup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(65)))), ((int)(((byte)(103)))));
+            this.PanSup.BackColor = System.Drawing.Color.Firebrick;
             this.PanSup.Controls.Add(this.BtnMin);
             this.PanSup.Controls.Add(this.BtnCerrar);
             this.PanSup.Controls.Add(this.LblUsu);
@@ -244,7 +244,7 @@
             // 
             this.LblUsu.AutoSize = true;
             this.LblUsu.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsu.ForeColor = System.Drawing.Color.White;
+            this.LblUsu.ForeColor = System.Drawing.Color.Black;
             this.LblUsu.Location = new System.Drawing.Point(40, 22);
             this.LblUsu.Name = "LblUsu";
             this.LblUsu.Size = new System.Drawing.Size(56, 21);
