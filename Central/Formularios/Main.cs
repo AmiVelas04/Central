@@ -63,7 +63,9 @@ namespace Central.Formularios
 
         private void BtnUsu_Click(object sender, EventArgs e)
         {
-            abrir_form(new Usuarios());
+            //abrir_form(new Usuarios());
+            NewUsuario lol = new NewUsuario();
+            lol.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

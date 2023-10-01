@@ -58,7 +58,7 @@ namespace Central.Clases
         #endregion
         public  DataTable  inicio(string usu, string pass)
         {
-            string consulta = "Select id_cajero, nombre,id_tipo from cajero where Usuario='" + usu + "' and pass='" + pass + "'";
+            string consulta = "Select id_cajero, nombre,id_tipo,estado from cajero where Usuario='" + usu + "' and pass='" + pass + "'";
             return buscar(consulta);
             
         }

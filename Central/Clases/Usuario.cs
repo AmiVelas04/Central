@@ -86,8 +86,8 @@ namespace Central.Clases
         public bool ingreusu(string[] datos)
         {
             int cod = idusu() + 1;
-            string consulta = "insert into cajero( id_cajero, nombre, usuario,pass,id_tipo) " +
-                            "values (" + cod + ",'" + datos[0] + "','" + datos[1] + "','" + datos[2] + "'," + datos[3]+ ")";
+            string consulta = "insert into cajero( id_cajero, nombre, usuario,pass,id_tipo,estado) " +
+                            $"values ({cod},'{datos[0]}','{datos[1]}','{datos[2]}',{datos[3]},'{datos[4]}')";
             return consulta_gen(consulta);
 
         }
@@ -95,9 +95,15 @@ namespace Central.Clases
         public bool updtusu(string[] datos)
         {
             string consulta;
-            consulta = "Update cajero set nombre='"+datos[0] +"', usuario='"+ datos [1]+ "', pass='"+ datos [2]+ "', id_tipo="+datos [3] +
-                       " where id_cajero="+datos[4];
+            consulta = consulta = $"Update cajero set nombre='{datos[1]}', usuario='{datos[2]}', pass='{datos[3]}', id_tipo={datos[4]} where id_cajero={datos[0]}";
             return consulta_gen(consulta );
+        }
+
+        public bool AcDesUsu(string[] datos)
+        {
+            string consulta;
+            consulta = $"Update cajero set nombre='{datos[1]}', usuario='{datos[2]}', pass='{datos[3]}', id_tipo={datos[4]}, Estado='{datos[5]}' where id_cajero={datos[0]}";
+            return consulta_gen(consulta);
         }
 
         public DataTable usuarios()
@@ -113,6 +119,46 @@ namespace Central.Clases
             consulta = "Select nombre,usuario,id_tipo from cajero where id_cajero="+ id;
             return buscar(consulta);
         }
+
+        public DataTable buscUsuEdit(string id)
+        {
+            string consulta;
+            consulta = "Select nombre,usuario,pass,id_tipo,estado from cajero where id_cajero=" + id;
+            return buscar(consulta);
+        }
+
+
+
+        public DataTable SearchUsubyNomAct(string nom)
+        {
+            string consulta;
+            consulta = $"Select id_cajero,nombre,usuario,id_tipo,estado from cajero where nombre like '%{nom}%' and estado='Activo' and id_cajero !=1";
+            return buscar(consulta);
+        }
+
+        public DataTable SearchUsubyNom(string nom)
+        {
+            string consulta;
+            consulta = $"Select id_cajero,nombre,usuario,id_tipo,estado from cajero where nombre like '%{nom}%' and id_cajero !=1";
+            return buscar(consulta);
+        }
+
+        public DataTable SearchUsuAllAct()
+        {
+            string consulta;
+            consulta = $"Select id_cajero,nombre,usuario,id_tipo,estado from cajero where estado='Activo' and id_cajero !=1";
+            return buscar(consulta);
+        }
+
+        public DataTable SearchUsuAll()
+        {
+            string consulta;
+            consulta = $"Select id_cajero,nombre,usuario,id_tipo,estado from cajero where id_cajero!=1";
+            return buscar(consulta);
+        }
+
+
+
         public bool Eliminar(string id,string iddel)
         {
             string cambiarid = "update venta set id_cajero=" + iddel;

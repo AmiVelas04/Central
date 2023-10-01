@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanSup = new System.Windows.Forms.Panel();
+            this.TxtCli = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.ChkCredito = new System.Windows.Forms.CheckBox();
             this.CboPrecio = new System.Windows.Forms.ComboBox();
             this.CboCli = new System.Windows.Forms.ComboBox();
@@ -65,8 +67,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.DgvProd = new System.Windows.Forms.DataGridView();
             this.Ttinfo = new System.Windows.Forms.ToolTip(this.components);
-            this.label11 = new System.Windows.Forms.Label();
-            this.TxtCli = new System.Windows.Forms.TextBox();
             this.PanSup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudCant)).BeginInit();
             this.PanLat.SuspendLayout();
@@ -105,13 +105,29 @@
             this.PanSup.Size = new System.Drawing.Size(869, 163);
             this.PanSup.TabIndex = 0;
             // 
+            // TxtCli
+            // 
+            this.TxtCli.Location = new System.Drawing.Point(79, 9);
+            this.TxtCli.Name = "TxtCli";
+            this.TxtCli.Size = new System.Drawing.Size(228, 27);
+            this.TxtCli.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 20);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Cliente";
+            // 
             // ChkCredito
             // 
             this.ChkCredito.AutoSize = true;
-            this.ChkCredito.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkCredito.Location = new System.Drawing.Point(415, 12);
+            this.ChkCredito.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkCredito.Location = new System.Drawing.Point(730, 9);
             this.ChkCredito.Name = "ChkCredito";
-            this.ChkCredito.Size = new System.Drawing.Size(97, 29);
+            this.ChkCredito.Size = new System.Drawing.Size(64, 17);
             this.ChkCredito.TabIndex = 21;
             this.ChkCredito.Text = "Credito";
             this.ChkCredito.UseVisualStyleBackColor = true;
@@ -131,7 +147,7 @@
             // CboCli
             // 
             this.CboCli.FormattingEnabled = true;
-            this.CboCli.Location = new System.Drawing.Point(378, 12);
+            this.CboCli.Location = new System.Drawing.Point(763, 26);
             this.CboCli.Name = "CboCli";
             this.CboCli.Size = new System.Drawing.Size(31, 28);
             this.CboCli.TabIndex = 19;
@@ -140,7 +156,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(313, 18);
+            this.label10.Location = new System.Drawing.Point(698, 32);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 20);
             this.label10.TabIndex = 18;
@@ -238,10 +254,10 @@
             // TxtPrecio
             // 
             this.TxtPrecio.Enabled = false;
-            this.TxtPrecio.Location = new System.Drawing.Point(714, 18);
+            this.TxtPrecio.Location = new System.Drawing.Point(807, 18);
             this.TxtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(104, 27);
+            this.TxtPrecio.Size = new System.Drawing.Size(37, 27);
             this.TxtPrecio.TabIndex = 9;
             this.TxtPrecio.Visible = false;
             // 
@@ -473,8 +489,8 @@
             this.DgvProd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvProd.Name = "DgvProd";
             this.DgvProd.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DgvProd.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvProd.ShowCellToolTips = false;
             this.DgvProd.ShowEditingIcon = false;
@@ -482,22 +498,6 @@
             this.DgvProd.Size = new System.Drawing.Size(637, 371);
             this.DgvProd.TabIndex = 0;
             this.DgvProd.Click += new System.EventHandler(this.DgvProd_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 20);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Cliente";
-            // 
-            // TxtCli
-            // 
-            this.TxtCli.Location = new System.Drawing.Point(79, 9);
-            this.TxtCli.Name = "TxtCli";
-            this.TxtCli.Size = new System.Drawing.Size(228, 27);
-            this.TxtCli.TabIndex = 23;
             // 
             // Ventas
             // 
