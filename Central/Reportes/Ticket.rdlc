@@ -325,7 +325,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Detalle</DataSetName>
-        <Top>7.25841cm</Top>
+        <Top>7.82314cm</Top>
         <Left>0.1545cm</Left>
         <Height>0.98834cm</Height>
         <Width>6.58062cm</Width>
@@ -336,7 +336,7 @@
         </Style>
       </Tablix>
       <Line Name="Line2">
-        <Top>8.5466cm</Top>
+        <Top>8.8641cm</Top>
         <Left>0.1545cm</Left>
         <Height>0cm</Height>
         <Width>6.66954cm</Width>
@@ -733,7 +733,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Titulo</DataSetName>
-        <Top>8.89952cm</Top>
+        <Top>8.84675cm</Top>
         <Left>0.1545cm</Left>
         <Height>2.92063cm</Height>
         <Width>6.66954cm</Width>
@@ -762,7 +762,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>12.32971cm</Top>
+        <Top>11.94377cm</Top>
         <Left>1.42716cm</Left>
         <Height>0.6cm</Height>
         <Width>3.79646cm</Width>
@@ -784,7 +784,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Tools</Value>
+                <Value>Electro Universal</Value>
                 <Style>
                   <FontFamily>Lao UI</FontFamily>
                   <FontSize>11pt</FontSize>
@@ -799,7 +799,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Tienda de tecnologia</Value>
+                <Value>En Comercial Ne' Ku'</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>Franklin Gothic Book</FontFamily>
@@ -813,7 +813,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Centro comercial Kumus</Value>
+                <Value>Salquil Grande Nebaj  - Quiche</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>Franklin Gothic Book</FontFamily>
@@ -827,21 +827,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Jactzal, Nebaj, Qhiche</Value>
-                <Style>
-                  <FontStyle>Italic</FontStyle>
-                  <FontFamily>Franklin Gothic Book</FontFamily>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Tel: 49079925</Value>
+                <Value>Tel: 4602-1400</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>Franklin Gothic Book</FontFamily>
@@ -959,7 +945,7 @@
         </Style>
       </Textbox>
       <Line Name="Line3">
-        <Top>13.16685cm</Top>
+        <Top>12.72016cm</Top>
         <Left>0.1545cm</Left>
         <Height>0cm</Height>
         <Width>6.66954cm</Width>
@@ -1024,8 +1010,40 @@
           </Border>
         </Style>
       </Image>
+      <Textbox Name="Textbox7">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Nit: </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>7.18786cm</Top>
+        <Left>0.1545cm</Left>
+        <Height>0.6cm</Height>
+        <Width>6.58062cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.33388in</Height>
+    <Height>5.1568in</Height>
     <Style />
   </Body>
   <Width>2.80869in</Width>

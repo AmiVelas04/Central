@@ -138,5 +138,10 @@ namespace Central.Formularios
             formul.Cajero = nombre;
             formul.Show();
         }
+
+        private void BtnComp_Click(object sender, EventArgs e)
+        {
+            abrir_form(new Compras());
+        }
     }
 }

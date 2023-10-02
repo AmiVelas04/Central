@@ -43,6 +43,7 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.LblUsu = new System.Windows.Forms.Label();
             this.PanCentral = new System.Windows.Forms.Panel();
+            this.BtnComp = new System.Windows.Forms.Button();
             this.PanLat.SuspendLayout();
             this.PanSup.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             // PanLat
             // 
             this.PanLat.BackColor = System.Drawing.Color.Firebrick;
+            this.PanLat.Controls.Add(this.BtnComp);
             this.PanLat.Controls.Add(this.BtnCred);
             this.PanLat.Controls.Add(this.BtnCli);
             this.PanLat.Controls.Add(this.BtnCap);
@@ -262,6 +264,16 @@
             this.PanCentral.Size = new System.Drawing.Size(869, 534);
             this.PanCentral.TabIndex = 2;
             // 
+            // BtnComp
+            // 
+            this.BtnComp.Location = new System.Drawing.Point(33, 474);
+            this.BtnComp.Name = "BtnComp";
+            this.BtnComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnComp.TabIndex = 8;
+            this.BtnComp.Text = "Compra";
+            this.BtnComp.UseVisualStyleBackColor = true;
+            this.BtnComp.Click += new System.EventHandler(this.BtnComp_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -300,5 +312,6 @@
         private System.Windows.Forms.Button BtnCap;
         private System.Windows.Forms.Button BtnCli;
         private System.Windows.Forms.Button BtnCred;
+        private System.Windows.Forms.Button BtnComp;
     }
 }

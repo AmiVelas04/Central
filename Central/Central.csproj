@@ -116,6 +116,7 @@
     <Compile Include="Clases\Caja.cs" />
     <Compile Include="Clases\Cajon.cs" />
     <Compile Include="Clases\ClaseCliente.cs" />
+    <Compile Include="Clases\Compra.cs" />
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\CreditoClase.cs" />
     <Compile Include="Clases\Imprimir.cs" />
@@ -154,6 +155,12 @@
     </Compile>
     <Compile Include="Formularios\Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Credito.cs">
       <SubType>Form</SubType>
@@ -298,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Credito.resx">
       <DependentUpon>Credito.cs</DependentUpon>
