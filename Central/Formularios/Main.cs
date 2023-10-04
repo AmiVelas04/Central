@@ -138,5 +138,11 @@ namespace Central.Formularios
             formul.Cajero = nombre;
             formul.Show();
         }
+
+        private void BtnSprint_Click(object sender, EventArgs e)
+        {
+            SelPrint selec = new SelPrint();
+            selec.ShowDialog();
+        }
     }
 }

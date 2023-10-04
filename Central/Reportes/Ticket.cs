@@ -17,7 +17,7 @@ namespace Central.Reportes
 {
     partial class Ticket : Form, IDisposable
     {
-
+        Clases.Imprimir impre = new Clases.Imprimir();
 
         public List<FacturaDet> Detalle = new List<FacturaDet>();
         public List<FacturaEnc> Encabezado = new List<FacturaEnc>();
@@ -107,7 +107,7 @@ namespace Central.Reportes
         private void print()
         {
             PrintDocument printdoc;
-            string printname = ImpresoraPred();
+            string printname = impre.impresotaSet(); //ImpresoraPred();
             if (m_streams == null || m_streams.Count == 0)
                 throw new Exception("Error: no hay datos que imprimir");
             printdoc = new PrintDocument();

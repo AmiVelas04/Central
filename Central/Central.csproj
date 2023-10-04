@@ -197,6 +197,12 @@
     <Compile Include="Formularios\Respaldo.Designer.cs">
       <DependentUpon>Respaldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\SelPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\SelPrint.Designer.cs">
+      <DependentUpon>SelPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Respaldo.resx">
       <DependentUpon>Respaldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\SelPrint.resx">
+      <DependentUpon>SelPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>

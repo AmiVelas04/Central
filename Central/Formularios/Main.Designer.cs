@@ -43,6 +43,7 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.LblUsu = new System.Windows.Forms.Label();
             this.PanCentral = new System.Windows.Forms.Panel();
+            this.BtnSprint = new System.Windows.Forms.Button();
             this.PanLat.SuspendLayout();
             this.PanSup.SuspendLayout();
             this.SuspendLayout();
@@ -205,6 +206,7 @@
             // PanSup
             // 
             this.PanSup.BackColor = System.Drawing.Color.Firebrick;
+            this.PanSup.Controls.Add(this.BtnSprint);
             this.PanSup.Controls.Add(this.BtnMin);
             this.PanSup.Controls.Add(this.BtnCerrar);
             this.PanSup.Controls.Add(this.LblUsu);
@@ -262,6 +264,18 @@
             this.PanCentral.Size = new System.Drawing.Size(869, 534);
             this.PanCentral.TabIndex = 2;
             // 
+            // BtnSprint
+            // 
+            this.BtnSprint.FlatAppearance.BorderSize = 0;
+            this.BtnSprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSprint.Image = ((System.Drawing.Image)(resources.GetObject("BtnSprint.Image")));
+            this.BtnSprint.Location = new System.Drawing.Point(663, 10);
+            this.BtnSprint.Name = "BtnSprint";
+            this.BtnSprint.Size = new System.Drawing.Size(75, 44);
+            this.BtnSprint.TabIndex = 3;
+            this.BtnSprint.UseVisualStyleBackColor = true;
+            this.BtnSprint.Click += new System.EventHandler(this.BtnSprint_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -300,5 +314,6 @@
         private System.Windows.Forms.Button BtnCap;
         private System.Windows.Forms.Button BtnCli;
         private System.Windows.Forms.Button BtnCred;
+        private System.Windows.Forms.Button BtnSprint;
     }
 }

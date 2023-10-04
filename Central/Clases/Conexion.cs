@@ -9,13 +9,13 @@ namespace Central.Clases
 {
     class Conexion
     {
-     string cadena_conn = "server=192.168.0.12;  database=tools; user=root; password=Ami_1532; port=3306; allow zero Datetime= true";
+     string cadena_conn = "server=192.168.0.121;  database=tools; user=root; password=Ami_1532; port=3306; allow zero Datetime= true";
 
        //string cadena_conn = "server=192.168.10.120;  database=universal; user=universal; password=Uni_2023; port=3306; allow zero Datetime= true";
 
         //string cadena_conn = "server=192.168.5.31;  database=central; user= Central; password=Centr-Sis-2020; port=3306; allow zero Datetime= true";
 
-        //string cadena_conn = "server=localhost;  database=chente; user= root; password=Ami_1532; port=3306; allow zero Datetime= true";
+       // string cadena_conn = "server=localhost;  database=chente; user= root; password=Ami_1532; port=3306; allow zero Datetime= true";
 
         public MySqlConnection conn = new MySqlConnection();
 
