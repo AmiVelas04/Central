@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ventas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanSup = new System.Windows.Forms.Panel();
+            this.Txtnit = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.TxtCli = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.ChkCredito = new System.Windows.Forms.CheckBox();
@@ -67,8 +69,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.DgvProd = new System.Windows.Forms.DataGridView();
             this.Ttinfo = new System.Windows.Forms.ToolTip(this.components);
-            this.Txtnit = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.PanSup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudCant)).BeginInit();
             this.PanLat.SuspendLayout();
@@ -108,6 +108,22 @@
             this.PanSup.Name = "PanSup";
             this.PanSup.Size = new System.Drawing.Size(869, 163);
             this.PanSup.TabIndex = 0;
+            // 
+            // Txtnit
+            // 
+            this.Txtnit.Location = new System.Drawing.Point(378, 9);
+            this.Txtnit.Name = "Txtnit";
+            this.Txtnit.Size = new System.Drawing.Size(134, 27);
+            this.Txtnit.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(315, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 20);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Nit";
             // 
             // TxtCli
             // 
@@ -502,22 +518,6 @@
             this.DgvProd.Size = new System.Drawing.Size(637, 371);
             this.DgvProd.TabIndex = 0;
             this.DgvProd.Click += new System.EventHandler(this.DgvProd_Click);
-            // 
-            // Txtnit
-            // 
-            this.Txtnit.Location = new System.Drawing.Point(378, 9);
-            this.Txtnit.Name = "Txtnit";
-            this.Txtnit.Size = new System.Drawing.Size(134, 27);
-            this.Txtnit.TabIndex = 25;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(315, 12);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 20);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Nit";
             // 
             // Ventas
             // 

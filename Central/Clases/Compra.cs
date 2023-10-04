@@ -61,7 +61,7 @@ namespace Central.Clases
         {
             DataTable datos = new DataTable();
             int val;
-            string consulta = "select max(id_venta) from compra";
+            string consulta = "select max(id_comp) from compra";
             datos = buscar(consulta);
             if (datos.Rows[0][0] == DBNull.Value)
             { val = 0; }
@@ -73,7 +73,7 @@ namespace Central.Clases
         {
             DataTable datos = new DataTable();
             int val;
-            string consulta = "select max(id_detalle) from comp_det";
+            string consulta = "select max(id_compdet) from comp_det";
             datos = buscar(consulta);
             if (datos.Rows[0][0] == DBNull.Value)
             { val = 0; }
@@ -89,19 +89,53 @@ namespace Central.Clases
          return prod.buscarprod(cod);
         }
 
-       public bool GenComp(DataTable datos, string prove) {
+       public bool GenComp(DataTable datos,string vende,string tot, string prove) {
             try
             {
+                int id = idcomp() + 1;
+                string fecha = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                string consulta = $"Insert into Compra(Id_comp,id_caj,Fecha,Total,Prove) values({id},{vende},'{fecha}',{tot},'{prove}')";
+                if (consulta_gen(consulta))
+                {
+                   return GenCompDet(datos,id.ToString());
 
+                }
+                return false; 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show($"Ocurrio un error:\n{ex}");
+                return false;
+               
             }
         }
 
-      //  public bool GenCompDet() { }
+       public bool GenCompDet(DataTable datos, string compra) {
+            int total = datos.Rows.Count;
+            for (int i = 0; i < total; i++)
+            {
+                if (prod.existeprod(datos.Rows[i][0].ToString()))
+                { prod.ReponProd(datos.Rows[i][0].ToString(), datos.Rows[i][8].ToString()); }
+                else {
+                    string[] valor = { datos.Rows[i][0].ToString(), datos.Rows[i][1].ToString(), datos.Rows[i][2].ToString(), datos.Rows[i][3].ToString(), datos.Rows[i][4].ToString(), datos.Rows[i][5].ToString(), datos.Rows[i][8].ToString(),DateTime.Now.AddYears(2).ToString("yyyy/MM/dd HH:mm:ss"),"0","0", datos.Rows[i][8].ToString(), datos.Rows[i][8].ToString() };
+                    prod.agregprod(valor);
+                }
+                int iddet = idetalle() + 1;
+                string idcomp = compra;
+                string idprod = datos.Rows[i][0].ToString();
+                string cant = datos.Rows[i][8].ToString();
+                string costo= datos.Rows[i][4].ToString();
+
+                string consulta = "Insert into comp_det(id_compdet,id_comp,id_prod,cant, costo) " +
+                            $"values ({iddet},{idcomp},'{idprod}',{cant},{costo})";
+                if (!consulta_gen(consulta))
+                {
+                    return false;
+                }
+              
+            }
+            return true;
+        }
 
         
         #endregion

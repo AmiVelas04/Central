@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.PanLat = new System.Windows.Forms.Panel();
+            this.BtnComp = new System.Windows.Forms.Button();
             this.BtnCred = new System.Windows.Forms.Button();
             this.BtnCli = new System.Windows.Forms.Button();
             this.BtnCap = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.LblUsu = new System.Windows.Forms.Label();
             this.PanCentral = new System.Windows.Forms.Panel();
-            this.BtnComp = new System.Windows.Forms.Button();
             this.PanLat.SuspendLayout();
             this.PanSup.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,22 @@
             this.PanLat.Size = new System.Drawing.Size(131, 600);
             this.PanLat.TabIndex = 0;
             // 
+            // BtnComp
+            // 
+            this.BtnComp.FlatAppearance.BorderSize = 0;
+            this.BtnComp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnComp.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnComp.Image = ((System.Drawing.Image)(resources.GetObject("BtnComp.Image")));
+            this.BtnComp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnComp.Location = new System.Drawing.Point(0, 400);
+            this.BtnComp.Name = "BtnComp";
+            this.BtnComp.Size = new System.Drawing.Size(131, 35);
+            this.BtnComp.TabIndex = 8;
+            this.BtnComp.Text = "Compras";
+            this.BtnComp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnComp.UseVisualStyleBackColor = true;
+            this.BtnComp.Click += new System.EventHandler(this.BtnComp_Click);
+            // 
             // BtnCred
             // 
             this.BtnCred.FlatAppearance.BorderSize = 0;
@@ -74,7 +90,7 @@
             this.BtnCred.ForeColor = System.Drawing.Color.Black;
             this.BtnCred.Image = ((System.Drawing.Image)(resources.GetObject("BtnCred.Image")));
             this.BtnCred.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCred.Location = new System.Drawing.Point(0, 399);
+            this.BtnCred.Location = new System.Drawing.Point(0, 508);
             this.BtnCred.Name = "BtnCred";
             this.BtnCred.Size = new System.Drawing.Size(131, 35);
             this.BtnCred.TabIndex = 7;
@@ -257,22 +273,12 @@
             // 
             this.PanCentral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.PanCentral.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PanCentral.BackgroundImage")));
-            this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanCentral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PanCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanCentral.Location = new System.Drawing.Point(131, 66);
             this.PanCentral.Name = "PanCentral";
             this.PanCentral.Size = new System.Drawing.Size(869, 534);
             this.PanCentral.TabIndex = 2;
-            // 
-            // BtnComp
-            // 
-            this.BtnComp.Location = new System.Drawing.Point(33, 474);
-            this.BtnComp.Name = "BtnComp";
-            this.BtnComp.Size = new System.Drawing.Size(75, 23);
-            this.BtnComp.TabIndex = 8;
-            this.BtnComp.Text = "Compra";
-            this.BtnComp.UseVisualStyleBackColor = true;
-            this.BtnComp.Click += new System.EventHandler(this.BtnComp_Click);
             // 
             // Main
             // 

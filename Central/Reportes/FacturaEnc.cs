@@ -17,6 +17,7 @@ namespace Central.Reportes
         public string cambio { set; get; }
         public string descu { get; set; }
         public string cliente { get; set; }
+        public string nit { get; set; }
 
         public List<FacturaDet> Detall = new List<FacturaDet>();
 

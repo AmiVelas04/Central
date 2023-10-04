@@ -141,7 +141,14 @@ namespace Central.Formularios
 
         private void BtnComp_Click(object sender, EventArgs e)
         {
-            abrir_form(new Compras());
+            // abrir_form(new Compras());
+            PanCentral.Controls.Clear();
+            Compras formul = new Compras();
+            formul.TopLevel = false;
+            PanCentral.Controls.Add(formul);
+            PanCentral.Tag = formul;
+            formul.id_vend = id.ToString();
+            formul.Show();
         }
     }
 }

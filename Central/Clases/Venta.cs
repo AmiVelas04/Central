@@ -88,7 +88,7 @@ namespace Central.Clases
 
         public DataTable titulos(string venta)
         {
-            string consulta= "SELECT ca.nombre, Date_format(v.fecha_h,'%d/%m/%Y') as fecha, Date_format(v.fecha_h,'%H:%i:%s') as hora, CLI.Nombre as CLIENTE,v.cliente as nom FROM cajero ca " +
+            string consulta= "SELECT ca.nombre, Date_format(v.fecha_h,'%d/%m/%Y') as fecha, Date_format(v.fecha_h,'%H:%i:%s') as hora, CLI.Nombre as CLIENTE,v.cliente as nom, v.nit FROM cajero ca " +
                              "INNER JOIN venta v ON v.ID_CAJERO = ca.ID_CAJERO "+
                              "INNER JOIN CLIENTES CLI ON CLI.ID_CLI = V.ID_CLI "+
                              "WHERE v.ID_VENTA ="+venta;
@@ -132,14 +132,14 @@ namespace Central.Clases
 
         #endregion
 
-        public int generarv(DataTable datos, decimal efect, string cliente, string cajero, string descu,string clinom, [Optional]string proces)
+        public int generarv(DataTable datos, decimal efect, string cliente, string cajero, string descu,string clinom,string nit ,[Optional]string proces)
         {
             int resp;
             int codv = idventa()+1;
             string fecha = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             string consulta;
-            consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu,estado,cliente) " +
-                      $"values ({codv},{cliente},{cajero},'{fecha}',{descu},'Activa','{clinom}')";
+            consulta = "insert into  venta(id_venta,id_cli,id_cajero,Fecha_H,descu,estado,cliente,nit) " +
+                      $"values ({codv},{cliente},{cajero},'{fecha}',{descu},'Activa','{clinom}','{nit}')";
             if (consulta_gen(consulta))
             {
                 if (generardet(datos, codv, efect, cajero, descu, proces))
@@ -271,6 +271,7 @@ namespace Central.Clases
             Enca.hora  = superior.Rows[0][2].ToString();
             Enca.efectivo =  efect.ToString ();
             Enca.cliente = superior.Rows[0][4].ToString();
+            Enca.nit=superior.Rows[0][5].ToString();
             cant = datos.Rows.Count;
             decimal total=0;
             for (cont=0;cont<cant;cont++)

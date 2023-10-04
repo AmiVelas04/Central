@@ -234,6 +234,7 @@ namespace Central.Formularios
             {
                 if (TxtEfect.Text == "") TxtEfect.Text = "0";
                 if (TxtCli.Text == "") TxtCli.Text = "C/F";
+                if (Txtnit.Text == "") Txtnit.Text = "CF";
                 cambio();
                 if (DgvProd.Rows.Count <= 0)
                 {
@@ -308,6 +309,7 @@ namespace Central.Formularios
                 decimal totalpag = decimal.Parse(TxtTotal.Text);
                 string venta = "";
                 string estado="";
+                string nit = Txtnit.Text;
                 string nomcli = TxtCli.Text;
                 if (efect < totalpag && ChkCredito.Checked)  estado= "Cred";
                 if (idc.Equals("0"))
@@ -315,7 +317,7 @@ namespace Central.Formularios
                     MessageBox.Show("No se le puede asignar credito al cliente seleccionado");
                     return;
                 }
-                int ventanum = ven.generarv(datos, efect, idc, Main.id.ToString(), descu, nomcli, estado);
+                int ventanum = ven.generarv(datos, efect, idc, Main.id.ToString(), descu, nomcli, nit, estado);
                 if (ventanum != 0)
                 {
                     if (estado.Equals("Cred"))
