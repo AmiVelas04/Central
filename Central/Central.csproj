@@ -161,6 +161,12 @@
     <Compile Include="Formularios\Credito.Designer.cs">
       <DependentUpon>Credito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Entrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Entrada.Designer.cs">
+      <DependentUpon>Entrada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Credito.resx">
       <DependentUpon>Credito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Entrada.resx">
+      <DependentUpon>Entrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
