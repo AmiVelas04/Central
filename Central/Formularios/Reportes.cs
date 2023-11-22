@@ -37,21 +37,28 @@ namespace Central.Formularios
         private void BtnInventario_Click(object sender, EventArgs e)
         {
             int indice = int.Parse(CboInven.SelectedIndex.ToString());
+            string agregado = "";
+            string cate = CboCat.Text;
+            if (!CboCat.SelectedValue.ToString().Equals("0"))
+            {
+                agregado = $" and p.descripcion='{cate}' ";
+            }
+            
             if (indice == 0)
             {
-                Prod.Inventario();
+                Prod.Inventario(cate);
             }
             else if (indice==1)
             {
-                Prod.inventario1();
+                Prod.inventario1(agregado);
             }
             else if (indice ==2)
             {
-                Prod.inventario2();
+                Prod.inventario2(agregado);
             }
             else if (indice==3)
             {
-                Prod.inventario3();
+                Prod.inventario3(agregado);
             }
 
               
@@ -84,7 +91,7 @@ namespace Central.Formularios
         private void Reportes_Load(object sender, EventArgs e)
         {
             CboInven.SelectedIndex = 0;
-
+            cargacat();
         }
 
         private void cargarCliente()
@@ -103,6 +110,30 @@ namespace Central.Formularios
             CboCli.AutoCompleteSource = AutoCompleteSource.CustomSource;
             CboCli.AutoCompleteCustomSource = coleccion;
         }
+        private void cargacat() {
+            DataTable datos = new DataTable();
+            DataTable catego = new DataTable();
+            datos = Prod.categorias();
+            int orden = 0;
+            int cant = datos.Rows.Count;
+            DataRow nuevo = catego.NewRow();
+            catego.Columns.Add("id");
+            catego.Columns.Add("desc");
+            nuevo["id"] = orden;
+            nuevo["desc"] = "Todos";
+            catego.Rows.Add(nuevo);
+            for (int i = 0; i < cant; i++)
+            {
+                orden++;
+                DataRow temp = catego.NewRow();
+                temp["id"] = orden;
+                temp["desc"] = datos.Rows[i][0].ToString();
+                catego.Rows.Add(temp);
+            }
+            CboCat.DataSource = catego;
+            CboCat.ValueMember = "id";
+            CboCat.DisplayMember = "desc";
+        }
 
         private void BtnVenCli_Click(object sender, EventArgs e)
         {
@@ -120,5 +151,7 @@ namespace Central.Formularios
             Rep.Creditos(fechai,fechaf);
             
         }
+
+      
     }
 }

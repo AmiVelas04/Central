@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CancelVentas));
             this.PanSup = new System.Windows.Forms.Panel();
+            this.TxtCli = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtCaje = new System.Windows.Forms.TextBox();
@@ -46,8 +48,6 @@
             this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtCli = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.PanSup.SuspendLayout();
             this.PanCent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv1)).BeginInit();
@@ -73,6 +73,23 @@
             this.PanSup.Name = "PanSup";
             this.PanSup.Size = new System.Drawing.Size(733, 111);
             this.PanSup.TabIndex = 0;
+            // 
+            // TxtCli
+            // 
+            this.TxtCli.Enabled = false;
+            this.TxtCli.Location = new System.Drawing.Point(84, 33);
+            this.TxtCli.Name = "TxtCli";
+            this.TxtCli.Size = new System.Drawing.Size(146, 29);
+            this.TxtCli.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(90, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 21);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Cliente";
             // 
             // TxtTotal
             // 
@@ -142,7 +159,6 @@
             this.Dtp1.Size = new System.Drawing.Size(109, 29);
             this.Dtp1.TabIndex = 3;
             this.Dtp1.Value = new System.DateTime(2023, 9, 27, 0, 0, 0, 0);
-            this.Dtp1.Visible = false;
             this.Dtp1.ValueChanged += new System.EventHandler(this.Dtp1_ValueChanged);
             // 
             // label2
@@ -228,23 +244,6 @@
             this.Subt.HeaderText = "SubTotal";
             this.Subt.Name = "Subt";
             this.Subt.ReadOnly = true;
-            // 
-            // TxtCli
-            // 
-            this.TxtCli.Enabled = false;
-            this.TxtCli.Location = new System.Drawing.Point(84, 33);
-            this.TxtCli.Name = "TxtCli";
-            this.TxtCli.Size = new System.Drawing.Size(146, 29);
-            this.TxtCli.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(90, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 21);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Cliente";
             // 
             // CancelVentas
             // 

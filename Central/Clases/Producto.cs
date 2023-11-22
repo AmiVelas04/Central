@@ -121,11 +121,24 @@ namespace Central.Clases
             return consulta_gen(consultac);
         }
 
+        public DataTable categorias()
+        {
+            string consulta;
+            consulta = "SELECT p.DESCRIPCION FROM producto p GROUP BY p.DESCRIPCION";
+            return buscar(consulta);
+        }
+
 
         //Todos los porductos
-        public void Inventario()
+        public void Inventario(string cate)
         {
-            string consulta = "SELECT Id_prod, Nombre,Descripcion,Marca,PRecio_c,cantidad FROM producto ORDER BY nombre";
+            string agregado = " ";
+            if (!cate.Equals("Todos"))
+            {
+                agregado= $" where Descripcion = '{cate}' ";
+            }
+            string consulta = $"SELECT Id_prod, Nombre,Descripcion,Marca,Precio_c,cantidad FROM producto{agregado}ORDER BY nombre";
+
             DataTable datos = new DataTable ();
             datos = buscar(consulta);
             Reportes.DiarioEnc enca = new Reportes.DiarioEnc();
@@ -149,11 +162,11 @@ namespace Central.Clases
         }
         //Existencia
 
-        public void inventario1()
+        public void inventario1(string cate)
         {
             string consulta = "SELECT p.Id_prod, p.Nombre,p.Descripcion,p.Marca,p.PRecio_c,p.cantidad "+
                                "FROM producto p "+
-                               "WHERE p.cantidad > 0 "+
+                               "WHERE p.cantidad > 0 "+ cate +
                                "ORDER BY nombre";
             DataTable datos = new DataTable();
             datos = buscar(consulta);
@@ -177,7 +190,7 @@ namespace Central.Clases
             inve.Show();
         }
         //de 1 a 10 existencia
-        public void inventario2()
+        public void inventario2(string cate)
         {
             string consulta = "SELECT p.Id_prod, p.Nombre,p.Descripcion,p.Marca,p.PRecio_c,p.cantidad "+
                                "FROM producto p "+
@@ -205,7 +218,7 @@ namespace Central.Clases
             inve.Show();
         }
         //Existencia de 10 o mas
-        public void inventario3()
+        public void inventario3(string cate)
         {
 
 

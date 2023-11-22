@@ -58,6 +58,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DtpGI = new System.Windows.Forms.DateTimePicker();
+            this.CboCat = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.PanSup.SuspendLayout();
             this.PanSder.SuspendLayout();
             this.GbxSemanal.SuspendLayout();
@@ -257,6 +259,8 @@
             // 
             // Gbxproductos
             // 
+            this.Gbxproductos.Controls.Add(this.label6);
+            this.Gbxproductos.Controls.Add(this.CboCat);
             this.Gbxproductos.Controls.Add(this.CboInven);
             this.Gbxproductos.Controls.Add(this.BtnInventario);
             this.Gbxproductos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -276,7 +280,7 @@
             "Existencias",
             "Entre 1 y 10 existencias",
             "Entre 10 o mas existencias"});
-            this.CboInven.Location = new System.Drawing.Point(69, 119);
+            this.CboInven.Location = new System.Drawing.Point(69, 141);
             this.CboInven.Name = "CboInven";
             this.CboInven.Size = new System.Drawing.Size(285, 25);
             this.CboInven.TabIndex = 1;
@@ -396,6 +400,23 @@
             this.DtpGI.Size = new System.Drawing.Size(140, 25);
             this.DtpGI.TabIndex = 0;
             // 
+            // CboCat
+            // 
+            this.CboCat.FormattingEnabled = true;
+            this.CboCat.Location = new System.Drawing.Point(157, 108);
+            this.CboCat.Name = "CboCat";
+            this.CboCat.Size = new System.Drawing.Size(197, 25);
+            this.CboCat.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(69, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 17);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Categoria";
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -419,6 +440,7 @@
             this.GbxDiarios.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.Gbxproductos.ResumeLayout(false);
+            this.Gbxproductos.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.GbxGanacias.ResumeLayout(false);
             this.GbxGanacias.PerformLayout();
@@ -458,5 +480,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CboCli;
         private System.Windows.Forms.Button BtnCredi;
+        private System.Windows.Forms.ComboBox CboCat;
+        private System.Windows.Forms.Label label6;
     }
 }
