@@ -11,7 +11,7 @@ namespace Central.Clases
     {
 
         // string cadena_conn = "server=localhost;  database=tools; user= root; password=Ami_1532; port=3306; allow zero Datetime= true";
-         string cadena_conn = "server=192.168.0.121;  database=tools; user=root; password=Ami_1532; port=3306; allow zero Datetime= true";
+         string cadena_conn = "server=localhost;  database=tools; user=root; password=Ami_1532; port=3306; allow zero Datetime= true";
 
         //string cadena_conn = "server=192.168.10.120;  database=universal; user=universal; password=Uni_2023; port=3306; allow zero Datetime= true";
 
